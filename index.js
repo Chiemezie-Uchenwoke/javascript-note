@@ -348,4 +348,5 @@ String Methods
 
 (1) Length: The length method is used to reflect the number of characters that a string contains. It is inclusive of whitespace
 */
-const randomString = "Chiemezie";
+const randomString1 = "Turing Tech";
+const randomString2 = "   Turing Tech";
