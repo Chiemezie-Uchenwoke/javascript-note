@@ -346,7 +346,52 @@ const randomNumber3 = Math.floor(Math.random() * (max - min) + min);
 /* 
 String Methods
 
-(1) Length: The length method is used to reflect the number of characters that a string contains. It is inclusive of whitespace
+(1) length: The length method is used to reflect the number of characters that a string contains. It is inclusive of whitespace
+
+(2) charAt(): It is a JavaScript method that takes one parameter, which is the index number of the particular string.
+
+(3) toUpperCase(): This is used to transform the characters of a string to uppercase.
+
+(4) toLowerCase(): This is used to transform the characters of a string to lowercase.
+
+(5) trim(): This is used to remove whitespace trailing whitespace from a string.
+
+(6) concat(): This is used to combine two or more strings. It takes two or more arguments and each argument represents the string we are trying to concatenate.
+
+(7) replace(): This is used to find a particular substring within a string and replaces it with another substring. It takes two arguments. The first argument is the substring we want to replace and the second is the string we are replacing it with. It replaces only the first instance.
+
+(8) replaceAll(): This is similar to the replace but it replaces all the instances of the given string.
+
+(9) split(): This is used to split a string into substrings based on the ocurrence of an argument passed. This methods returns the substrings as an array of strings.
+
 */
 const randomString1 = "Turing Tech";
-const randomString2 = "   Turing Tech";
+const randomString2 = "      Turing Tech";
+const randomString3 = "TurinG TecH";
+const randomString4 = "An academy for training developers";
+const strTrail = "         Great code    ";
+console.log(strTrail.trim());
+console.log(randomString1.length);
+console.log(randomString2.length);
+
+console.log(randomString1.charAt(2));
+console.log(randomString3.toUpperCase());
+console.log(randomString3.toLowerCase());
+
+// How to capitalize a string
+const str = "GREAT";
+
+const newStr = str.concat(randomString1, randomString3);
+const newStr1 = str.concat(" ", randomString1, randomString3, " I am practicing");
+console.log(newStr);
+console.log(randomString1.replace("Tech", "Academy"));
+
+console.log("Turing tech is a tech hub where tech people learn tech courses".replace("tech", "academy"));
+
+console.log("Turing tech is a tech hub where tech people learn tech courses".replaceAll("tech", "academy"));
+
+console.log("Turing tech is a tech hub where tech people learn tech courses".split(" "));
+
+console.log("Turing tech is a tech hub where tech people learn tech courses".split("t"));
+
+console.log("Turing tech is a tech hub where tech people learn tech courses".split(""));
