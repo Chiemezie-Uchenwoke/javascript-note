@@ -364,27 +364,42 @@ String Methods
 
 (9) split(): This is used to split a string into substrings based on the ocurrence of an argument passed. This methods returns the substrings as an array of strings.
 
+(10) Slice(x, y): It is used to extract a part of the string. It has the option of taking in two arguments. The first argument is the start index and the second parameter is the end index. The return value of this method is inclusive of the start index and exclusive of the end index.
+
+This method can also accept one argument which will represent the start index.
+
+It can also take zero index. In this case, the default start is 0 and the end will be the end of the string.
+
+It can also take negative values.
+
+(11) indexOf: To get the index number of string.
+
+(12) includes: To check if a string contains a string or a word.
+
+(13) repeat(n): To repeat a string a number of times
+
 */
 const randomString1 = "Turing Tech";
-const randomString2 = "      Turing Tech";
-const randomString3 = "TurinG TecH";
-const randomString4 = "An academy for training developers";
-const strTrail = "         Great code    ";
-console.log(strTrail.trim());
+const randomString2 = "     Turing Tech";
+const randomString3 = "TurInG TecH";
+const randomString4 = "An Academy for training developers";
+
 console.log(randomString1.length);
+
 console.log(randomString2.length);
 
-console.log(randomString1.charAt(2));
+console.log(randomString1.charAt(7)); 
+
 console.log(randomString3.toUpperCase());
+
 console.log(randomString3.toLowerCase());
 
-// How to capitalize a string
-const str = "GREAT";
+console.log(randomString2);
+console.log(randomString2.trim());
 
-const newStr = str.concat(randomString1, randomString3);
-const newStr1 = str.concat(" ", randomString1, randomString3, " I am practicing");
-console.log(newStr);
-console.log(randomString1.replace("Tech", "Academy"));
+console.log(randomString1.concat(' ', randomString4, ' in frontend development'));
+
+console.log(randomString1.replace('Tech', 'Academy'));
 
 console.log("Turing tech is a tech hub where tech people learn tech courses".replace("tech", "academy"));
 
@@ -395,3 +410,106 @@ console.log("Turing tech is a tech hub where tech people learn tech courses".spl
 console.log("Turing tech is a tech hub where tech people learn tech courses".split("t"));
 
 console.log("Turing tech is a tech hub where tech people learn tech courses".split(""));
+
+console.log(randomString4.slice(3, 10));
+console.log(randomString4.slice(15, 23));
+console.log(randomString4.slice(24));
+console.log(randomString4.slice(-20, -10));
+
+
+/* 
+Date Object
+
+It represents a specific moment in time. It is used to get your date and time. It is used for displaying current date, setting a count down timer, a timer function.
+
+The date object is created using the date constructor. It can have zero or more arguments.
+
+The date constructor is: new Date()
+
+Diiferent ways of calling the date object:
+(1) No Argument: When the date object is called with no argument, it returns the current date, time and local time zone.
+
+(2) With a numerical value as argument: When it is called with a numerial value as an argument, the value represents a particular milliseconds in time starting from the reference point, the Unix Epoch(Jan 1st 1970 at mid night utc).
+
+(3) With a string as an argument: A date format can be passed as a string into the date object and when passed, it returns that particular date in the apropriate date format.
+
+(4) Using the specific date and time: Here, the values of the date and time are passed in as an argument.
+Syntax:
+new Date(year, month, date, hours, minutes, seconds, milliseconds)
+
+
+Date Methods
+(1) getFullYear(): This method returns the year.
+
+(2) getMonth(): This method returns the month. Where January is 0 and December is 11.
+
+(3) getDate(): This method returns the date.
+
+(4) getDay(): This method returns the day of the week. Where 0 is Sunday and 6 is Saturday.
+
+(5) getHours(): This method returns the hour of the day and it captures between 0 and 23. Where 23 is 11pm and 0 is 12am.
+
+(6) getMinutes(): This returns the specific minutes of the day.
+
+(7) getSeconds(): This method returns the seconds of the day
+
+(8)getMilliseconds(): This method returns the milliseconds (1000ms = 1second) of the day
+
+*/
+
+const todaysDate = new Date();
+console.log(todaysDate);
+
+const dateAsNumber = new Date(123456789335);
+console.log(dateAsNumber);
+
+const dateAsString = new Date("December 26, 2024");
+console.log(dateAsString);
+
+const specificDate = new Date(2024, 10, 23, 26);
+console.log(specificDate);
+
+console.log(todaysDate.getFullYear());
+console.log(todaysDate.getMonth());
+console.log(todaysDate.getDate());
+console.log(todaysDate.getDay());
+console.log(todaysDate.getHours());
+console.log(todaysDate.getMinutes());
+console.log(todaysDate.getSeconds());
+console.log(todaysDate.getMilliseconds());
+
+const mydate = () => {
+    const dayOfWeek = new Date().getDay();
+    let dayName;
+
+    switch (dayOfWeek){
+        case 0:
+            dayName = "Sunday";
+            break;
+        case 1: 
+            dayName = "Monday";
+            break;
+        case 2:
+            dayName = "Tuesday";
+            break;
+        case 3:
+            dayName = "Wednesday";
+            break;
+        case 4:
+            dayName = "Thursday";
+            break;
+        case 5:
+            dayName = "Friday";
+            break;
+        case 6:
+            dayName = "Saturday";
+            break;
+
+    }
+    console.log(dayName + ", " + new Date().getMonth() + " " + new Date().getFullYear());
+}
+mydate(); 
+
+let makeToday = new Date();
+makeToday = makeToday.toString();
+console.log(makeToday.slice(0, 15));
