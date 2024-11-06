@@ -443,7 +443,7 @@ Date Methods
 
 (2) getMonth(): This method returns the month. Where January is 0 and December is 11.
 
-(3) getDate(): This method returns the date.
+(3) getDate(): This method returns the date. that is, the date in the month between 1 and 31.
 
 (4) getDay(): This method returns the day of the week. Where 0 is Sunday and 6 is Saturday.
 
@@ -478,38 +478,127 @@ console.log(todaysDate.getMinutes());
 console.log(todaysDate.getSeconds());
 console.log(todaysDate.getMilliseconds());
 
-const mydate = () => {
-    const dayOfWeek = new Date().getDay();
-    let dayName;
-
-    switch (dayOfWeek){
-        case 0:
-            dayName = "Sunday";
-            break;
-        case 1: 
-            dayName = "Monday";
-            break;
-        case 2:
-            dayName = "Tuesday";
-            break;
-        case 3:
-            dayName = "Wednesday";
-            break;
-        case 4:
-            dayName = "Thursday";
-            break;
-        case 5:
-            dayName = "Friday";
-            break;
-        case 6:
-            dayName = "Saturday";
-            break;
-
-    }
-    console.log(dayName + ", " + new Date().getMonth() + " " + new Date().getFullYear());
-}
-mydate(); 
-
 let makeToday = new Date();
 makeToday = makeToday.toString();
 console.log(makeToday.slice(0, 15));
+
+/* 
+Conditional Statements
+Conditional statements allow us to create multiple paths in our code depending on the outcome of a given condition. A programmer uses conditional statement to perform logical reasoning. There are three distinct conditional statements in JavaScript:
+
+(1) if... else if... else statement
+(2) Switch Statements
+(3) Tenary Operations
+
+================> if... else if... else statement <================
+This is one of the most frequently used statement in JavaScript as well as in other programming languages. It is usually made up of a statement and the condition that must be met for that statement to be executed. These conditions are usually captured in a pair of curly braces. WHatever is inside the curly braces should be evaluated on the bases of true or false. If the condition is true, then all the codes withing the curly brace must be executed. Else, if it is false, JavaScript will skip over all the statements within the curly braces.
+
+Note that the if statement comes with 2 additional statements, the else if and the else.
+
+=====>(a) Psuedo code representation of the else if and else statement. <=====
+if rent = paid and due date is less than or equal 30th November
+tenant discount is 25%
+
+else if rent = paid and date is on or before 31st december,
+tenant discount is 10%
+
+else Tenant discount is 0
+
+Syntax
+if (condition to be met){
+    statement to be executed;
+} 
+
+else if (condition to be met){
+    statement to be executed;
+}
+
+else {
+    statement to be executed
+}
+
+=====> Psuedo code for grading system <=====
+80 and above = A
+70 - 79 = B
+60 -69 = C
+50 - 59 = D
+40 - 49 = E
+Below 40 is F
+
+*/
+
+
+let studentsScore = prompt("Enter student's score");
+let studentGrade;
+
+if (studentsScore >= 80){
+    studentGrade = "A";
+    console.log("Your grade is " + studentGrade);
+}
+
+else if (studentsScore >= 70 && studentsScore <= 79){
+    studentGrade = "B";
+    console.log("Your grade is " + studentGrade);
+}
+
+else if (studentsScore >= 60 && studentsScore <= 69){
+    studentGrade = "C";
+    console.log("Your grade is " + studentGrade);
+}
+
+else if (studentsScore >= 50 && studentsScore <= 59){
+    studentGrade = "D";
+    console.log("Your grade is " + studentGrade);
+}
+
+else if (studentsScore >= 40 && studentsScore <= 49){
+    studentGrade = "E";
+    console.log("Your grade is " + studentGrade);
+}
+
+else {
+    studentGrade = "F";
+    console.log("Your grade is " + studentGrade);
+}
+
+
+/* 
+=====>(a) Psuedo code representation of the else if and else statement. <=====
+if rent = paid and due date is less than or equal 30th November
+tenant discount is 25%
+
+else if rent = paid and date is on or before 31st december,
+tenant discount is 10%
+
+else Tenant discount is 0
+
+*/
+const rentpaid = confirm("Has rent been paid?")
+const rent = 500000;
+let discount;
+let rentAfterDiscount;
+const dueMonth = new Date().getMonth();
+const dueDay = new Date().getDate();
+console.log(dueDay);
+console.log(dueMonth);
+
+if (rentpaid === true && (dueMonth <= 10 && dueDay <= 30)){
+    discount = 0.25;
+    let discountAmount = rent * discount;
+    rentAfterDiscount = rent - discountAmount;
+    console.log("Amount paid is " + rentAfterDiscount);
+}
+
+else if (rentpaid === true && (dueMonth <= 11 && dueDay <= 31)){
+    discount = 0.1;
+    let discountAmount = rent * discount;
+    rentAfterDiscount = rent - discountAmount;
+    console.log("Amount paid is " + rentAfterDiscount);
+}
+
+else{
+    discount = 0;
+    let discountAmount = rent * discount;
+    rentAfterDiscount = rent - discountAmount;
+    console.log("Amount paid is " + rentAfterDiscount);
+}
