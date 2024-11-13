@@ -308,12 +308,12 @@ JavaScript has an inbuilt Math object that will help you perform Mathematical ca
 - Math.random(): It is used to generate a random Number between 0 and 1. The number is inclusive of 0 and exclusive of 1.
 
 */
-console.log(Math.PI);
+/* console.log(Math.PI);
 const piConstant = Math.PI;
 const radius = Number(prompt("Input your radius"));
 const circumferenceOfCircle = 2 * piConstant * radius;
 alert("The circumference of the circle is " +  circumferenceOfCircle);
-
+ */
 console.log(Math.sqrt(4));
 console.log(Math.pow(2, 3));
 console.log(Math.cbrt(27));
@@ -527,7 +527,7 @@ Below 40 is F
 
 */
 
-
+/* 
 let studentsScore = prompt("Enter student's score");
 let studentGrade;
 
@@ -560,7 +560,7 @@ else {
     studentGrade = "F";
     console.log("Your grade is " + studentGrade);
 }
-
+ */
 
 /* 
 =====>(a) Psuedo code representation of the else if and else statement. <=====
@@ -573,6 +573,7 @@ tenant discount is 10%
 else Tenant discount is 0
 
 */
+
 const rentpaid = confirm("Has rent been paid?")
 const rent = 500000;
 let discount;
@@ -596,9 +597,278 @@ else if (rentpaid === true && (dueMonth <= 11 && dueDay <= 31)){
     console.log("Amount paid is " + rentAfterDiscount);
 }
 
-else{
+else if (rentpaid === false){
+    console.log("Please pay your rent!")
+}
+
+else {
     discount = 0;
     let discountAmount = rent * discount;
     rentAfterDiscount = rent - discountAmount;
     console.log("Amount paid is " + rentAfterDiscount);
+}  
+
+
+/*
+    rent paid by 30/11/2024 discount = 25%
+    rent paid by 31/12/2024 discount = 10%
+    rent paid afterwards discount = 0% 
+*/
+
+    
+/*     const dueDate1 = new Date('November 30 2024');
+    const dueDate2 = new Date('December 31 2024');
+    const todaysDate1 = new Date().toString().slice(0, 15);
+    console.log(todaysDate1);
+    const inputDate = prompt('input your payment date in the format of month day year');
+    console.log(inputDate);
+    const paymentDate = new Date(inputDate).toString().slice(0, 15);
+    console.log(paymentDate);
+    const rentConfirmation = confirm('has your rent been paid');
+    let discount;
+    const rent = 500000;
+    
+    if (rentConfirmation === true){
+        if (paymentDate >= todaysDate1 && paymentDate <= dueDate1){
+            discount = 0.25;
+            const rentdue = rent - (rent * discount);
+            console.log('your rent due ' + rentdue);
+        }
+
+        else if (paymentDate >= todaysDate1 && paymentDate <= dueDate2){
+            discount = 0.1;
+            const rentdue = rent - (rent * discount);
+            console.log('your rent due ' + rentdue);
+        }
+
+        else {
+            discount = 0;
+            const rentdue = rent - (rent * discount);
+            console.log('your rent due ' + rentdue);
+        }
+            
+    }
+    else{
+        console.log('please pay your rent');
+    }  */
+
+/* 
+===========> Nested If Statements <============
+
+The nested if statement is an if statement that is nested inside another if statement in a parent child relationship, where the child if statement will only run if the condition of the parent if statement is true.
+
+*/
+
+// Ex: Eligibility of a customer to receive PTA.
+/* 
+----Conditions
+(1) Must be an account holder
+(2) Must have a valid visa
+(3) Must have a return flight ticket
+(4) The flight must originate from Nigeria
+(5) You can only be eligible for PTA once a quarter.
+(6) The flight duration must not be less than 5 hours
+(7) You can only purchase PTA 2 weeks before travel
+
+
+*/
+let accountHolder = true;
+const validVisa = true;
+const returnTicket = true;
+const flightFromNigeria = true;
+const ptaPerQuarter = false;
+const flightDuration = 5;  //captured in hours
+const applicationTimeline = 14;
+const nigerian = true;
+
+if (accountHolder){
+    if (nigerian === true) {
+        if (ptaPerQuarter === true) {
+            console.log("You are not eligible for PTA: you've applied for PTA within the last three months");
+        }
+        else{
+            if (validVisa === true) {
+                if (returnTicket === true) {
+                    if (flightFromNigeria === true) {
+                        if (applicationTimeline <= 14){
+                            if (flightDuration >= 5){
+                                console.log("Congratulations you qualified for PTA!");
+                            }
+                            else{
+                                console.log("You are not eligible for PTA: flight duration is not up to 5 hours");
+                            }
+                        }
+                        else {
+                            console.log("You are not eligible for PTA: application timeline is more than 2 weeks");
+                        }
+                    }
+                    else {
+                        console.log("You are not eligible for PTA: you're not flying from Nigeria");
+                    }
+                }
+                else {
+                    console.log("You are not eligible for PTA: you do not have a return ticket");
+                }
+            }
+            else {
+                console.log("You are not eligible for PTA: you do not have a valid visa");
+            }
+        }
+    } 
+    else {
+        console.log("You are not eligible for PTA: you're not Nigerian");
+    }
+} 
+else {
+    console.log("You are not eligible for PTA: You're not an account holder");
+}
+
+/* 
+Switch Statements
+The switch is a conditional statement that evaluates the value of an expression and matches it against multiple cases. It then executes the statement after the first case clause that matches the expression until a break statement is encountered. A default clause will be executed if no case matches the expression value. It is an alternative to using multiple if else if statements and can make the code more readable when there are many possible conditions. 
+
+Syntax
+
+switch(expression){
+    case value 1:
+        //the code to be executed if expression === value 1;
+        break;
+    case value 2:
+        //the code to be executed if expression === value 1;
+        break;
+    case value 3:
+        //the code to be executed if expression === value 1;
+        break;
+    default:
+        //the code to be executed if none of the cases match the expression;
+}
+
+Explanation
+(1) Expression: The expression is the value or the variable being evaluated. Each case is compared against this value.
+(2) Case: The case represents a possible value for the expression. If the expression matches the value of a case, javascript will run the code inside that case.
+(3) Break: This keyword stops the execution from continuing to the next case and practically exit the switch statement. In the absence of the break keyword, javascript will continue to execute all the other cases until it gets to the end of the switch statement.
+(4) Default: The default is the back-up option. If none of the cases value matches the expression, the code within the default will execute.
+
+*/
+/* let day;
+const currentDate = new Date().getDay();
+switch(currentDate){
+    case 0:
+        day = "Sunday";
+        break;
+    case 1: 
+        day = "Monday";
+        break;
+    case 2: 
+        day = "Tuesday";
+        break;
+    case 3: 
+        day = "Wednesday";
+        break;
+    case 4: 
+        day = "Thursday";
+        break;
+    case 5: 
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
+        break;
+    default:
+        day = "NaN";
+} */
+
+let day = new Date().getDay();
+let date = new Date().getDate();
+let month = new Date().getMonth();
+let year = new Date().getFullYear();
+console.log(day + " " + date + " " + month + " " + year);
+
+switch(day){
+    case 0:
+        day = "Sunday";
+        break;
+    case 1: 
+        day = "Monday";
+        break;
+    case 2: 
+        day = "Tuesday";
+        break;
+    case 3: 
+        day = "Wednesday";
+        break;
+    case 4: 
+        day = "Thursday";
+        break;
+    case 5: 
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
+        break;
+    default:
+        day = "NaN";
+}
+
+switch(month){
+    case 0:
+        month = "January";
+        break;
+    case 1: 
+        month = "February";
+        break;
+    case 2:
+        month = "March";
+        break;
+    case 3: 
+        month = "April";
+        break;
+    case 4: 
+        month = "May";
+        break;
+    case 5: 
+        month = "June";
+        break;
+    case 6:
+        month = "July";
+        break;
+    case 7:
+        month = "August";
+        break;
+    case 8:
+        month = "September"
+        break;
+    case 9: 
+        month = "October";
+        break;
+    case 10:
+        month = "November";
+        break;
+    case 11:
+        month = "December";
+        break;
+}
+
+
+let colors = prompt('traffic light color').toLowerCase();
+let message;
+
+switch(colors){
+    case 'red':
+        message = 'stop';
+        console.log(message);
+        break;
+
+    case 'yellow':
+        message = 'get ready';
+        console.log(message);
+        break;
+
+    case 'green':
+        message = 'move';
+        console.log(message);
+        break;
+
+    default:
+        console.log('not a traffic color');
 }
