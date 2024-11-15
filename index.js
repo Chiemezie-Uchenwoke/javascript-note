@@ -872,3 +872,122 @@ switch(colors){
     default:
         console.log('not a traffic color');
 }
+
+/* 
+Important concepts in Switch Statements
+
+(1) Type Coercion: The switch statement uses strict equality (===) to compare the expression with each cases. The case must match the expression in both value and data type.
+
+*/
+//Example on type coercion
+let typeCoer = 4;
+
+switch(typeCoer){
+    case 4:
+        console.log("This will execute");
+        break;
+    case "4":
+        console.log("This will not execute");
+        break;
+}
+
+/* 
+(2) Fall-through Behaviour: If the break keyword is omitted, JavaScript will execute the code for the matching case and continue to execute subsequent case blocks regardless of whether they match the expression or not. This fall-through behaviour can be used intentionally for grouping cases.
+*/
+let phone = "S 24";
+
+switch(phone){
+    case "15 Pro Max":
+
+    case "14 Pro Max":
+
+    case "13 Pro Max":
+        console.log("brand apple");
+        break;
+    case "Fold 6":
+
+    case "flip 6":
+
+    case "S 24":
+        console.log("samsung");
+        break;
+    case "Note 10":
+
+    case "Hot 10 Play":
+
+    case "Note 40":
+        console.log("infinix");
+        break;
+}
+
+/* 
+Using Logical Conditions in cases: Cases are not only constants, they can also be expressions that evaluates to a boolean value
+
+80 and above = A
+70 - 79 = B
+60 -69 = C
+50 - 59 = D
+40 - 49 = E
+Below 40 is F
+
+*/
+
+let passMark;
+let mark = 75;
+switch(true){
+    case mark >= 80:
+        passMark = "A";
+        console.log("Grade is " + passMark);
+        break;
+    case mark >= 70:
+        passMark = "B";
+        console.log("Grade is " + passMark);
+        break;
+    case mark >= 60:
+        passMark = "C";
+        console.log("Grade is " + passMark);
+        break;
+    case mark >= 50:
+        passMark = "D";
+        console.log("Grade is " + passMark);
+        break;
+    case mark >= 40:
+        passMark = "E";
+        console.log("Grade is " + passMark);
+        break;
+    default:
+        passMark = "F";
+        console.log("Grade is " + passMark);
+}
+
+/* 
+Tenary Operator
+The tenary operator is used as a short hand to capture the if else statements. 
+
+It has three parts to its syntax:
+(1) The condition
+(2) The expression to execute if the condition is true.
+(3) The expression to execute if the condition is false.
+
+SYNTAX
+condition ? <expression if true> : <expression if false>
+
+*/
+let number = 11;
+/* if (number > 10){
+    console.log("great");
+}else{
+    console.log("false");
+} */
+
+number > 10 ? console.log("great") : console.log("false");
+
+let age;
+// Using if statements
+/* if (age >= 18){
+    console.log("You're eligible to vote");
+} else {
+    console.log("You're not eligible to vote");
+} */
+
+age >= 18 ? console.log("You're eligible to vote") : console.log("You're not eligible to vote");
