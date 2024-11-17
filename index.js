@@ -991,3 +991,60 @@ let age;
 } */
 
 age >= 18 ? console.log("You're eligible to vote") : console.log("You're not eligible to vote");
+
+
+/* 
+LOOPS
+A loop is a statement that is used to run certain instructions repeatedly. It is used for a variety of reasons -- For example, if you want to print a document 20 times, you donot need to copy and paste it 20 times, you can simply execute the instructions using a loop statement.
+
+Real Life Implementation of Loops
+(1) In an assembly line, where a robot hand graps and transfers an object to the next phase of the assembly process.
+(2) In a counting operation, where a program has to sequentially count the number of times an operation is run in a batch.
+(3) When a printer needs to print a number of copies of a document.
+
+Types of Loops
+There are three main types loops:
+(1) For Loop
+(2) While Loop
+(3) Do While Loop
+
+
+For Loop
+The for loop creates a loop using three expressions: 
+(a) The initialization: It is where the variable used in the loop is initialized.
+(b) The condition: It is a boolean expression of what needs to be met for the loop to stop. Without the condition, the loop will run endlessly.
+(c) The increment or decrement: This is where the variable is increased or decreased.
+
+Syntax
+for(initialized variable; condition; increment or decrement){
+    //code to be executed
+}
+
+for (let i = 0; i <= 10; i++){
+    console.log(i);
+}
+
+*/
+for (let i = 0; i <= 10; i++){
+    console.log(i);
+}
+
+// Counting even and odd numbers
+for (let i = 1; i <= 20; i++){
+    i % 2 === 0 ? console.log(i + " is an even number") : console.log(i + " is an odd number");
+}
+
+// Sum numbers from 1 to 100;
+let sum = 0;
+for (let i = 0; i <= 100; i++){
+    sum += i;
+}
+console.log(sum);
+
+// Add Numbers in an Array
+let add = 0;
+let arnums = [10, 20, 30];
+for (let i = 0; i < arnums.length; i++){
+    add += arnums[i];
+}
+console.log(add);
