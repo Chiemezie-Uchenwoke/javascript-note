@@ -187,6 +187,7 @@ They are used to compare two values and it returns a boolean value (true or fals
 -Equal to (===): It is a strict equal to. It compares both the value and the data type.
 -Equal to (==): Unstrict equal to. It evaluates the value only.
 -Not Equal to (!=)
+-Strict Not Equal to (!==): It compares both values and data types
 -Greater than (>)
 -Less than (<)
 - Less than or equal to (<=)
@@ -853,26 +854,30 @@ switch(month){
 let colors = prompt('traffic light color').toLowerCase();
 let message;
 
-switch(colors){
-    case 'red':
-        message = 'stop';
-        console.log(message);
-        break;
-
-    case 'yellow':
-        message = 'get ready';
-        console.log(message);
-        break;
-
-    case 'green':
-        message = 'move';
-        console.log(message);
-        break;
-
-    default:
-        console.log('not a traffic color');
+try{
+    switch(colors){
+        case 'red':
+            message = 'stop';
+            console.log(message);
+            break;
+    
+        case 'yellow':
+            message = 'get ready';
+            console.log(message);
+            break;
+    
+        case 'green':
+            message = 'move';
+            console.log(message);
+            break;
+    
+        default:
+            console.log('not a traffic color');
+    }
+    
+}catch(err){
+    console.log(err);
 }
-
 /* 
 Important concepts in Switch Statements
 
@@ -1048,3 +1053,66 @@ for (let i = 0; i < arnums.length; i++){
     add += arnums[i];
 }
 console.log(add);
+
+/* 
+While Loop
+
+This instructs JavaSCript to execute a block of code repeatedly until a certain condition is reached.
+
+===== SYNTAX =====
+let i = 0;
+While (i <= 10) {
+    console.log(i); //Code to be executed as long as the condition is true.
+    i++;
+}
+
+
+*/
+
+// Summation using a while loop
+let sumNumbers = 0;
+let j = 0;
+while (j <= 100){
+    sumNumbers += j;
+    j++;
+}
+console.log(sumNumbers);
+
+// Dice roll
+let diceNumber = 0;
+let count = 0;
+while (diceNumber !== 6) {
+    console.log(diceNumber);
+    const numOnDice = Math.floor(Math.random() * 6 + 1);
+    diceNumber = numOnDice; 
+    count++;
+}
+console.log(count);
+
+/* 
+Do while loop
+Do while loop is used to repeat a set of instructions in JavaScript until a condition is false, just like we have in the while loop. However, in the do while loop the code executes atleast once before checking for the condition.
+
+SYNTAX
+do {
+  code block to be executed
+}
+while (condition);
+
+Example.
+let text = "";
+let i = 0;
+do {
+  text += i + "<br>";
+  i++;
+}
+while (i < 5);
+
+*/
+
+let studentUsername;
+do {
+    studentUsername = prompt("Enter your username");
+    console.log(studentUsername);
+}
+while(studentUsername === "" || studentUsername === null || studentUsername === " ");
