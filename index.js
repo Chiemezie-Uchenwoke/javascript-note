@@ -1110,9 +1110,69 @@ while (i < 5);
 
 */
 
-let studentUsername;
+/* let studentUsername;
 do {
     studentUsername = prompt("Enter your username");
     console.log(studentUsername);
 }
-while(studentUsername === "" || studentUsername === null || studentUsername === " ");
+while(studentUsername === "" || studentUsername === null || studentUsername === " "); */
+
+
+//TASK
+
+/* 
+(1)
+Write a function that converts temperature from degree Celsius to Kelvin using celsius as the only parameter.
+Formula:
+Temperature(kelvin) = Temperature (Celsius) + 273
+*/
+
+function convertToKelvin(celsius){
+    return celsius + 273;
+}
+const tempResult = convertToKelvin(27);
+// console.log(tempResult);
+
+/* 
+(2)
+Write a function that calculates body mass index using weight and height as parameter.
+Formula:
+Body mass index = 𝑤𝑒𝑖𝑔ℎ𝑡 / (ℎ𝑒𝑖𝑔ℎ𝑡 × ℎ𝑒𝑖𝑔ℎ𝑡)
+
+*/
+
+function bmiCalculator(weight, height){
+    const bmi = weight /(height ** 2);
+    return bmi;
+}
+const bmiResult = bmiCalculator(70, 1.743);
+// console.log(bmiResult);
+
+/* 
+(3)
+Write a function that takes a name as a parameter and prints a greeting message ‘Hello, John!’
+*/
+function greetMsg(name){
+    return "Hello, " + name + "!";
+}
+const callGreetMsg = greetMsg("John");
+// console.log(callGreetMsg);
+
+/* 
+(4)
+Write a function that prints the goodbye message ‘Goodbye! See you next time!’ when called.
+*/
+function sayGoodBye(){
+    console.log("Goodbye! See you next time!");
+}
+// sayGoodBye();
+
+/* 
+(5)
+Write a function that takes any number as parameter and doubles it
+*/
+function doubleNumber(num){
+    return num * 2;
+}
+const resultOfDoubleNumber = doubleNumber(17);
+// console.log(resultOfDoubleNumber);
