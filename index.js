@@ -1128,10 +1128,10 @@ Temperature(kelvin) = Temperature (Celsius) + 273
 */
 
 function convertToKelvin(celsius){
-    return celsius + 273;
+    const tempInKelvin = celsius + 273;
+    console.log(tempInKelvin);
 }
-const tempResult = convertToKelvin(27);
-// console.log(tempResult);
+convertToKelvin(27);
 
 /* 
 (2)
@@ -1142,21 +1142,19 @@ Body mass index = 𝑤𝑒𝑖𝑔ℎ𝑡 / (ℎ𝑒𝑖𝑔ℎ𝑡 × ℎ𝑒�
 */
 
 function bmiCalculator(weight, height){
-    const bmi = weight /(height ** 2);
-    return bmi;
+    const bmi = weight / (height ** 2);
+    console.log(bmi);
 }
-const bmiResult = bmiCalculator(70, 1.743);
-// console.log(bmiResult);
+bmiCalculator(70, 1.734);
 
 /* 
 (3)
 Write a function that takes a name as a parameter and prints a greeting message ‘Hello, John!’
 */
 function greetMsg(name){
-    return "Hello, " + name + "!";
+    console.log("Hello, " + name + "!");
 }
-const callGreetMsg = greetMsg("John");
-// console.log(callGreetMsg);
+greetMsg("John");
 
 /* 
 (4)
@@ -1165,14 +1163,39 @@ Write a function that prints the goodbye message ‘Goodbye! See you next time!�
 function sayGoodBye(){
     console.log("Goodbye! See you next time!");
 }
-// sayGoodBye();
+sayGoodBye();
 
 /* 
 (5)
 Write a function that takes any number as parameter and doubles it
 */
 function doubleNumber(num){
-    return num * 2;
+    console.log(num * 2);
 }
-const resultOfDoubleNumber = doubleNumber(17);
-// console.log(resultOfDoubleNumber);
+doubleNumber(7);
+
+/* Parameters, Arguments and Variables */
+// Return makes a function available outside a function (its block). It outputs a value.
+// Parameters are variables that are declared within the function definition. They are entered within the parenthesis of a function name.
+// Arguments are values that are passed into the paramters of a function when it is called.
+
+/* 
+Passing less or more argument in a function: 
+passing less argument than parameters: when you have less argument than parameters, the extra parameter will be undefined.
+
+Passing more argument than parameters: when we have more argument than parameters, javascript will ignore the addtitonal 
+argument
+
+
+*/
+
+//less argument than parameters
+
+function welcomeMessage(time, username, appname){
+    console.log('good' + time + ' ' + username + ' welcome back to ' + appname)
+}
+welcomeMessage('evening', 'emekaike', 'turingtech');
+welcomeMessage('evening', 'emekaike');
+
+//more argument than parameters
+welcomeMessage('morning', 'jerry', 'turingtech', 'saturday');
