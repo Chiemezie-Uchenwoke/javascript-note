@@ -1199,3 +1199,34 @@ welcomeMessage('evening', 'emekaike');
 
 //more argument than parameters
 welcomeMessage('morning', 'jerry', 'turingtech', 'saturday');
+
+
+/* 
+Anonymous Functions
+An anonymous functions that are not given function names at the point of declaration.
+ 
+SYNTAX
+function () {
+    //block of code to be executed
+}
+
+Function Expression
+const newFunction = function() {
+    //block of code to be executed
+}
+
+Arrow Functions
+An arrow function is an anonymous function with a shorter syntax. It's a more concise way to write a function expression. 
+
+The concept of an arrow function was introduced during version ES6(ECMA Standard Version 6). In other programming languages, the feature is known as Lambda function.
+
+SYNTAX
+const newFunction = (parameter1, parameter2, ...) => {
+        //block of code to be executed
+    }
+
+
+When we have just one line of code to be executed
+const newFunction = (parameter1, parameter2) => parameter1 + parameter2
+
+*/
