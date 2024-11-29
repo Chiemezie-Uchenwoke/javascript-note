@@ -131,6 +131,8 @@ resetButton.addEventListener("click", () => {
     countComp = 0;
     playerScore.innerText = 0;
     compScore.innerText = 0;
+    playerIcon.removeAttribute("src");
+    compIcon.removeAttribute("src");
 
     // To enable the buttons
     rock.disabled = false;
