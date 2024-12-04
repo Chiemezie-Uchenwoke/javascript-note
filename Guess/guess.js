@@ -77,6 +77,10 @@ submitButton.addEventListener("click", playGame);
 
 
 // Reset Game
+/* const replayButton = document.getElementById("replay");
+replayButton.addEventListener("click", () => {
+    resetGame();
+}); */
 const resetGame = () => {
     wrongAnswer.innerText = "";
     numberOfChances = 5;
