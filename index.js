@@ -1230,3 +1230,50 @@ When we have just one line of code to be executed
 const newFunction = (parameter1, parameter2) => parameter1 + parameter2
 
 */
+
+/* 
+ARRAYS
+An array is a data structure that allows you to store multiple values in one variable. These values can be of similar data types or different data types.
+
+How To Create an Array
+(1) Using the array constructor
+    const myArray = new Array("item1", "item2", "item3");
+
+(2) Using the square bracket notation 
+    const myArray = ["item1", "item2", "item3"];
+
+Accessing An Element In An Array
+To access an element in an array, we use the square bracket notation containing the index of the element we want to access, alongside the name of the array.
+
+In this case, the index is the position of the element in the array and the index position starts counting from 0.
+
+SYNTAX
+variableName[indexNumber]
+
+
+Modifying an Element within an Array
+We can modify an element within an array by overwriting the existing element. This is achieved by accessing the element and assigning a new value to it.
+
+SYNTAX
+variableName[indexNumber] = newValue;
+
+
+Length Property of an Array
+The length property is used to return the number of items that an array has.
+
+SYNTAX
+variableName.length
+
+*/
+const attendance = ["Emeka", "Eudorah", "Martha", "Ndubuisi", "Sarah", "Chiemezie"];
+console.log(attendance);
+console.log(attendance[0]);
+console.log(attendance[5]);
+
+// Modifying an element
+attendance[0] = "Martins";
+console.log(attendance[0]);
+console.log(attendance);
+
+// Length property
+console.log(attendance.length);

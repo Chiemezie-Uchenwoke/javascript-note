@@ -8,7 +8,9 @@ const max = document.getElementById("max");
 
 const minNumber = 1;
 const maxNumber = 20;
-const randomNumber = Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
+let randomNumber = Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
+//for testing
+// console.log(randomNumber);
 let numberOfChances = 5;
 
 chancesLeft.innerText = numberOfChances;
@@ -22,7 +24,9 @@ const chancesDecrement = () => {
 
 // Game Over when number of chances = 0
 const gameOver = () => {
-    if (numberOfChances === 0){
+    const userValue = Number(playerNumber.value);
+
+    if (numberOfChances === 0 || userValue === randomNumber){
         wrongAnswer.innerText = "Game Over";
         submitButton.disabled = true;
     }
@@ -88,4 +92,23 @@ const resetGame = () => {
     result.innerText = "";
     submitButton.disabled = false;
     playerNumber.value = "";
+
+    // Generate a new random number
+    randomNumber = Math.floor(Math.random() * (maxNumber - minNumber) + minNumber);
+    // For testing
+    // console.log(randomNumber); 
 }
+
+/* 
+To generate a random number between 1 and 20 using a function
+
+const generateRandomNumber = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+
+const randomNumber = generateRandomNumber(1, 20);
+console.log(randomNumber); // Outputs a random number between 1 and 20
+
+
+*/

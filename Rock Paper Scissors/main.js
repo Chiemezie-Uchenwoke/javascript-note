@@ -1,3 +1,12 @@
+/* 
+====== Game logic ======
+(1) if player choice === computer choice, its a tie
+(2) Paper wins rock
+(3) rock wins scissors
+(4) scissors wins paper
+
+*/
+
 const results = document.getElementById("results");
 const playerScore = document.getElementById("playerScore");
 const compScore = document.getElementById("compScore");
