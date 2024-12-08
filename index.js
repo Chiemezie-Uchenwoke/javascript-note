@@ -575,7 +575,7 @@ else Tenant discount is 0
 
 */
 
-const rentpaid = confirm("Has rent been paid?")
+/* const rentpaid = confirm("Has rent been paid?")
 const rent = 500000;
 let discount;
 let rentAfterDiscount;
@@ -608,7 +608,7 @@ else {
     rentAfterDiscount = rent - discountAmount;
     console.log("Amount paid is " + rentAfterDiscount);
 }  
-
+ */
 
 /*
     rent paid by 30/11/2024 discount = 25%
@@ -851,7 +851,7 @@ switch(month){
 }
 
 
-let colors = prompt('traffic light color').toLowerCase();
+/* let colors = prompt('traffic light color').toLowerCase();
 let message;
 
 try{
@@ -877,7 +877,7 @@ try{
     
 }catch(err){
     console.log(err);
-}
+} */
 /* 
 Important concepts in Switch Statements
 
@@ -1242,6 +1242,9 @@ How To Create an Array
 (2) Using the square bracket notation 
     const myArray = ["item1", "item2", "item3"];
 
+To initialize an empty array, we use:
+const myArray = [];
+
 Accessing An Element In An Array
 To access an element in an array, we use the square bracket notation containing the index of the element we want to access, alongside the name of the array.
 
@@ -1277,3 +1280,115 @@ console.log(attendance);
 
 // Length property
 console.log(attendance.length);
+
+
+/* 
+Array Methods
+(1) Push Method: The push method is used to add one or more element to the end of our array. This method modifies our array and it returns the new length of the array.
+const myArray = [item1, item2, item3];
+myArray.push(item4);
+console.log(myArray); output: [item1, item2, item3, item4]
+
+(2) Pop() Method: The pop method is used to remove the last element in an array. It also modifies the array and changes its length. The pop method does not accept any parameter.
+const myArray = [item1, item2, item3];
+myArray.pop();
+console.log(myArray); output: [item1, item2]
+
+(3) Unshift() Method: The unshift method is used to add one or more method to the beginning of an array. It also modifies an array and return the new lenth of the array.
+const myArray = [item1, item2, item3];
+myArray.unshift(item0);
+console.log(myArray); output: [item0, item1, item2, item3]
+
+(4) shift() method: The shift method is used to remove the first element in an array. It also has zero parameters and modifies the array.
+const myArray = [item1, item2, item3];
+myArray.shift();
+console.log(myArray); output: [item2, item3]
+
+(5) Concat() method: The concat method is used to merge an array with one or more other array or/and a value. It returns the new merged array. It does not modify the existing array. 
+The concat method can accept one or more array and/or a value as a parameter.
+const myArray1 = [item1, item2];
+const myArray2 = [item3, item4];
+const myArray3 = [item5, item6];
+
+myArray1.concat(myArray2); //The returned value - [item1, item2, item3, item4]
+myArray1.concat(myArray2, myArray3); //The returned value - [item1, item2, item3, item4, item5, item6]
+myArray1.concat(item7); //The returned value - [item1, item2, item7]
+
+(6) join() method: The join method joins all the elements of an array into a string. It has the option of taking a separator as a parameter and it returns the string.
+const myArray = [item1, item2];
+myArray.join(); // The return value - "item1,item2"
+myArray.join("+"); // The return value - "item1+item2"
+
+(7) Slice() method: This is used to extract a part of an array and it returns the part that has been extracted. It takes one or two arguments. The first argument is the start index which indicates the start index of the slicing and the second argument is the end index. It is inclusive of the start index but exclusive of the end index. When it has only one argument, it represents the start index and end at the end of the array.
+
+(8) Splice() method: The splice method is used to remove, replace and/or insert an element/elements into an array. It modifies the existing array and returns the removed element. It can take between 1 to 3 parameters. The first parameter is required while the other two is optional.
+
+SYNTAX
+myArray.splice(startIndex); // The start index is the index where it starts changing the array from.
+myArray.splice(startIndex, deleteCount) // The delete count is the number of items you want it to delete.
+
+// We use three parameters when you want to insert
+myArray.splice(startIndex, deleteCount, newItem) or myArray.splice(startIndex, deleteCount, newItem1, newItem2, ...)
+
+*/
+
+// Push Method
+const listOfGroceries = ["chicken", "beef", "apples"];
+console.log(listOfGroceries);
+listOfGroceries.push("plantain", "rice");
+console.log(listOfGroceries);
+
+// Pop Method
+const removedItem = listOfGroceries.pop();
+console.log(removedItem);
+console.log(listOfGroceries);
+
+// Unshift method
+listOfGroceries.unshift("milk");
+console.log(listOfGroceries);
+
+// Shift Method
+listOfGroceries.shift();
+console.log(listOfGroceries);
+
+// Concat Method
+const numbers = [1, 2, 3, 4, 5];
+const alphabets = ["a", "b", "c", "d", "e"];
+
+const concat1 = numbers.concat(alphabets);
+console.log(concat1);
+
+const concat2 = numbers.concat(alphabets, listOfGroceries);
+console.log(concat2);
+
+const concat3 = numbers.concat(alphabets, 10, "f", "g");
+console.log(concat3);
+
+// Join Method
+const joinedList = listOfGroceries.join();
+console.log(joinedList);
+
+const joinedList1 = listOfGroceries.join(" + ");
+console.log(joinedList1);
+
+// Slice Method
+const slicedArray = listOfGroceries.slice(0, 2);
+console.log(slicedArray);
+
+const slicedArray1 = listOfGroceries.slice(1);
+console.log(slicedArray1);
+
+// Splice Method
+const favoriteColors = ["blue", "gold", "yellow", "green", "violet", "grey", "white"];
+console.log(favoriteColors);
+favoriteColors.splice(5);
+console.log(favoriteColors);
+
+favoriteColors.splice(1, 2);
+console.log(favoriteColors);
+
+favoriteColors.splice(1, 0, "gold", "yellow");
+console.log(favoriteColors);
+
+favoriteColors.splice(1, 1, "red");
+console.log(favoriteColors);
