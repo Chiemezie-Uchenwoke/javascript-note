@@ -1392,3 +1392,118 @@ console.log(favoriteColors);
 
 favoriteColors.splice(1, 1, "red");
 console.log(favoriteColors);
+
+/* 
+Sorting Method In Arrays
+
+(1) reverse() Method: It is used to reverse the order of an array. The first element becomes the last and the last becomes the first. It modifies the original array.
+
+const myArray = [item1, item2, item3];
+myArray.reverse(); // [item3, item2, item1]
+
+(2) toReversed() Method: It is similar to the reverse method, but it does not modify the original array. It returns the reversed array.
+
+const myArray = [item1, item2, item3];
+const newArray = myArray.toReversed();
+console.log(newArray) // [item3, item2, item1]
+
+(3) sort() method: It is used to sort the elements of an array. By default, it sorts an array in ascending order - with the smallest value sorted first and the largest value sorted last. It modifies the array.
+
+Parameters
+(a) no parameter( sort() )
+    When the sort method is called without a parameter, the elements of the array are first converted to a string then they are compared based on their UTF-16 code value.
+
+(b) compare callback function
+    It helps us to determine the order of the elements. It accepts two arguments - the first argument is the first element to be compared and the second argument is the second element to be compared.
+
+    ====> Method 1 <====
+    const compare = (a, b) => {
+            return a - b;
+        }
+    myArray.sort(compare);
+
+    ====> Method 2 <====
+    myArray.sort((a, b) => a - b); // ascending order
+    myArray.sort((a, b) => b - a); // descending order
+
+    This function can return one of three different values: 
+    - a negative value which means a is smaller than b, so a comes before b. 
+    - a zero value indicates that both values are equal and should remain as it is.
+    - a positive value which means that b is smaller than a and b should come before a.
+
+
+Shuffling an Array Using the Sort Method
+myArray.sort(() => Math.random() - 0.5);
+*/
+
+const myArray = ["fruits", "milk", "cream", "monitor"];
+myArray.reverse();
+console.log(myArray);
+
+const evenNumbers = [2, 4, 6, 8, 10];
+const reversedNumbers = evenNumbers.toReversed();
+console.log(reversedNumbers);
+console.log(evenNumbers);
+
+const randomWords = ["great", "excellent", "awesome", "fantastic", "appealing"];
+const randomNumbers1 = [1, 9, 2, 7, 3, 6];
+const randomNumbers2 = [5, 90, 205, 156, 3000, 16];
+console.log(`Array before sort:[ ${randomWords} ]`);
+randomWords.sort();
+console.log(`Array after sort:[ ${randomWords} ]`);
+
+console.log(`Array before sort:[ ${randomNumbers1} ]`);
+randomNumbers1.sort();
+console.log(`Array after sort:[ ${randomNumbers1} ]`);
+
+console.log(`Array before sort:[ ${randomNumbers2} ]`);
+randomNumbers2.sort((a, b) => a - b);
+console.log(`Ascending Order:[ ${randomNumbers2} ]`);
+
+console.log(`Array before sort:[ ${randomNumbers2} ]`);
+randomNumbers2.sort((a, b) => b - a);
+console.log(`Descending Order:[ ${randomNumbers2} ]`);
+
+randomNumbers2.sort(() => Math.random() - 0.5);
+console.log(`shuffled array: [${randomNumbers2}]`);
+
+
+/* 
+Iteration Method
+(1) forEach() Method
+    It is used to loop (iterate) through the element of an array and execute a specified function (callback function) on each element.
+
+    Parameters
+    The forEach method callback function takes 1 to 3 parameters.
+    - 1 element(first parameter). This represents the current element being processed in the array.
+    - 2 index: This represents the index number of the element being processed in the array.
+    - 3 array: This represents the array that the forEach() was called on.
+
+    SYNTAX
+    function callback(element) {
+        // code to be executed
+    }
+    myArray.forEach(callback);
+
+
+    myArray.forEach((element) => {
+            // code to be executed
+        })
+
+    myArray.forEach((element, index) => {
+            // code to be executed
+        })
+
+    myArray.forEach((element, index, array) => {
+            // code to be executed
+        })
+
+
+*/
+
+const animals = ["dog", "cat", "goat", "fish", "elephant"];
+animals.forEach((animal) => console.log(animal));
+
+animals.forEach((animal, i, arr) => {
+    console.log(`[${arr}] [${i}] = ${animal}`);
+})
