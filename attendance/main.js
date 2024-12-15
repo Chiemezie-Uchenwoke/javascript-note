@@ -4,7 +4,7 @@ const submitButton = document.getElementById("submit");
 const orderedList = document.getElementById("list");
 
 submitButton.addEventListener("click", submitInput);
-let myArray = [];
+const myArray = [];
 
 
 function submitInput(){
@@ -29,27 +29,29 @@ function submitInput(){
     // Joined names
     const joinedNames = capitalizedNames.join(" ");
 
-    // push joined names to myArray
     myArray.push(joinedNames);
-    
-    // Sort myArray
-    myArray.sort();
+     
+    // Create ordered list
+    const listElement = document.createElement("li");
+    listElement.innerText = joinedNames;
 
-    // clear ordered list 
-    orderedList.innerHTML = "";
+    // Add list element to the ordered list
+    orderedList.appendChild(listElement); 
 
-    // loop through my array and append each to the ordered list
-    myArray.forEach((item) => {
-        // Create ordered list
-        const listElement = document.createElement("li");
-        listElement.innerText = item;
+    // Sort list in ascending order
+    const allListElements = document.querySelectorAll(".list > li");
+    const arrayList = Array.from(allListElements);
 
-        orderedList.appendChild(listElement);
+    arrayList.sort((a, b) => {
+        return a.textContent.localeCompare(b.textContent)
     });
 
-    // clear the input field
+    // orderedList.innerHTML = "";
+
+    arrayList.forEach((name) => orderedList.appendChild(name));
+
     userInput.value = "";
-    
+ 
 }
 
 // Restart the list
@@ -57,6 +59,4 @@ const restartButton = document.getElementById("restart");
 
 restartButton.addEventListener("click", () => {
     orderedList.innerHTML = ""
-    // myArray.splice(0);
-    myArray = [];
 });

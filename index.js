@@ -1506,4 +1506,71 @@ animals.forEach((animal) => console.log(animal));
 
 animals.forEach((animal, i, arr) => {
     console.log(`[${arr}] [${i}] = ${animal}`);
-})
+});
+
+/* 
+Map() Method
+The map() method is used to loop through the elements of an array and executes a specific function on each element. It returns an array of the modfied elements
+
+Parameters
+It takes a callback function as a parameter and the callback function takes one to three parameters.
+
+    - 1 element(first parameter). This represents the current element being processed in the array.
+    - 2 index: This represents the index number of the element being processed in the array.
+    - 3 array: This represents the array that the forEach() was called on.
+
+Syntax
+function callback(element) {
+        // code to be executed
+    }
+    
+    const newArray = myArray.map(callback);
+
+
+    const newArray = myArray.map((element) => {
+                    // code to be executed
+                })
+
+    const newArray = myArray.map((element, index) => {
+                    // code to be executed
+                })
+
+    const newArray = myArray.map((element, index, array) => {
+                    // code to be executed
+                })
+
+    =======> Read out filter and includes
+*/
+
+const newNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const squaredNumbers = newNumbers.map(number => Math.pow(number, 2));
+console.log(squaredNumbers);
+
+
+/* 
+====== For Of Loop =======
+
+The For Of Loop
+The JavaScript for of statement loops through the values of an iterable object.
+
+It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more:
+
+Syntax
+for (variable of iterable) {
+  // code block to be executed
+}
+
+Square numbers without Array Methods
+
+let x = [1, 2, 3];
+let arr = [];
+
+for (const num of x) {
+    const answer = num ** 2;
+    arr.push(answer);
+}
+
+console.log(arr);
+
+
+*/
