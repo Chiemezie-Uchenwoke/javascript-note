@@ -1572,5 +1572,114 @@ for (const num of x) {
 
 console.log(arr);
 
+or 
+
+const numArray = [1, 2, 3, 4, 5, 6, 7];
+let indexNum = 0;
+for (const num of numArray){
+    numArray[indexNum] = num ** 2;
+    indexNum++; 
+}
+console.log(numArray);
 
 */
+
+/* 
+Objects
+
+An object is a non primitive data type that is used to represent a thing (someone or something - animate or inanimate) that has its own set of properties (attributes (data) and behaviour or functionality (method)).
+
+Creating an Object
+An object is created using the object literal. It starts with declaring a variable that will hold our object and equating it to a set of curly braces that contains sets of name (key) / value pairs separated by a comma. It can also be initialized empty.
+
+SYNTAX
+keyword objectName = {} // initializing an empty object
+
+keyword objectName = {
+    name1: value1,
+    name2: value2,
+    name3: value3
+} 
+
+======> Name / Value <=========
+
+Guidelines for Name
+(1) The property names are case sensitive.
+(2) It follows the same naming convention as JavaScript variables. 
+(3) Each property name must be unique.
+(4) When you're not following the typical JavaScript naming convention, the name must be enclosed in a quotation mark.
+
+Guidelines for Values
+(1) Our value can be any valid JavaScript data type
+
+==== Method =====
+A method is simply an action or a function that an object performs. 
+
+
+Accessing the properties of an object
+There are two ways to access the properties within an object;
+(1) The dot notation
+(2) The square bracket notation
+
+Dot Notation
+To access a property using the dot notation, you write the object name followed by a dot (period or fullstop) then the name of the property you want to access.
+Syntax
+objectName.name1
+
+Square Bracket Notation
+To access a property using the square bracket notation, you write the object name followed by a square bracket. Within the square bracket, write the property name enclosed in a quotation mark.
+Syntax
+objectName["name1"]
+
+Modifying the Object Property
+To modify an object property, we access the object and assign it to the new value.
+objectName.name1 = value4
+
+Adding a New Property
+To add a new property, we call the object name and chain it to the new property name we are trying to create using either the dot notation or the square bracket notation and assign it to a value.
+objectName.newName = newValue; 
+
+Deleting a Property
+We can delete a property from an object using the delete operator. This is done by putting the delete operator then accessing the property you want to delete.
+syntax
+delete objectName.name3
+
+*/
+
+const monitor = {
+    brand: "Hp",
+    size: 24,
+    color: "black",
+    "screen resolution": "1080px",
+    hasCharger: true,
+    onMonitor: function(){
+        console.log("switch on the monitor");
+    }
+}
+console.log(monitor);
+console.log(typeof monitor);
+
+// Accessing an object property
+console.log(monitor.brand); // dot notation
+console.log(monitor["brand"]); // square bracket notation
+console.log(monitor["screen resolution"]); //square bracket notation
+
+// modifying an object property
+monitor.color = "grey";
+console.log(monitor.color);
+console.log(monitor);
+
+// adding a new property
+monitor.definition = true;
+console.log(monitor);
+
+// deleting an object property
+delete monitor.definition;
+console.log(monitor);
+
+const student = {
+    name: "Eudorah",
+    age: 25,
+    occupation: "Software Engineer",
+    hobby: "Reading"
+}
