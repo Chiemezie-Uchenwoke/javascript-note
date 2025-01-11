@@ -1118,8 +1118,65 @@ do {
 while(studentUsername === "" || studentUsername === null || studentUsername === " "); */
 
 
-//TASK
+/*
 
+FUNCTIONS IN JAVASCRIPT
+A function in JavaScript is a block of code that performs a specific task, oftentimes returning a value.
+2 things about a function
+A JavaScript function is a block of code designed to perform a particular task.
+A JavaScript function is executed when "something" invokes it (calls it).
+
+Why Use Functions?
+•	To organize your code into small, reusable pieces.
+•	To avoid repeating yourself (you can call the function whenever you need it).
+•	To make your program easier to understand.
+
+How a function is defined/declared
+A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses () and then followed by the curly brace.
+NOTE: Explain what name, () and {} does. Also state the name must be meaningful and describe what it’s used for.
+
+
+Keywords and naming convention
+(1)	 Function names can contain letters, digits, underscores, and dollar signs (same rules as variables).
+(2)	 The parentheses may include parameter names separated by commas:
+(parameter1, parameter2, ...)
+(3)	 The code to be executed, by the function, is placed inside curly brackets: {}
+
+BASIC FUNCTION SYNTAX (give examples for each)
+function functionName() {
+  // code to be executed
+}
+Example:
+function sayHello() {
+  console.log("Hello, World!");
+}
+________________________________________
+Functions With Parameters
+You can give a function parameters, which are like placeholders for inputs.
+The inputs are provided when you call the function.
+Example:
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+greet("Chiemezie"); // Output: Hello, Chiemezie!
+________________________________________
+Returning a Value
+Sometimes, a function needs to send back a result. This is done using the return keyword.
+Example:
+function add(a, b) {
+  return a + b;
+}
+let result = add(3, 4); // result gets 7
+console.log(result); // Output: 7
+
+Function calling - () Operator
+The () operator invokes (calls) the function:
+You call a function by using its name followed by parentheses, which may include arguments.
+
+
+*/
+
+//TASK
 /* 
 (1)
 Write a function that converts temperature from degree Celsius to Kelvin using celsius as the only parameter.
