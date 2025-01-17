@@ -1896,3 +1896,73 @@ console.log(cohort2Students[3].hobby);
 cohort2Students.forEach((student) => {
     console.log(`My name is ${student.firstname} ${student.lastname} and my hobby is ${student.hobby}`);
 });
+
+
+//HIGHER-ORDER FUNCTION
+/* A higher-order function is a function that either takes another function as an argument or returns a function as its result or both.
+This ability makes it extremely powerful, enabling more concise reuseable expressive code. 
+
+CALLBACK FUNCTIONS
+A callback function is a function that is passed as an argument to another function.
+
+HOF TAKING A FUNCTION AS AN ARGUMENT:
+A HOF can take one or more function as a parameter to control how it operates.
+ */
+
+function studentName(studentName) {
+    return `Hello, ${studentName}`;
+}
+
+function studentMessage(sir) {
+    return `Hope you had a good night rest ${sir}`;
+}
+
+function studentGreeting(callback, parr) {
+    const callbackVar = callback(parr);
+    console.log(`${callbackVar} Good morning.`)
+}
+
+studentGreeting(studentName, 'Ndubuisi');
+studentGreeting(studentMessage, 'Ma');
+
+// Creating a high-order function that can iterate over an array and perform a specific task.
+function demoMap(arr, callback) {
+    const newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        const callbackVar = callback(arr[i]);
+        newArr.push(callbackVar);
+    }
+    return newArr;
+}
+
+const numberArray = [2, 4, 6, 8, 10];
+
+function double(parr) {
+    return parr*2;
+}
+
+console.log(demoMap(numberArray, double));
+// Demonstrating using an arrow function inside the HOF call
+console.log(demoMap(numberArray, (el) => el*el));
+
+// HOF RETURNING A FUNCTION:
+/* A HOF can return another function, allowing for the creation of dynamic functions.  */
+function multiplier(factor) {
+    return (num) => {
+        return num*factor;
+    }
+}
+
+const triple = multiplier(3);
+console.log(triple(4));
+
+// COMMON EXAMPLES OF HOF:
+/* 1) Array method (forEach(), map(), filter(), reduce(), sort());
+   2) Asynchronous operations (setTimeOut(), setInterval(), clearInterval())
+
+   ADVANTAGES OF HOF:
+   1) Reusability: you can create a generic logic, and reuse it by passing in different functions.
+   2) Abstraction: they abstract away boilerplate code, letting you focus on what the function should do rather than how it does it.
+   3) Composability: It allows combining of smaller functions to solve a complex problem.
+   4) Modularity: It encourages separating concerns, leading to cleaner and more maintainable code.
+*/
