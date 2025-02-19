@@ -1,0 +1,490 @@
+/* Named functions, Unnamed (Anonymous or UnHoisted) Functions as well as Arrow Functions are all executed by the browser and JavaScript in a SYNCHRONOUS manner.
+
+Named Functions are also known as Hoisted Functions.
+
+This is because the function is named at the point of initialization so it is stored in the system with its name. This is known as HOISTING.
+
+Unnamed Functions are declared using a variable and so their names are not stored as functions names but as variable names.
+
+So when they are to be called, they are called anonymously, using the variables names
+This is what makes them anonymous
+
+It is also what makes them UNHOISTED
+
+They are UNHOISTED because their function names are not stored at initialization.
+
+Note that JavaScript is an event-driven and a SYNCHRONOUS Scripting Language.
+
+It is event-driven because its behavior is driven by 2 major event types
+Events initiated from a mouse
+
+2. Events initiated from a keyboard
+
+Examples of keyboard-driven events include
+Press Enter Key
+Press Space Key
+Key Down
+Key Press
+Etc
+
+Examples of Mouse -driven events include
+hover
+click
+double click
+Etc
+
+
+JavaScript is also a SyYNCHRONOUS Language
+
+By "synchronous", we mean that JavaScript executes its code in a sequential and a linear manner
+
+If there are 10 lines of code, JavaScript will firsty, execute code in line 1, before proceeding to line 2. It will finish executing code in line 2 before proceeding code in line 3. And it will continue to execute every line of code in a sequential or linear until it gets to code in line 10
+
+Then it stops.
+
+This method of execution of code is beautiful and predictive. It is also logical and sequential
+
+However, in real life, code execution does not play out that sequentially.
+
+Code 1 might take 2 seconds to execute while code 2 takes 5 seconds to execute. Code 3 might take 1000 seconds to execute. 1000 seconds is a long time in programming.
+
+What this means is that code 4, 5, 6, 7, 8, 9 and 10 will wait for 1000 seconds before they can be executed.
+
+This blocks code 4 and others after it from being executed in a timely manner.
+
+It is known as Code Blocking.
+
+In other words, Synchronous programming creates a problem known as CODE BLOCKING.
+
+To solve that problem, programmers created a new type of function known as CALL BACK FUNCTION.
+
+Using Call Back Functions, JavaScript programmers are able to bypass the delay that code number 3 would cause
+
+The call function simply transfers the code execution in line 3 to another part of the browser
+
+And enables JavaScript to proceed to code number 4.
+
+Anytime that code number 3 finishes executing, the call back function will call itself and notify the browser / JavaScript and the result will instantly be added to the code output.
+
+Using callback functions, JavaScript i able to solve the problem of code blocking brought about by synchronous programming.
+
+The process whereby JavaScript temporarily suspends its linear code execution to transfer a line of code to another pRT OF THE BROWSER TO EXECUTE IS KN OWN AS asynchronous programming.
+
+Asynchronous Programming solved the problem of Code Blocking.
+
+Call Back, because of its asynchronous approach to code execution had helped solve a major problem
+
+But is also created a new one one
+
+For Example
+Assuming we have the following lines of code to execute
+1. Go to the house
+2. Clean the house
+3. Arrange the furniture
+4. Wash the dishes
+5. Clean the floor
+6. Leave the house
+7. Lock the door of the house
+8. Return the key to me
+
+The above example demonstrates a series of activities or functions each of which is dependent on the other for execution
+For example 
+Code 1 - go to the house is the first code.
+Code 2 - Clean the house, cannot be executed until the primary actor goes to the house
+In other words, code 2 is dependent or nested inside of code 1
+Code 3 is nested inside of code 2
+Code 4 is nested inside of code 3 etc
+
+So as great as Call back functions are, they are not structured to deal with Nested Functions.
+
+Sometimes, there could be as many as 2000 nested functions, each one nested inside its preceeding one.
+
+This created a new kind of problem which CALLBACK functions are incapable of solving.
+
+The problem created by nested functions in call back is known in JavaScript as CALL BACK HELL. It is also called PYRAMMID OF DOOM. 
+
+Callback Hell / Pyramid of Doom was such a big problem for JavaScript programmers because of bugs and endless loops created when JavaScript is forced to execute codes that sit inside of codes which themselves, are nested inside of preceding lines of code.
+
+To solve this problem, JavaScript programmers created a new solution called PROMISES.
+
+Promises helped to solve the problem of callback hell/ Pyramid of doom. It did so by giving JavaScript the option to either RESOLVE a code execution problem or to REJECT executing the code because it could not obtain the required data or file. In other words, JavaScript, through promises, is faced with a Boolean or Binary choice - RESOLVE if the option is true or REJECT if the option is false.
+
+When the function / variable that is created is called, it uses an approach / syntax called METHOD-CHAINING. Through this method, the entire process of callback hell / Pyramid of doom is bypassed and the problem is solved.
+
+A promise in JavaScript is like a proxy for a value that is not known when it is created. It is an object
+that represents the eventual resolution or rejection of an asynchronous operation and its resulting value.
+
+Promises can either be:
+     1 - Resolve
+         or
+     2 - Reject
+
+Sometimes, promises are resolved through a process known as METHOD CHAINING.
+Method Chaining is a method used in JavaScript to write more concise, more readable and shorter codes.
+In Method Chaining, we call separate methods of a simple object like a chain without asigning the same object.
+
+Method Chaining works well when we use asynchronous functions with promises. 
+
+PROMISES can be coded using:
+      1 - then
+      2 - catch
+      3 - finally
+
+These are methods used to associate further actions with promises that are become settled.
+
+The 'then' method takes up to two (2) arguments:
+      1 - A callback function for the fulfilled case of the promise (resolve)
+      2 - A callback function for the rejected case of the promise (reject)
+
+The 'catch' or 'finally' methods call 'then' internally and makes error handling less verbose. 
+In other words, a 'catch' is really a 'then' method but without passing the fulfillment handle. 
+
+If the initial promise is fulfilled, the fulfilment handler (resolve) is called with the fulfillment value. 
+If the initial value is rejected, the rejection handler (reject) is called with the rejection reason.
+ */
+/* 
+Activities / Steps - Preparing for an Exam:
+(1) Decide on the choice of exam
+(2) Obtain the syllabus
+(3) Purchase of books
+(4) Study
+(5) Review and answer past questions
+(6) Test yourself
+(7) Decide if you're ready
+(8) Perform final review
+(9) Sit for the exam
+(10) Obtain result
+
+*/
+
+
+// EXAMPLE 1a (PROMISES) - USING ONLY THE RESOLVE PROMISE OPTION, DECLARING AND CALLING ALL THE TEN FUNCTIONS USING METHOD CHAINING
+function examPrep1 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide on the choice of exam1");
+        }, 100)
+    })
+}
+
+function examPrep2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Obtain the syllabus1");
+        }, 150)
+    })
+}
+
+function examPrep3 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Purchase books1");
+        }, 200)
+    })
+}
+
+function examPrep4 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Study1");
+        }, 250)
+    })
+}
+
+function examPrep5 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Review and answer past questions1");
+        }, 300)
+    })
+}
+
+function examPrep6(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Test yourself1");
+        }, 350)
+    })
+}
+
+function examPrep7(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide if you're ready1");
+        }, 400)
+    })
+}
+
+function examPrep8(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Perform final review1");
+        }, 400)
+    })
+}
+
+function examPrep9(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Sit for Exam1");
+        }, 400)
+    })
+}
+function examPrep10(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Obtain result1");
+        }, 400)
+    })
+}
+
+examPrep1().then(value=>{console.log(value);return "Obtain the syllabus1"})
+             .then(value=>{console.log(value);return "Purchase of books1"})
+             .then(value=>{console.log(value);return "Study1"})
+             .then(value=>{console.log(value);return "Review and answer past questions1"})
+             .then(value=>{console.log(value);return "Test yourself1"})
+             .then(value=>{console.log(value);return "Decide if you're ready1"})
+             .then(value=>{console.log(value);return "Perform final review1"})
+             .then(value=>{console.log(value);return "Sit for Exam1"})
+             .then(value=>{console.log(value);return "Obtain result1"})
+             .then(value=>{console.log(value);console.log ("Task Completed")});
+
+/* In above example, examPrep1 points to examPrep2 and renders a new message "Obtain the syllabus"
+                     examPrep2 points to examPrep3 and renders a new message "Purchase of books"
+                     examPrep3 points to examPrep4 and renders a new message "Study"
+                     examPrep4 points to examPrep5 and renders a new message "Review and answer past questions"
+                     examPrep5 points to examPrep6 and renders a new message "Test yourself"
+                     examPrep6 points to examPrep7 and renders a new message "Decide if you're ready"   
+                     examPrep7 points to examPrep8 and renders a new message "Perform final review"   
+                     examPrep8 points to examPrep9 and renders a new message "Sit for Exam"   
+                     examPrep9 points to examPrep10 and renders a new message "Obtain result"
+                     examPrep10 points to the concluding message "Task Completed"
+                     */
+// EXAMPLE 1B (PROMISES) - USING ONLY THE RESOLVE PROMISE OPTION AND DECLARING ONLY THE FIRST FUNCTION BUT CALLING THE TEN OF THEM THROUGH METHOD CHAINING. THE RESULT WILL BE THE SAME AS 1A. THIS IS A SHORTER METHOD FOR EXECUTING PROMISES AND METHOD CHAINING.
+
+function examPrep1 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide on the choice of exam2");
+        }, 100)
+    })
+}
+
+examPrep1().then(value=>{console.log(value);return "Obtain the syllabus2"})
+             .then(value=>{console.log(value);return "Purchase of books2"})
+             .then(value=>{console.log(value);return "Study2"})
+             .then(value=>{console.log(value);return "Review and answer past questions2"})
+             .then(value=>{console.log(value);return "Test yourself2"})
+             .then(value=>{console.log(value);return "Decide if you're ready2"})
+             .then(value=>{console.log(value);return "Perform final review2"})
+             .then(value=>{console.log(value);return "Sit for Exam2"})
+             .then(value=>{console.log(value);return "Obtain result2"})
+             .then(value=>{console.log(value);console.log ("Task Completed2")});
+
+
+
+// EXAMPLE 2A - USING BOTH RESOLVE & REJECT PROMISE OPTIONS (This will involve using "if else" statement)
+function examPrep11 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const choiceOfExam = true;
+            if (choiceOfExam){
+                resolve ("I decided on the choice of exam");
+            }
+            else{
+                reject ("I did not decide on the choice of exam");
+            }
+        }, 500);
+    });
+}
+
+
+function examPrep12 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const obtainedSyllabus = false;
+            if (obtainedSyllabus){
+                resolve ("I obtained the syllabus");
+            }
+            else{
+                reject ("I did not obtain the syllabus");
+            }
+        }, 600);
+    });
+}
+
+
+function examPrep13 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const purchaseBook = false;
+            if (purchaseBook) {
+                resolve ("I purchased books");
+            }
+            else {
+                reject ("I did not purchase books");
+            }
+        }, 700);
+    });
+}
+
+function examPrep14 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const study = false;
+            if (study) {
+                resolve ("I studied");
+            }
+            else {
+                reject ("I did not study");
+            }
+        }, 700);
+    });
+}
+
+function examPrep15 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const questionReview = false;
+            if (questionReview) {
+                resolve ("I reviewed and answered past questions");
+            }
+            else {
+                reject ("I did not review past questions");
+            }
+        }, 700);
+    });
+}
+
+function examPrep16 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const testSelf = false;
+            if (testSelf) {
+                resolve ("I tested myself");
+            }
+            else {
+                reject ("I did not test myself");
+            }
+        }, 700);
+    });
+}
+
+function examPrep17 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const testSelf = false;
+            if (testSelf) {
+                resolve ("I decided if i'm ready");
+            }
+            else {
+                reject ("I'm not sure that i am ready");
+            }
+        }, 700);
+    });
+}
+
+function examPrep18 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const finalReview = false;
+            if (finalReview) {
+                resolve ("I did a final review");
+            }
+            else {
+                reject ("I did not do a final review");
+            }
+        }, 700);
+    });
+}
+
+function examPrep19 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const exam = false;
+            if (exam) {
+                resolve ("I sat for exam");
+            }
+            else {
+                reject ("I did not sit for exam");
+            }
+        }, 700);
+    });
+}
+
+function examPrep20 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const obtainResult = false;
+            if (obtainResult) {
+                resolve ("I obtained my result");
+            }
+            else {
+                reject ("I did not obtain my result");
+            }
+        }, 700);
+    });
+}
+
+examPrep11 ().then(value=>{console.log(value);return "I obtained the syllabus"})
+               .then(value=>{console.log(value);return "I purchased books"})
+               .then(value=>{console.log(value); console.log ("I studied")})
+               .then(value=>{console.log(value); console.log ("I reviewed past questions")})
+               .then(value=>{console.log(value); console.log ("I tested myself")})
+               .then(value=>{console.log(value); console.log ("I decided i was ready")})
+               .then(value=>{console.log(value); console.log ("I performed final review")})
+               .then(value=>{console.log(value); console.log ("I sat for the exam")})
+               .then(value=>{console.log(value); console.log ("I obtained my result")})
+               .catch(error => console.error(error));
+
+ 
+
+// EXAMPLE 2B - USING BOTH THE RESOLVE AND THE REJECT PROMISE OPTIONS (This will involve using "if else" statement)
+/* function performOps18 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const netflixDatabase = false;
+            if (netflixDatabase){
+                resolve ("I accessed Netflix database");
+            }
+            else{
+                reject ("I did not access Netflix database");
+            }
+        }, 800);
+    });
+}
+
+
+function performOps19 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const downloadVideo = true;
+            if (downloadVideo) {
+                resolve ("I downloaded the video");
+            }
+            else {
+                reject ("I did not download the video");
+            }
+        }, 900);
+    });
+}
+
+function performOps20 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const installedVideo = true;
+            if (installedVideo) {
+                resolve ("I installed the video");
+            }
+            else {
+                reject ("I did not install the video");
+            }
+        }, 1000);
+    });
+}
+
+performOps18().then(value=>{console.log(value);return "I downloaded the video"})
+              .then(value=>{console.log(value);return "I installed the video"})
+              .then(value=>{console.log(value); console.log ("I concluded the process")})
+              .catch(error=>console.error(error));
+ */

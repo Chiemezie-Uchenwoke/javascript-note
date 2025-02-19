@@ -1,0 +1,280 @@
+
+
+/* function grocery9 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Make a list of items");
+        }, 10000)
+    })
+}
+
+function grocery10 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Write out the prices");
+        }, 10500)
+    })
+}
+
+function grocery11 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Get an estimate");
+        }, 11000)
+    })
+}
+
+function grocery12 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide on where to go");
+        }, 11500)
+    })
+}
+
+function grocery13 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Drive to the location");
+        }, 12000)
+    })
+}
+
+function grocery14 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Do the shopping");
+        }, 12500)
+    })
+}
+
+function grocery15 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Make payment");
+        }, 13000)
+    })
+}
+
+function grocery16 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Return home");
+        }, 13500)
+    })
+}
+
+
+
+
+grocery9().then(value=>{console.log(value);return "Write out the prices 2"})
+             .then(value=>{console.log(value);return "Get an estimate 2"})
+             .then(value=>{console.log(value);return "Decide on where to go 2"})
+             .then(value=>{console.log(value);return "Drive to the location 2"})
+             .then(value=>{console.log(value);return "Do the shopping 2"})
+             .then(value=>{console.log(value);return "Make payment 2"})
+             .then(value=>{console.log(value);return "Return home 2"})
+             .then(value=>{console.log(value);console.log ("Grocery Shopping Completed 2")});
+
+
+
+             function grocery1 (callback){
+                setTimeout (()=>{
+                    console.log("Make a list of items 1");
+                    callback();
+                }, 50)
+            }
+            function grocery2 (callback){
+                setTimeout (()=>{
+                    console.log("Write out the prices 1");
+                    callback();
+                }, 100)
+            }
+            function grocery3 (callback){
+                setTimeout (()=>{
+                    console.log("Get an estimate 1");
+                    callback();
+                }, 150)
+            }
+            function grocery4 (callback){
+                setTimeout (()=>{
+                    console.log("Decide on where to go 1");
+                    callback();
+                }, 200)
+            }
+            function grocery5 (callback){
+                setTimeout (()=>{
+                    console.log("Drive to the location 1");
+                    callback();
+                }, 250)
+            }
+            function grocery6 (callback){
+                setTimeout (()=>{
+                    console.log("Do the shopping 1");
+                    callback();
+                }, 300)
+            }
+            function grocery7 (callback){
+                setTimeout (()=>{
+                    console.log("Make payment 1");
+                    callback();
+                }, 350)
+            }
+            function grocery8 (callback){
+                setTimeout (()=>{
+                    console.log("Return home 1");
+                    callback();
+                }, 400)
+            }
+            
+            grocery1 (() => {
+                grocery2(() => {
+                    grocery3(() => {
+                        grocery4(() => {
+                            grocery5 (() => {
+                                grocery6(() => {
+                                    grocery7(() => { 
+                                            console.log("Return home");
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+ */
+
+// Example 3
+/* 
+    Step 1: Make a list of items
+    Step 2: Write out the prices
+    Step 3: Get an estimate 
+    Step 4: Decide on where to go
+    Step 5: Drive to the location
+    Step 6: Do the shopping
+    Step 7: Make payment
+    Step 8: Return home
+*/
+
+
+            function grocery17 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const listMade = true;
+                        if (listMade){
+                            resolve ("I made a list of items 3");
+                        }
+                        else{
+                            reject ("I did not make a list 3");
+                        }
+                    }, 15000);
+                });
+            }
+
+            function grocery18 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const writePrice = true;
+                        if (writePrice){
+                            resolve ("I wrote the price");
+                        }
+                        else{
+                            reject ("I did not write the price");
+                        }
+                    }, 15500);
+                });
+            }
+
+            function grocery19 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const getEstimate = true;
+                        if (getEstimate){
+                            resolve ("I got an estimate");
+                        }
+                        else{
+                            reject ("I did not get an estimate");
+                        }
+                    }, 16000);
+                });
+            }
+
+            function grocery20 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const decideWhere = false;
+                        if (decideWhere){
+                            resolve ("I decide where to shop");
+                        }
+                        else{
+                            reject ("I did not decide where to shop");
+                        }
+                    }, 16500);
+                });
+            }
+
+            function grocery21 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const driveToLocation = true;
+                        if (driveToLocation){
+                            resolve ("I drove to the location");
+                        }
+                        else{
+                            reject ("I did not drive to the location");
+                        }
+                    }, 17000);
+                });
+            }
+
+            function grocery22 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const doShopping = true;
+                        if (doShopping){
+                            resolve ("I shopped");
+                        }
+                        else{
+                            reject ("I did not shop");
+                        }
+                    }, 17500);
+                });
+            }
+
+            function grocery23 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const makePayment = true;
+                        if (makePayment){
+                            resolve ("I made payment");
+                        }
+                        else{
+                            reject ("I did not make any payment");
+                        }
+                    }, 18000);
+                });
+            }
+
+            function grocery24 (){
+                return new Promise ((resolve, reject)=>{
+                    setTimeout (()=>{
+                        const driveHome = true;
+                        if (driveHome){
+                            resolve ("I drove home");
+                        }
+                        else{
+                            reject ("I did not drive home");
+                        }
+                    }, 18500);
+                });
+            }
+
+            grocery17 ().then(value=>{console.log(value);return "I wrote the price"})
+            .then(value=>{console.log(value);return "I got an estimate"})
+            .then(value=>{console.log(value); return "I decide where to shop"})
+            .then(value=>{console.log(value); return "I drove to the location"})
+            .then(value=>{console.log(value); return "I shopped"})
+            .then(value=>{console.log(value); return "I made payment"})
+            .then(value=>{console.log(value); return "I drove home"})
+            .then(value=>{console.log(value); console.log ("I completed my shopping")})
+            .catch(error => console.error(error));

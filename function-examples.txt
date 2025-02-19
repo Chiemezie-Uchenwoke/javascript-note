@@ -1,0 +1,348 @@
+function shoppingcart(fruits, groceries){
+    console.log("I want to buy " + fruits +". I will also get " + groceries + ".")
+}
+shoppingcart("apples", "paper napkin")
+
+function areaOfArectangle(length, width){
+    console.log("A rectangle of length " + length + " and width of " + width + " has an area of " + length*width)
+}
+areaOfArectangle(12, 5)
+
+
+function shoppingcart(fruits, groceries){
+    console.log("I want to buy " + fruits +". I will also get " + groceries + ".")
+}
+shoppingcart("apples", "paper napkin")
+
+function areaOfArectangle(length, width){
+    console.log("A rectangle of length " + length + " and width of " + width + " has an area of " + length*width)
+}
+areaOfArectangle(12, 5)
+
+/*Exmaple 1- Named Function  / Hoisted Function/ */ 
+function shoppingcart(fruits, groceries){
+    console.log("I want to buy " + fruits +". I will also get " + groceries + ".")
+}
+shoppingcart("apples", "paper napkin");
+/*Example 2- Named Function  / Hoisted Function/ */ 
+function areaOfArectangle(length, width){
+    console.log("A rectangle of length " + length + " and width of " + width + " has an area of " + length*width)
+}
+areaOfArectangle(12, 5);
+/*Exmaple 1- Unnamed Function   /  Anonymous Function/ Unhoisted Function */ 
+const shoppingCart2 = function (fruits, groceries){
+    console.log("I want to buy " + fruits +". I will also get " + groceries + ".")
+}
+shoppingCart2 ("mangoes", "Paper");
+
+/*Example 2- Unnamed Function   /  Anonymous Function/ Unhoisted Function */ 
+const areaOfArectangle2  = function  (length, width){
+    console.log("A rectangle of length " + length + " and width of " + width + " has an area of " + length*width)
+}
+areaOfArectangle2(20, 7);
+
+// Example 1- Arrow Function
+const areaOfArectangle3  = (length, width) => {
+    console.log("A rectangle of length " + length + " and width of " + width + " has an area of " + length*width)
+}
+areaOfArectangle3(12, 9);
+
+// Example 2- Arrow Function
+const volumeOfCuboid = (length, width, height) => {
+    const volume = length * width * height;
+    console.log(volume + " cubic meters");
+}
+volumeOfCuboid(5, 4, 3);
+
+// Callback Functions - Tuesday, Feb 6, 2025
+
+// EXAMPLE 1a - CAPTURING CALLBACK FUNCTIONS USING SYNCHRONOUS CODING
+/* function task1(){
+    console.log("Go to the house1");
+}
+task1();
+
+
+function task2 (){
+    console.log("Open the door1");
+}
+task2 ();
+
+
+function task3 (){
+    console.log("Clean the house1");
+}
+task3 ();
+
+
+function task4 (){
+    console.log("Arrange the furniture1");
+}
+task4 ();
+
+
+function task5 (){
+    console.log("Do the dishes1");
+}
+task5 ();
+
+
+function task6 (){
+    console.log("Mop the floor1");
+}
+task6 ();
+
+
+function task7 (){
+    console.log("Go out of the house1");
+}
+task7 ();
+
+function task8 (){
+    console.log("Lock the door1");
+}
+task8 ();
+
+function task9 (){
+    console.log("Return the key1");
+}
+task9 (); */
+
+// Example 1b (class work) - CAPTURING CALLBACK FUNCTIONS USING SYNCHRONOUS CODING
+/* 
+Title: Building Construction
+(1) Design selection
+(2) Site inspection
+(3) Building approval
+(4) Purchase of materials
+(5) Building development
+(6) Finishing
+(7) Furnishing
+(8) Move into the house
+*/
+
+function building1(){
+    console.log("Design selection");
+}
+building1()
+
+function building2(){
+    console.log("Site inspection");
+}
+building2()
+
+function building3(){
+    console.log("Building approval");
+}
+building3()
+
+function building4(){
+    console.log("Purchase of materials");
+}
+building4()
+
+function building5(){
+    console.log("Building development");
+}
+building5()
+
+function building6(){
+    console.log("Finishing");
+}
+building6()
+
+function building7(){
+    console.log("Furnishing");
+}
+building7()
+
+function building8(){
+    console.log("Move into the house");
+}
+building8()
+
+/* EXAMPLE 2a - PERFORMING SIMILAR TASKS VIA NESTED CALLBACK FUNCTIONS   */
+
+/* function myTask1 (callforward){
+    setTimeout (()=>{
+        console.log("Go to the house2");
+        callforward();
+    }, 100)
+}
+
+
+function myTask2 (callforward){
+    setTimeout (()=>{
+        console.log("Open the door2");
+        callforward();
+    }, 300)
+}
+
+
+function myTask3 (callforward){
+    setTimeout (()=>{
+        console.log("Clean the house2");
+        callforward();
+    }, 500)
+}
+
+
+function myTask4 (callforward){
+    setTimeout (() =>{
+        console.log("Arrange the furniture2");
+        callforward();
+    }, 200)
+}
+
+
+function myTask5 (callforward){
+    setTimeout (() =>{
+        console.log("Do the dishes2");
+        callforward();
+    }, 100)
+}
+
+
+function myTask6 (callforward){
+    setTimeout (() =>{
+        console.log("Mop the floor2");
+        callforward();
+    }, 1100)
+}
+
+
+function myTask7 (callforward){
+    setTimeout (() =>{
+        console.log("Go out of the house2");
+        callforward();
+    }, 1300)
+}
+
+function myTask8 (callforward){
+    setTimeout (() =>{
+        console.log("Lock the door2");
+        callforward();
+    }, 1900)
+}
+
+function myTask9 (callforward){
+    setTimeout (() =>{
+        console.log("Return the key2");
+        callforward();
+    }, 1500)
+} */
+
+/* The above callback functions are merely declared but not yet called.
+  
+   To call a callback function:  
+        1 - call the function name of the 1st task
+        2 - Nest the 2nd task to the first using an arrow key
+        3 - Nest the 3rd to the 2nd using an arrow key
+        4 - Repeat until the final action is nested
+        5 - console.log the last action and declare its instructions
+        6 - Display the results   */
+
+// NESTED FUNCTION (CALLBACK HELL or PYRAMID OF DOOM) - ASYNCHRONOUS PROGRAMMING 2
+/* myTask1 (() =>{
+    myTask2 (() =>{
+        myTask3 (() =>{
+            myTask4 (() =>{
+                myTask5 (() =>{
+                    myTask6 (() =>{
+                        myTask7 (() => {
+                            myTask8(() => {
+                                myTask9(() => console.log("operation completed"));
+                            })
+                        });
+                    })
+                })
+            })
+        })
+    })
+})
+ */
+
+// EXAMPLE 2b - (classwork) - PERFORMING SIMILAR TASKS VIA NESTED CALLBACK FUNCTIONS
+/* 
+Title: Building Construction
+(1) Design selection
+(2) Site inspection
+(3) Building approval
+(4) Purchase of materials
+(5) Building development
+(6) Finishing
+(7) Furnishing
+(8) Move into the house
+*/
+
+function building9(callback){
+    setTimeout(() => {
+        console.log("Design selection2");
+        callback();
+    }, 100)
+}
+
+function building10(callback){
+    setTimeout(() => {
+        console.log("Site inspection2");
+        callback();
+    }, 300)
+}
+
+function building11(callback){
+    setTimeout(() => {
+        console.log("Building approval2");
+        callback();
+    }, 500)
+}
+
+function building12(callback){
+    setTimeout(() => {
+        console.log("Purchase of materials2");
+        callback();
+    }, 700)
+}
+
+function building13(callback){
+    setTimeout(() => {
+        console.log("Building development2");
+        callback();
+    }, 900)
+}
+
+function building14(callback){
+    setTimeout(() => {
+        console.log("Finishing2");
+        callback();
+    }, 1100)
+}
+
+function building15(callback){
+    setTimeout(() => {
+        console.log("Furnishing2");
+        callback();
+    }, 1300)
+}
+
+function building16(callback){
+    setTimeout(() => {
+        console.log("Move into the house2");
+        callback();
+    }, 1500)
+}
+
+building9(() => {
+    building10(() => {
+        building11(() => {
+            building12(() => {
+                building13(() => {
+                    building14(() => {
+                        building15(() => {
+                            building16(() => console.log("Operation completed"));
+                        })
+                    })
+                })
+            })
+        })
+    })
+})

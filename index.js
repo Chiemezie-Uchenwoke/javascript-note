@@ -1966,3 +1966,4492 @@ console.log(triple(4));
    3) Composability: It allows combining of smaller functions to solve a complex problem.
    4) Modularity: It encourages separating concerns, leading to cleaner and more maintainable code.
 */
+
+const student5 = {
+    name: "mezie",
+    occupation: "student",
+    age: 20,
+    bio: () => {
+        return `My name is ${this.name}`
+    }
+}
+
+/* console.log("code number 1");
+    console.log("code number 1a");
+    console.log("code number 1b");
+    console.log("code number 1c");
+    console.log("code number 1d");
+    console.log("code number 1e");
+    console.log("final value");
+console.log("code number 2");
+console.log("code number 3");
+console.log("code number 4");
+console.log("code number 5");
+console.log("code number 6");
+console.log("code number 7");
+console.log("code number 8");
+console.log("code number 9");
+console.log("code number 10");
+
+console.log("code number 1");
+    console.log("code number 1a");-10secs
+    console.log("code number 1b");-3secs
+    console.log("code number 1c");-5secs
+    console.log("code number 1d");-4secs
+    console.log("code number 1e");-7secs
+    console.log("final value");Total-29secs
+console.log("code number 2");
+    console.log("code number 2a");-100secs
+    console.log("code number 2b");-150secs
+    console.log("code number 2c");-180secs
+    console.log("code number 2d");-220secs
+    console.log("code number 2e");-400secs
+    console.log("final value");Total-1050secs
+console.log("code number 3");
+    console.log("code number 3a");-1secs
+    console.log("code number 3b");-1secs
+    console.log("code number 3c");-1secs
+    console.log("code number 3d");-1secs
+    console.log("code number 3e");-1secs
+    console.log("final value");Total-5secs
+console.log("code number 4");
+console.log("code number 5");
+console.log("code number 6");
+console.log("code number 7");
+console.log("code number 8");
+console.log("code number 9");
+console.log("code number 10"); */
+
+
+/* CALLBACK FUNCTION/ASYNCHRONOUS PROGRAMMING -  4TH FUNCTION TYPE
+To understand callback functions, we would first need to understand asynchronous JavaScript.
+
+The concept of Asynchronous JavaScript governs how JavaScript performs tasks that take time to complete.
+    Examples of such tasks include:
+         a - Requesting data from an external database
+         b - Making a HTTP request
+         c - Requesting data from an API
+
+Every developer who builds an application in JavaScript will at one point or another, make use of
+asynchronous JavaScript to perform these kinds of operations. 
+
+Asynchronous JavaScript or code is a code that starts now and finishes later. To understand this, we need
+to first understand Synchronous JavaScript. JavaScript was developed by default as a synchronous programming
+language. This means that it executes its codes line by line; from top to bottom (sequentially).
+
+Let us assume that JavaScript has these four(4) lines of codes below to execute:
+         console.log ("Code 1")
+         console.log ("Code 2")
+         console.log ("Code 3")
+         console.log ("Code 4")
+
+Code 2 by default cannot start until Code 1 has fully executed. Code 3 cannot execute until Code 2 has finished
+executing. JavaScript is also a single-threaded programming language. For example, every block of codes may
+have multiple statements or threads. In executing that block of codes with many threads or statements, JavaScript
+will have to execute each thread sequentially, line by line. This is the core of synchronous programming.
+
+It looks simple but let us look further and imagine a more complex scenario. 
+  Let us do so using the lines of codes above and more:
+      console.log ("Code 1") - Add 4 + 3 - duration: half a second
+      console.log ("Code 2") - GET/FETCH a music file from a 3rd party database (Sony Music) - duration: 30secs
+      console.log ("Code 3") - Make a HTTP request/API call - duration: 45secs
+      console.log ("Code 4") - Display a function value - duration: half a second
+      console.log ("Code 5") - Display a web page - duration: 1/10th of a second
+      console.log ("Code 6") - Activate a button - duration: half a second
+
+The scenario above is typical. In synchronous programming, JavaScript will first execute Code 1 which takes
+half a second, then when it gets to Code 2, which involves fetching a music file from a 3rd party database
+(30 seconds duration), JavaScript will stall, will stay there and not proceed any further, until that file
+ is fetched. This is despite the fact that it has no control over Sony Music's database.
+
+This is known as Code Blocking bacause the stalling process blocks the next line of codes from running until
+it completes the task of fetching the music file in Sony Music's database. This process could last 30 seconds
+or more.
+
+
+ASYNCHRONOUS PROGRAMMING
+This is where asynchronous programming comes in. It is also where callback comes in. If we remember correctly,
+we began by defining Asynchronous JavaScript as a code that starts now and finishes later. When we apply
+asynchronous programming to the execution of the six (6) codes above, it means that JavaScript will not stall
+when it gets to Code 2. It will simply assign the execution of that code to a callback function.
+
+It is the callback function that takes up and completes the task later, when the music file is fetched from the
+Sony Music database. 
+
+SO HOW DOES THIS WORK PRACTICALLY? 
+
+Once JavaScript gets to Code 2, it uses an asynchronous function to get to the music file. 
+The browser simply takes the HTTP request and handles it outside of the scope of the code in another part 
+of the browser. It also takes the callback function and puts it aside so that it knows and remembers to 
+execute it, once the video request response comes back.
+
+Because this asynchronous request is taken to another part of the browser for execution, JavaScript can continue
+to the next statement and keep executing sequentially while the asynchronous request still goes on. 
+
+Once it receives the music video from Sony Music's database, the callback function is called and executed. 
+ 
+This is the core of asynchronous programming. It begins a task now and finishes it later. 
+
+Unlike synchronous programming, asynchronous programming does not do CODE BLOCKING.
+   
+When executing the codes below asynchronously, this is the sequence of activities:
+      console.log ("Code 1") - Add 4 + 3 - duration: half a second - executes synchronously
+      console.log ("Code 2") - GET/FETCH a music file from a 3rd party database (Sony Music) - duration: 30secs
+                                                       executes asynchronously - use a callback function here
+      console.log ("Code 3") - Make a HTTP request/API call - duration: 45secs - executes asynchronously
+                                                                               - use a callback function here
+      console.log ("Code 4") - Display a function value - duration: half a second - executes synchronously
+      console.log ("Code 5") - Display a web page - duration: 1/10th of a second - executes synchronously
+      console.log ("Code 6") - Activate a button - duration: half a second - executes synchronously
+
+When JavaScript outputs these results using asynchronous programming/callback functions, the output will
+be made in the following order:
+      1 - Code 1 - executed in sequence (1st in line of sequence)
+      2 - Code 4 - executed in sequence (2nd in line of sequence)
+      3 - Code 5 - executed in sequence (3rd in line of sequence)
+      4 - Code 6 - executed in sequence (4th in line of sequence)
+      5 - Code 2 (30 secs)
+      6 - Code 3 (45 secs)
+
+
+FOUR (4) METHODS TO EXECUTE ASYNCHRONOUS PROGRAMMING:
+      1 - CALLBACK FUNCTION
+      2 - NESTED (aka CALLBACK HELL or PYRAMID OF DOOM) FUNCTION
+      3 - PROMISE (METHOD-CHAINING) FUNCTION
+      4 - ASYNC/AWAIT (programs asynchronous codes in easy synchronous manner) FUNCTION
+
+
+CALLBACK FUNCTION - ASYNCHRONUS PROGRAMMING 1
+So what is a callback function?
+
+A callback function is a function that is passed as an argument to another function. 
+It is used to handle asynchronous operations.
+
+For example:
+      1 - reading a file
+      2 - interacting with databases
+      3 - making network or HTTP requests
+
+
+DEMONSTRATION OF HOW A CALLBACK FUNCTION WORKS */
+
+// EXAMPLE 1 - SYNCHRONOUS PROGRAMMING
+console.log ("Hello");   // execution time: half a second
+console.log ("My name is Turing Tech");   // execution time: 1/10th of a second
+console.log ("Tell me your name?");    // execution time: half a second
+console.log ("Tell me your address?");     // execution time: 1/10th of a second
+console.log ("Tell me the name of your CEO?");   // execution time: half a second
+
+
+// EXAMPLE 2 - ASYNCHRONOUS PROGRAMMING
+console.log ("My name is Turing Tech");   // execution time: 1/10th of a second
+console.log ("Tell me your address?");     // execution time: 1/10th of a second
+
+// setTimeout (()=>{
+//     console.log ("Tell me your name?");   // execution time: 15 secs (15000 millisecs)
+// }, 15000)
+
+console.log ("Hello");   // execution time: half a second
+console.log ("Tell me the name of your CEO?");   // execution time: half a second
+
+
+// EXAMPLE 3 - ASYNCHRONOUS PROGRAMMING
+console.log ("What is your name?");   // execution time: 1/10th of a second
+console.log ("How much is your tunover?");     // execution time: 1/10th of a second
+
+// setTimeout (() => {
+//     console.log ("What is your business here?");   // execution time: 20 secs (or 20000 millisecs)
+// }, 20000)
+
+console.log ("Who are you?");   // execution time: half a second
+console.log ("What's your mission statement?");   // execution time: half a second
+
+/* - Note from the above examples that the callback function is triggered and timed.
+   - The callback function loads only when the set time elapses. Eg 15secs (15000), 22secs (22000), etc. 
+
+   - The setTimeout is a method used to invoke the callback function.
+
+   - JavaScript converts execution times to milliseconds. E.g 15 seconds is coverted to 15000 milliseconds
+                                                              20 seconds is coverted to 20000 milliseconds
+
+   - setTimeout (()=>{
+        console.log ("")  - The setTimeout method sets a timer to execute a function once the timer expires
+     }, 20000)                  This demonstrates the callback function and asynchronous programming
+
+   - In EXAMPLE 3 above, "What is your business here?" defaults to asynchronous programming by using a 
+     setTimeout method to set the execution time of code3 beyond the execution times of codes 4 and 5
+
+   - Notice that no code blocking is involved in asynchronous programming and there was no delay in the 
+     execution of other codes that have shorter execution times.    */
+
+
+/* A TYPICAL INDUSTRY TYPE CALLBACK SCENARIO 
+A typical callback scenario could involve 20 to 100 different operations, many of them nested inside their
+preceding functions; each function calling back the preceding function. 
+
+This typically creates a complex scenario that can drag and stall a program.
+
+Such nested callback functions might create a scenario which in JavaScript is called CALLBACK HELL.
+
+When CALLBACK HELL occurs in JavaScript, the way out of it is to use what is called a PROMISE SYNTAX.
+
+We will look at Promises later but first of all, let us describe a typical callback hell scenario:
+      Task 1 - Fetch 10 videos from Netflix
+      Task 2 - Add the 10 videos to the list of items in the landing page
+      Task 3 - Notify Sales and Admin
+      Task 4 - Let Quality Control check the content of the video and approve before use
+      Task 5 - Let Sales display the goods only after approval from Quality Control
+      Task 6 - Let the CEO give approval before the display of items
+      Task 7 - Notify the Board when it is over
+
+Notice from the above that Task 7 is dependent on Task 6 being completed and Task 6 is dependent om task 5
+before it begins. Task 5 itself has to wait for Task 4 while Task 4 is waiting for Task 3 to be completed.
+Task 3 waits for Task 2 which itself waits for Task 1.
+
+When these tasks are programmed asynchronously, they could get messy. It is called CALLBACK HELL. 
+It is one of the critical challenges that callback functions suffer from. 
+This is because each task is nested inside the preceeding one, from Task 7 right up to Task 1.
+
+The concept of PROMISES helped stop the above challenge. We will look at promises in the next class, but let
+us first of all, try coding a nested callback function. Let us simulate how it works.
+
+We will start by first coding the nested functions synchronously after which we will render the same codes
+asynchronously using the callback functions. Note that most of the tasks above involve making HTTP requests
+or HTTP calls in order to gain access to databases outside the programmers control.
+
+Let us use normal functions to capture these 7 tasks.   
+
+Let us use normal functions to capture these 7 tasks.    */
+
+
+// EXAMPLE 1 - CAPTURING CALLBACK FUNCTIONS USING SYNCHRONOUS CODING
+function task1(){
+    console.log("Fetch 10 videos from Netflix");
+}
+task1();
+
+
+function task2 (){
+    console.log("Add the 10 videos to the list of items in the landing page");
+}
+task2 ();
+
+
+function task3 (){
+    console.log("Notify Sales and Admin");
+}
+task3 ();
+
+
+function task4 (){
+    console.log("Let Quality Control check the content of the video and approve before use");
+}
+task4 ();
+
+
+function task5 (){
+    console.log("Let Sales display the goods only after approval from Quality Control");
+}
+task5 ();
+
+
+function task6 (){
+    console.log("Let the CEO give approval before display of items");
+}
+task6 ();
+
+
+function task7 (){
+    console.log("Notify the Board when it is over");
+}
+task7 ();
+
+
+
+/* EXAMPLE 2a - PERFORMING SIMILAR TASKS VIA NESTED CALLBACK FUNCTIONS   */
+
+function myTask1 (callback){
+    setTimeout (()=>{
+        console.log("Fetch 20 videos from Netflix");
+        callback();
+    }, 100)
+}
+
+
+function myTask2 (callback){
+    setTimeout (()=>{
+        console.log("Add the 20 videos to the list of items in the landing page");
+        callback();
+    }, 300)
+}
+
+
+function myTask3 (callback){
+    setTimeout (()=>{
+        console.log("Notify Sales and Admin again");
+        callback();
+    }, 500)
+}
+
+
+function myTask4 (callback){
+    setTimeout (() =>{
+        console.log("Let Quality Control check the content of the video and approve before use again");
+        callback();
+    }, 700)
+}
+
+
+function myTask5 (callback){
+    setTimeout (() =>{
+        console.log("Let Sales display the goods only after approval from Quality Control again");
+        callback();
+    }, 900)
+}
+
+
+function myTask6 (callback){
+    setTimeout (() =>{
+        console.log("Let the CEO give a 2nd approval before display of items");
+        callback();
+    }, 1100)
+}
+
+
+function myTask7 (callback){
+    setTimeout (() =>{
+        console.log("Notify the Board again when it is completed");
+        callback();
+    }, 1300)
+}
+
+/* The above callback functions are merely declared but not yet called.
+  
+   To call a callback function:  
+        1 - call the function name of the 1st task
+        2 - Nest the 2nd task to the first using an arrow key
+        3 - Nest the 3rd to the 2nd using an arrow key
+        4 - Repeat until the final action is nested
+        5 - console.log the last action and declare its instructions
+        6 - Display the results   */
+
+// NESTED FUNCTION (CALLBACK HELL or PYRAMID OF DOOM) - ASYNCHRONOUS PROGRAMMING 2
+myTask1 (() =>{
+    myTask2 (() =>{
+        myTask3 (() =>{
+            myTask4 (() =>{
+                myTask5 (() =>{
+                    myTask6 (() =>{
+                        myTask7 (() => console.log("Notify the Board again when it is completed"));
+                    })
+                })
+            })
+        })
+    })
+})
+
+// Class Example 2b - Nested Vacation
+/* 
+Step 1: Decide on where to go for vacation
+Step 2: Apply for and obtain visa 
+Step 3: Estimated cost of the vacation
+Step 4: Reservation for flight and accomodation
+Step 5: Departure date
+Step 6: Enjoy the vacation
+Step 7: Return date
+*/
+
+// Demonstration
+function myVacation1 (callback){
+    setTimeout (()=>{
+        console.log("Decide on where to go for vacation");
+        callback();
+    }, 50)
+}
+
+
+function myVacation2 (callback){
+    setTimeout (()=>{
+        console.log("Apply for and obtain visa");
+        callback();
+    }, 100)
+}
+
+function myVacation3 (callback){
+    setTimeout (()=>{
+        console.log("Estimated cost of the vacation");
+        callback();
+    }, 150)
+}
+
+
+function myVacation4 (callback){
+    setTimeout (()=>{
+        console.log("Reservation for flight and accomodation");
+        callback();
+    }, 200)
+}
+
+function myVacation5 (callback){
+    setTimeout (()=>{
+        console.log("Departure date");
+        callback();
+    }, 250)
+}
+
+function myVacation6 (callback){
+    setTimeout (()=>{
+        console.log("Enjoy the vacation");
+        callback();
+    }, 300)
+}
+
+
+function myVacation7 (callback){
+    setTimeout (()=>{
+        console.log("Return date");
+        callback();
+    }, 350)
+}
+
+myVacation1 (() =>{
+    myVacation2 (() => {
+        myVacation3 (() => {
+            myVacation4 (() => {
+                myVacation5 (() => {
+                    myVacation6 (() => {
+                        myVacation7 (() => {
+                            console.log("Return date");
+                        })
+                    })
+                })
+            })
+        })
+    })
+})
+
+// 
+
+// Class Example 2c - Nested - Cloth Design
+/* 
+Step 1: Design selection
+Step 2: Sourcing for fabric
+Step 3: Taking measurement
+Step 4: Cutting of the fabric
+Step 5: Start sewing
+Step 6: Fitness check
+Step 7: Make adjustments
+Step 8: Fitness recheck
+Step 9: Job completed
+Step 10: Packaging and delivery
+Step 11: Payment received
+Step 12: Customer review
+*/
+
+// Demonstration
+function clothDesign1 (cohort){
+    setTimeout (()=>{
+        console.log("Design selection");
+        cohort();
+    }, 400)
+}
+
+function clothDesign2 (cohort){
+    setTimeout (()=>{
+        console.log("Sourcing for fabric");
+        cohort();
+    }, 450)
+}
+
+function clothDesign3 (cohort){
+    setTimeout (()=>{
+        console.log("Taking measurement");
+        cohort();
+    }, 500)
+}
+
+function clothDesign4 (cohort){
+    setTimeout (()=>{
+        console.log("Cutting of the fabric");
+        cohort();
+    }, 550)
+}
+
+function clothDesign5 (cohort){
+    setTimeout (()=>{
+        console.log("Start sewing");
+        cohort();
+    }, 600)
+}
+
+function clothDesign6 (cohort){
+    setTimeout (()=>{
+        console.log("Fitness check");
+        cohort();
+    }, 650)
+}
+
+function clothDesign7 (cohort){
+    setTimeout (()=>{
+        console.log("Make adjustments");
+        cohort();
+    }, 700)
+}
+
+function clothDesign8 (cohort){
+    setTimeout (()=>{
+        console.log("Fitness recheck");
+        cohort();
+    }, 750)
+}
+
+function clothDesign9 (cohort){
+    setTimeout (()=>{
+        console.log("Job completed");
+        cohort();
+    }, 800)
+}
+
+function clothDesign10 (cohort){
+    setTimeout (()=>{
+        console.log("Packaging and delivery");
+        cohort();
+    }, 850)
+}
+
+function clothDesign11 (cohort){
+    setTimeout (()=>{
+        console.log("Payment received");
+        cohort();
+    }, 900)
+}
+
+function clothDesign12 (cohort){
+    setTimeout (()=>{
+        console.log("Customer review");
+        cohort();
+    }, 950)
+}
+
+clothDesign1 (() =>{
+    clothDesign2 (() => {
+        clothDesign3 (() => {
+            clothDesign4 (() => {
+                clothDesign5 (() => {
+                    clothDesign6 (() => {
+                        clothDesign7 (() => {
+                            clothDesign8 (() => {
+                                clothDesign9 (() => {
+                                    clothDesign10 (() => {
+                                        clothDesign11 (() => {
+                                            clothDesign12 (() => console.log("Customer review"))
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+})
+
+//  2d - Grocery Shopping
+/* 
+    Step 1: Make a list of items
+    Step 2: Write out the prices
+    Step 3: Get an estimate 
+    Step 4: Decide on where to go
+    Step 5: Drive to the location
+    Step 6: Do the shopping
+    Step 7: Make payment
+    Step 8: Return home
+*/
+
+function grocery1 (callback){
+    setTimeout (()=>{
+        console.log("Make a list of items");
+        callback();
+    }, 50)
+}
+function grocery2 (callback){
+    setTimeout (()=>{
+        console.log("Write out the prices");
+        callback();
+    }, 100)
+}
+function grocery3 (callback){
+    setTimeout (()=>{
+        console.log("Get an estimate");
+        callback();
+    }, 150)
+}
+function grocery4 (callback){
+    setTimeout (()=>{
+        console.log("Decide on where to go");
+        callback();
+    }, 200)
+}
+function grocery5 (callback){
+    setTimeout (()=>{
+        console.log("Drive to the location");
+        callback();
+    }, 250)
+}
+function grocery6 (callback){
+    setTimeout (()=>{
+        console.log("Do the shopping");
+        callback();
+    }, 300)
+}
+function grocery7 (callback){
+    setTimeout (()=>{
+        console.log("Make payment");
+        callback();
+    }, 350)
+}
+function grocery8 (callback){
+    setTimeout (()=>{
+        console.log("Return home");
+        callback();
+    }, 400)
+}
+
+grocery1 (() => {
+    grocery2(() => {
+        grocery3(() => {
+            grocery4(() => {
+                grocery5 (() => {
+                    grocery6(() => {
+                        grocery6(() => {
+                            grocery7(() => {
+                                grocery8(() => {
+                                    console.log("Return home");
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+})
+
+// Example 2e Grocery Shopping using Method Chaining / Promise - Resolve only
+function grocery9 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Make a list of items");
+        }, 10000)
+    })
+}
+grocery9()
+    .then()
+
+
+// Example using promises:
+
+function clothDesign13 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Design selection");
+        }, 10000)
+    })
+}
+
+function clothDesign14 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Sourcing for fabric");
+        }, 15000)
+    })
+}
+
+function clothDesign15 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Taking measurement");
+        }, 18000)
+    })
+}
+
+function clothDesign16 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Cutting of the fabric");
+        }, 20000)
+    })
+}
+
+function clothDesign17 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Start sewing");
+        }, 22000)
+    })
+}
+
+function clothDesign18 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Fitness check");
+        }, 24000)
+    })
+}
+
+function clothDesign19 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Make adjustments");
+        }, 26000)
+    })
+}
+
+function clothDesign20 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Fitness recheck");
+        }, 28000)
+    })
+}
+
+function clothDesign21 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Job completed");
+        }, 30000)
+    })
+}
+
+function clothDesign22 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Packaging and delivery");
+        }, 32000)
+    })
+}
+
+function clothDesign23 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Payment received");
+        }, 34000)
+    })
+}
+
+function clothDesign24 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Customer review");
+        }, 36000)
+    })
+}
+
+clothDesign13().then(value=>{console.log(value);return "Sourcing for fabric"})
+             .then(value=>{console.log(value);return "Taking measurement"})
+             .then(value=>{console.log(value);return "Cutting of the fabric"})
+             .then(value=>{console.log(value);return "Start sewing"})
+             .then(value=>{console.log(value);return "Fitness check"})
+             .then(value=>{console.log(value);return "Make adjustments"})
+             .then(value=>{console.log(value);return "Fitness recheck"})
+             .then(value=>{console.log(value);return "Job completed"})
+             .then(value=>{console.log(value);return "Packaging and delivery"})
+             .then(value=>{console.log(value);return "Payment received"})
+             .then(value=>{console.log(value);return "Customer review"})
+             .then(value=>{console.log(value);console.log ("Task Completed")});
+
+
+
+
+// EXAMPLE 3A - CAPTURING 12 NESTED CALLBACK FUNCTIONS USING SYNCHRONOUS CODING
+function prepareFood1 (){
+    console.log ("Purchase vegetables");
+}
+prepareFood1 ();
+
+
+function prepareFood2 (){
+    console.log ("Wash the vegetables");
+}
+prepareFood2 ();
+
+
+function prepareFood3 (){
+    console.log ("Chop the vegetables");
+}
+prepareFood3 ();
+
+
+function prepareFood4 (){
+    console.log ("Boil the vegetables");
+}
+prepareFood4 ();
+
+
+function prepareFood5 () {
+    console.log ("Mix the vegetables with salt");
+}
+prepareFood5 ();
+
+
+function prepareFood6 () {
+    console.log ("Add pepper to the vegetables");
+}
+prepareFood6 ();
+
+
+function prepareFood7 () {
+    console.log ("Add water to the vegetables");
+}
+prepareFood7 ();
+
+
+function prepareFood8 () {
+    console.log ("Stir the vegetable mix");
+}
+prepareFood8 ();
+
+
+function prepareFood9 () {
+    console.log ("Boil the vegetable mix");
+}
+prepareFood9 ();
+
+
+function prepareFood10 () {
+    console.log ("Put off the stove");
+}
+prepareFood10 ();
+
+
+function prepareFood11 () {
+    console.log ("Serve the meal");
+}
+prepareFood11 ();
+
+
+function prepareFood12 () {
+    console.log ("Eat the meal");
+}
+prepareFood12 ();
+
+
+
+// EXAMPLE 3B - CAPTURING 12 NESTED CALLBACK FUNCTIONS USING ASYNCHRONOUS CODING
+function myPreparedFood1 (callback){
+    setTimeout (()=>{
+        console.log("Buy the vegetables");
+        callback ();
+    }, 6400)
+}
+
+
+function myPreparedFood2 (callback) {
+    setTimeout (()=>{
+        console.log("Wash the vegetables thoroughly");
+        callback ();
+    }, 200)
+}
+
+
+function myPreparedFood3 (callback) {
+    setTimeout (() =>{
+        console.log("Chop vegetables very well");
+        callback ();
+    }, 400)
+}
+
+
+function myPreparedFood4 (callback) {
+    setTimeout (() =>{
+        console.log("Boil the vegetables for 10 mins only");
+        callback ();
+    }, 600)
+}
+
+
+function myPreparedFood5 (callback) {
+    setTimeout (() =>{
+        console.log("Add a little salt to the vegetables");
+        callback ();
+    }, 800)
+}
+
+
+function myPreparedFood6 (callback){
+    setTimeout (() =>{
+        console.log("Mix the vegetables with a little pepper");
+        callback ();
+    }, 1000)
+}
+
+
+function myPreparedFood7 (callback){
+    setTimeout (() =>{
+        console.log("Add about 1 litre of water");
+        callback ();
+    }, 1200)
+}
+
+
+function myPreparedFood8 (callback) {
+    setTimeout (() =>{
+        console.log("Stir well");
+        callback ();
+    }, 1400)
+}
+
+
+function myPreparedFood9 (callback){
+    setTimeout (()=>{
+        console.log("Boil the vegetable mix");
+        callback ();
+    }, 1600)
+}
+
+
+function myPreparedFood10 (callback){
+    setTimeout (()=>{
+        console.log("Turn off the stove");
+        callback ();
+    }, 1800)
+}
+
+
+function myPreparedFood11 (callback){
+    setTimeout (()=>{
+        console.log("Dish the cooked vegetables");
+        callback ();
+    }, 2000)
+}
+
+
+function myPreparedFood12 (callback){
+    setTimeout (()=>{
+        console.log("Bon Appetit");
+        callback ();
+    }, 2200)
+}
+
+
+myPreparedFood1 (() =>{
+    myPreparedFood2 (() =>{
+        myPreparedFood3 (() =>{
+            myPreparedFood4 (() =>{
+                myPreparedFood5 (() =>{
+                    myPreparedFood6 (() =>{
+                        myPreparedFood7 (() =>{
+                            myPreparedFood8 (() =>{
+                                myPreparedFood9 (() =>{
+                                    myPreparedFood10 (() =>{
+                                        myPreparedFood11 (() =>{
+                                            myPreparedFood12 (() => console.log("Clear the table"));
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
+    })
+
+
+
+// EXAMPLE 4A - CAPTURING NESTED CALLBACK FUNCTIONS USING SYNCHRONOUS CODING - CLASS WORK
+function looseHair (){
+    console.log ("Loose your hair")
+}
+looseHair ();
+
+
+function washHair (){
+    console.log ("Wash your hair")
+}
+washHair ();
+
+
+function blowHair (){
+    console.log ("Blow your hair")
+}
+blowHair ();
+
+
+function dryHair (){
+    console.log ("Dry your hair")
+}
+dryHair ();
+
+
+function straightHair (){
+    console.log ("Straight your hair")
+}
+straightHair ();
+
+
+function braidHair (){
+    console.log ("Braid your hair")
+}
+braidHair ();
+             
+
+
+// EXAMPLE 4B - CAPTURING NESTED CALLBACK FUNCTIONS USING ASYNCHRONOUS CODING
+function looseTheHair (callback) {
+    setTimeout (() =>{
+        console.log("Loose the hair properly");
+        callback ();
+    }, 21100)
+}
+  
+
+function washTheHair (callback) {
+    setTimeout (() =>{
+        console.log("Wash the hair thoroughly");
+        callback ();
+    }, 200)
+}
+
+
+function blowTheHair (callback) {
+    setTimeout (() =>{
+        console.log("Blow the hair well");
+        callback ();
+    }, 400)
+}
+
+
+function dryTheHair (callback) {
+    setTimeout (() =>{
+        console.log("Dry the hair well");
+        callback ();
+    }, 600)
+}
+
+
+function straightTheHair (callback) {
+    setTimeout (() =>{
+        console.log("Straighten the hair");
+        callback ();
+    }, 800)
+}
+
+
+function braidTheHair (callback) {
+    setTimeout (() =>{
+        console.log("Braid the hair meticulously");
+        callback ();
+    }, 1000)
+}
+
+
+looseTheHair (() =>{
+    washTheHair (() =>{
+        blowTheHair (() =>{
+            dryTheHair (() =>{
+                straightTheHair (() =>{
+                    braidTheHair (() => console.log ("Braid the hair meticulously"));
+                })
+            })
+        })
+    })
+})
+
+// 
+
+
+
+/* PROMISES (METHOD CHAINING) - ASYNCHRONOUS PROGRAMMING 3
+In web development, it is typically the job of the web developer to manage asynchronous operations that
+lead to callback hell. When developers continued to have problems with callback hell, the idea of
+promises was developed to remove the complications embedded in nested asynchronous codes.
+
+A PROMISE in JavaScript is an assurance that something will be done to deal with repetitive callbacks.
+That thing that will be done will either resolve or not resolve the issue at stake. Whatever the results
+might be, the promise syntax will display that for the user to see and therefore resolve the asynchronous
+delay.
+
+A promise is therefore an object that manages asynchronous operations, for example:
+     - Query a database
+     - Obtain data from a target database
+     - Fetch a file
+     - etc
+
+These operations typically take an indeterminate amount of time. To deal with this therefore, a developer
+can wrap a promise object around asynchronous code. So what does a promise do?
+
+A promise is used to keep track of an asynchronous event:
+     - Has it been executed?
+     - Has it not been executed?
+     - If it has been executed, has the next activity followed right through?
+
+A promise has four (4) states namely:
+     1 - RESOLVED or FULFILLED; Has the promise been executed?
+     2 - REJECTED; Has the action related to the promise failed?
+     3 - PENDING; Is the promise still pending?
+     4 - SETTLED; Has the promise been fulfilled or rejected?
+
+A promise can be created using a 'promise' constructor
+
+     - When a promise object promises to return a value, that object will be PENDING. 
+
+     - If a promise is executed successfully, It IS RESOLVED. 
+
+     - If a promise fails, it is REJECTED.
+
+What are the things that can cause a promise to fail?:
+     1 - Maybe it could not fetch the file for whatever reasons
+     2 - Maybe the database does not exist anymore
+     3 - Maybe the network is down
+     4 - Maybe that file has been deleted from the database
+     5 - Etc
+
+A promise handles all of these usually using two (2) parameters:
+     1 - RESOLVE
+         or
+     2 - REJECT
+
+Let us look at a typical syntax for a PROMISE. We can use a variable or a function.   */
+
+// LET'S START WITH A NESTED FUNCTION/CALLBACK HELL.
+function performOps1 (callback){
+    setTimeout (()=>{
+        console.log ("Search for Netflix database");
+        callback();
+    }, 25600)
+}
+
+function performOps2 (callback){
+    setTimeout (()=>{
+        console.log ("Located the Netflix database");
+        callback();
+    }, 200)
+}
+
+function performOps3 (callback){
+    setTimeout (()=>{
+        console.log ("Found the video files in the database");
+        callback();
+    }, 400)
+}
+
+function performOps4 (callback){
+    setTimeout (()=>{
+        console.log ("Downloaded the video files");
+        callback();
+    }, 600)
+}
+
+function performOps5 (callback){
+    setTimeout (()=>{
+        console.log ("Organise the downloaded files into an array");
+        callback();
+    }, 800)
+}
+
+function performOps6 (callback){
+    setTimeout (()=>{
+        console.log ("Uploaded the arrayed files");
+        callback();
+    }, 1000)
+}
+
+function performOps7 (callback){
+    setTimeout (()=>{
+        console.log ("Went live");
+        callback();
+    }, 1200)
+}
+
+performOps1 (()=>{
+    performOps2 (()=>{
+        performOps3 (()=>{
+            performOps4 (()=>{
+                performOps5 (()=>{
+                    performOps6 (()=>{
+                        performOps7 (()=> console.log("Went live but network crashed"));
+                    })
+                })
+            })
+        })
+    })
+})
+
+/* Note from the above examples that we have nested 7 asynchronous callback codes and called the functions
+using callback hell. Now let us avoid callback hell and use promises instead. We are going to wrap all the
+asynchronous codes with a promise. Instead of using callbacks, we will use a system known as METHOD-CHAINING.
+
+In other words, we will method-chain our promises. At the end of each object, we will return a new promise
+object with resolve and reject options.  */
+
+
+
+/* Named functions, Unnamed (Anonymous or UnHoisted) Functions as well as Arrow Functions are all executed by the browser and JavaScript in a SYNCHRONOUS manner.
+
+Named Functions are also known as Hoisted Functions.
+
+This is because the function is named at the point of initialization so it is stored in the system with its name. This is known as HOISTING.
+
+Unnamed Functions are declared using a variable and so their names are not stored as functions names but as variable names.
+
+So when they are to be called, they are called anonymously, using the variables names
+This is what makes them anonymous
+
+It is also what makes them UNHOISTED
+
+They are UNHOISTED because their function names are not stored at initialization.
+
+Note that JavaScript is an event-driven and a SYNCHRONOUS Scripting Language.
+
+It is event-driven because its behavior is driven by 2 major event types
+Events initiated from a mouse
+
+2. Events initiated from a keyboard
+
+Examples of keyboard-driven events include
+Press Enter Key
+Press Space Key
+Key Down
+Key Press
+Etc
+
+Examples of Mouse -driven events include
+hover
+click
+double click
+Etc
+
+
+JavaScript is also a SyYNCHRONOUS Language
+
+By "synchronous", we mean that JavaScript executes its code in a sequential and a linear manner
+
+If there are 10 lines of code, JavaScript will firsty, execute code in line 1, before proceeding to line 2. It will finish executing code in line 2 before proceeding code in line 3. And it will continue to execute every line of code in a sequential or linear until it gets to code in line 10
+
+Then it stops.
+
+This method of execution of code is beautiful and predictive. It is also logical and sequential
+
+However, in real life, code execution does not play out that sequentially.
+
+Code 1 might take 2 seconds to execute while code 2 takes 5 seconds to execute. Code 3 might take 1000 seconds to execute. 1000 seconds is a long time in programming.
+
+What this means is that code 4, 5, 6, 7, 8, 9 and 10 will wait for 1000 seconds before they can be executed.
+
+This blocks code 4 and others after it from being executed in a timely manner.
+
+It is known as Code Blocking.
+
+In other words, Synchronous programming creates a problem known as CODE BLOCKING.
+
+To solve that problem, programmers created a new type of function known as CALL BACK FUNCTION.
+
+Using Call Back Functions, JavaScript programmers are able to bypass the delay that code number 3 would cause
+
+The call function simply transfers the code execution in line 3 to another part of the browser
+
+And enables JavaScript to proceed to code number 4.
+
+Anytime that code number 3 finishes executing, the call back function will call itself and notify the browser / JavaScript and the result will instantly be added to the code output.
+
+Using callback functions, JavaScript i able to solve the problem of code blocking brought about by synchronous programming.
+
+The process whereby JavaScript temporarily suspends its linear code execution to transfer a line of code to another pRT OF THE BROWSER TO EXECUTE IS KN OWN AS asynchronous programming.
+
+Asynchronous Programming solved the problem of Code Blocking.
+
+Call Back, because of its asynchronous approach to code execution had helped solve a major problem
+
+But is also created a new one one
+
+For Example
+Assuming we have the following lines of code to execute
+1. Go to the house
+2. Clean the house
+3. Arrange the furniture
+4. Wash the dishes
+5. Clean the floor
+6. Leave the house
+7. Lock the door of the house
+8. Return the key to me
+
+The above example demonstrates a series of activities or functions each of which is dependent on the other for execution
+For example 
+Code 1 - go to the house is the first code.
+Code 2 - Clean the house, cannot be executed until the primary actor goes to the house
+In other words, code 2 is dependent or nested inside of code 1
+Code 3 is nested inside of code 2
+Code 4 is nested inside of code 3 etc
+
+So as great as Call back functions are, they are not structured to deal with Nested Functions.
+
+Sometimes, there could be as many as 2000 nested functions, each one nested inside its preceeding one.
+
+This created a new kind of problem which CALLBACK functions are incapable of solving.
+
+The problem created by nested functions in call back is known in JavaScript as CALL BACK HELL. It is also called PYRAMMID OF DOOM. 
+
+Callback Hell / Pyramid of Doom was such a big problem for JavaScript programmers because of bugs and endless loops created when JavaScript is forced to execute codes that sit inside of codes which themselves, are nested inside of preceding lines of code.
+
+To solve this problem, JavaScript programmers created a new solution called PROMISES.
+
+Promises helped to solve the problem of callback hell/ Pyramid of doom. It did so by giving JavaScript the option to either RESOLVE a code execution problem or to REJECT executing the code because it could not obtain the required data or file. In other words, JavaScript, through promises, is faced with a Boolean or Binary choice - RESOLVE if the option is true or REJECT if the option is false.
+
+When the function / variable that is created is called, it uses an approach / syntax called METHOD-CHAINING. Through this method, the entire process of callback hell / Pyramid of doom is bypassed and the problem is solved.
+
+A promise in JavaScript is like a proxy for a value that is not known when it is created. It is an object
+that represents the eventual resolution or rejection of an asynchronous operation and its resulting value.
+
+Promises can either be:
+     1 - Resolve
+         or
+     2 - Reject
+
+Sometimes, promises are resolved through a process known as METHOD CHAINING.
+Method Chaining is a method used in JavaScript to write more concise, more readable and shorter codes.
+In Method Chaining, we call separate methods of a simple object like a chain without asigning the same object.
+
+Method Chaining works well when we use asynchronous functions with promises. 
+
+PROMISES can be coded using:
+      1 - then
+      2 - catch
+      3 - finally
+
+These are methods used to associate further actions with promises that are become settled.
+
+The 'then' method takes up to two (2) arguments:
+      1 - A callback function for the fulfilled case of the promise (resolve)
+      2 - A callback function for the rejected case of the promise (reject)
+
+The 'catch' or 'finally' methods call 'then' internally and makes error handling less verbose. 
+In other words, a 'catch' is really a 'then' method but without passing the fulfillment handle. 
+
+If the initial promise is fulfilled, the fulfilment handler (resolve) is called with the fulfillment value. 
+If the initial value is rejected, the rejection handler (reject) is called with the rejection reason.
+ */
+/* 
+Activities / Steps - Preparing for an Exam:
+(1) Decide on the choice of exam
+(2) Obtain the syllabus
+(3) Purchase of books
+(4) Study
+(5) Review and answer past questions
+(6) Test yourself
+(7) Decide if you're ready
+(8) Perform final review
+(9) Sit for the exam
+(10) Obtain result
+
+*/
+
+
+// EXAMPLE 1a (PROMISES) - USING ONLY THE RESOLVE PROMISE OPTION, DECLARING AND CALLING ALL THE TEN FUNCTIONS USING METHOD CHAINING
+function examPrep1 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide on the choice of exam1");
+        }, 100)
+    })
+}
+
+function examPrep2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Obtain the syllabus1");
+        }, 150)
+    })
+}
+
+function examPrep3 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Purchase books1");
+        }, 200)
+    })
+}
+
+function examPrep4 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Study1");
+        }, 250)
+    })
+}
+
+function examPrep5 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Review and answer past questions1");
+        }, 300)
+    })
+}
+
+function examPrep6(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Test yourself1");
+        }, 350)
+    })
+}
+
+function examPrep7(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide if you're ready1");
+        }, 400)
+    })
+}
+
+function examPrep8(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Perform final review1");
+        }, 400)
+    })
+}
+
+function examPrep9(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Sit for Exam1");
+        }, 400)
+    })
+}
+function examPrep10(){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Obtain result1");
+        }, 400)
+    })
+}
+
+examPrep1().then(value=>{console.log(value);return "Obtain the syllabus1"})
+             .then(value=>{console.log(value);return "Purchase of books1"})
+             .then(value=>{console.log(value);return "Study1"})
+             .then(value=>{console.log(value);return "Review and answer past questions1"})
+             .then(value=>{console.log(value);return "Test yourself1"})
+             .then(value=>{console.log(value);return "Decide if you're ready1"})
+             .then(value=>{console.log(value);return "Perform final review1"})
+             .then(value=>{console.log(value);return "Sit for Exam1"})
+             .then(value=>{console.log(value);return "Obtain result1"})
+             .then(value=>{console.log(value);console.log ("Task Completed")});
+
+/* In above example, examPrep1 points to examPrep2 and renders a new message "Obtain the syllabus"
+                     examPrep2 points to examPrep3 and renders a new message "Purchase of books"
+                     examPrep3 points to examPrep4 and renders a new message "Study"
+                     examPrep4 points to examPrep5 and renders a new message "Review and answer past questions"
+                     examPrep5 points to examPrep6 and renders a new message "Test yourself"
+                     examPrep6 points to examPrep7 and renders a new message "Decide if you're ready"   
+                     examPrep7 points to examPrep8 and renders a new message "Perform final review"   
+                     examPrep8 points to examPrep9 and renders a new message "Sit for Exam"   
+                     examPrep9 points to examPrep10 and renders a new message "Obtain result"
+                     examPrep10 points to the concluding message "Task Completed"
+                     */
+// EXAMPLE 1B (PROMISES) - USING ONLY THE RESOLVE PROMISE OPTION AND DECLARING ONLY THE FIRST FUNCTION BUT CALLING THE TEN OF THEM THROUGH METHOD CHAINING. THE RESULT WILL BE THE SAME AS 1A. THIS IS A SHORTER METHOD FOR EXECUTING PROMISES AND METHOD CHAINING.
+
+function examPrep1 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            resolve ("Decide on the choice of exam2");
+        }, 100)
+    })
+}
+
+examPrep1().then(value=>{console.log(value);return "Obtain the syllabus2"})
+             .then(value=>{console.log(value);return "Purchase of books2"})
+             .then(value=>{console.log(value);return "Study2"})
+             .then(value=>{console.log(value);return "Review and answer past questions2"})
+             .then(value=>{console.log(value);return "Test yourself2"})
+             .then(value=>{console.log(value);return "Decide if you're ready2"})
+             .then(value=>{console.log(value);return "Perform final review2"})
+             .then(value=>{console.log(value);return "Sit for Exam2"})
+             .then(value=>{console.log(value);return "Obtain result2"})
+             .then(value=>{console.log(value);console.log ("Task Completed2")});
+
+
+
+// EXAMPLE 2A - USING BOTH RESOLVE & REJECT PROMISE OPTIONS (This will involve using "if else" statement)
+function examPrep11 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const choiceOfExam = true;
+            if (choiceOfExam){
+                resolve ("I decided on the choice of exam");
+            }
+            else{
+                reject ("I did not decide on the choice of exam");
+            }
+        }, 500);
+    });
+}
+
+
+function examPrep12 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const obtainedSyllabus = false;
+            if (obtainedSyllabus){
+                resolve ("I obtained the syllabus");
+            }
+            else{
+                reject ("I did not obtain the syllabus");
+            }
+        }, 600);
+    });
+}
+
+
+function examPrep13 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const purchaseBook = false;
+            if (purchaseBook) {
+                resolve ("I purchased books");
+            }
+            else {
+                reject ("I did not purchase books");
+            }
+        }, 700);
+    });
+}
+
+function examPrep14 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const study = false;
+            if (study) {
+                resolve ("I studied");
+            }
+            else {
+                reject ("I did not study");
+            }
+        }, 700);
+    });
+}
+
+function examPrep15 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const questionReview = false;
+            if (questionReview) {
+                resolve ("I reviewed and answered past questions");
+            }
+            else {
+                reject ("I did not review past questions");
+            }
+        }, 700);
+    });
+}
+
+function examPrep16 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const testSelf = false;
+            if (testSelf) {
+                resolve ("I tested myself");
+            }
+            else {
+                reject ("I did not test myself");
+            }
+        }, 700);
+    });
+}
+
+function examPrep17 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const testSelf = false;
+            if (testSelf) {
+                resolve ("I decided if i'm ready");
+            }
+            else {
+                reject ("I'm not sure that i am ready");
+            }
+        }, 700);
+    });
+}
+
+function examPrep18 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const finalReview = false;
+            if (finalReview) {
+                resolve ("I did a final review");
+            }
+            else {
+                reject ("I did not do a final review");
+            }
+        }, 700);
+    });
+}
+
+function examPrep19 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const exam = false;
+            if (exam) {
+                resolve ("I sat for exam");
+            }
+            else {
+                reject ("I did not sit for exam");
+            }
+        }, 700);
+    });
+}
+
+function examPrep20 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const obtainResult = false;
+            if (obtainResult) {
+                resolve ("I obtained my result");
+            }
+            else {
+                reject ("I did not obtain my result");
+            }
+        }, 700);
+    });
+}
+
+examPrep11 ().then(value=>{console.log(value);return "I obtained the syllabus"})
+               .then(value=>{console.log(value);return "I purchased books"})
+               .then(value=>{console.log(value); console.log ("I studied")})
+               .then(value=>{console.log(value); console.log ("I reviewed past questions")})
+               .then(value=>{console.log(value); console.log ("I tested myself")})
+               .then(value=>{console.log(value); console.log ("I decided i was ready")})
+               .then(value=>{console.log(value); console.log ("I performed final review")})
+               .then(value=>{console.log(value); console.log ("I sat for the exam")})
+               .then(value=>{console.log(value); console.log ("I obtained my result")})
+               .catch(error => console.error(error));
+
+ 
+
+// EXAMPLE 2B - USING BOTH THE RESOLVE AND THE REJECT PROMISE OPTIONS (This will involve using "if else" statement)
+function performOps18 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const netflixDatabase = false;
+            if (netflixDatabase){
+                resolve ("I accessed Netflix database");
+            }
+            else{
+                reject ("I did not access Netflix database");
+            }
+        }, 800);
+    });
+}
+
+
+function performOps19 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const downloadVideo = true;
+            if (downloadVideo) {
+                resolve ("I downloaded the video");
+            }
+            else {
+                reject ("I did not download the video");
+            }
+        }, 900);
+    });
+}
+
+function performOps20 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            const installedVideo = true;
+            if (installedVideo) {
+                resolve ("I installed the video");
+            }
+            else {
+                reject ("I did not install the video");
+            }
+        }, 1000);
+    });
+}
+
+performOps18().then(value=>{console.log(value);return "I downloaded the video"})
+              .then(value=>{console.log(value);return "I installed the video"})
+              .then(value=>{console.log(value); console.log ("I concluded the process")})
+              .catch(error=>console.error(error));
+     
+
+
+/* FURTHER NOTES ON PROMISES (RESOLVE AND REJECT)
+NB: In EXAMPLES 2A & 2B above, we used a promise to deal with the problems in Callback Hell/ Pyramid of Doom.
+
+A promise in JavaScript is like a proxy for a value that is not known when it is created. It is an object
+that represents the eventual resolution or rejection of an asynchronous operation and its resulting value.
+
+Promises can either be:
+     1 - Resolve
+         or
+     2 - Reject
+
+Sometimes, promises are resolved through a process known as METHOD CHAINING.
+Method Chaining is a method used in JavaScript to write more concise, more readable and shorter codes.
+In Method Chaining, we call separate methods of a simple object like a chain without asigning the same object.
+
+Method Chaining works well when we use asynchronous functions with promises. 
+
+PROMISES can be coded using:
+      1 - then
+      2 - catch
+      3 - finally
+
+These are methods used to associate further actions with promises that are become settled.
+
+The 'then' method takes up to two (2) arguments:
+      1 - A callback function for the fulfilled case of the promise (resolve)
+      2 - A callback function for the rejected case of the promise (reject)
+
+The 'catch' or 'finally' methods call 'then' internally and makes error handling less verbose. 
+In other words, a 'catch' is really a 'then' method but without passing the fulfillment handle. 
+
+If the initial promise is fulfilled, the fulfilment handler (resolve) is called with the fulfillment value. 
+If the initial value is rejected, the rejection handler (reject) is called with the rejection reason.
+
+These features lead us to async/await.
+
+
+
+ASYNCHRONOUS PROGRAMMING - ASYNC/AWAIT 
+These are JavaScript keywords which when used together, provide a declarative way to define asynchronous 
+functions and use their results. 
+
+When used together, Async/Await simplify the syntax necessary to deliver a promise-based API.
+
+The 'await' keyword is used inside an async function to pause its execution and wait for a promise to 
+resolve before continuing.
+
+Async makes a function to return a promise. 
+Await makes an async function to wait for a promise.
+
+Both are usually used together. 
+When used together, these two keywords enable a programmer to write an asynchronous code in a synchronous manner. */
+
+
+// EXAMPLE 1 - ASYNC/AWAIT
+function searchDatabase (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let databaseSearched = true;
+            if (databaseSearched){
+                resolve ("I successfully searched the database");
+            }
+            else {
+                reject ("I could not search the database");
+            }
+        }, 4000);
+    });
+}
+
+function obtainedVideos (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let videosProcured = true;
+            if (videosProcured){
+                resolve ("I successfully obtained the videos");
+            }
+            else {
+                reject ("I did not obtain the videos");
+            }
+        }, 100);
+    });
+}
+
+function uploadedVideos (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let videosInstalled = true;
+            if (videosInstalled){
+                resolve ("I successfully uploaded the videos");
+            }
+            else {
+                reject ("I did not upload the videos");
+            }
+        }, 200);
+    });
+}
+
+async function databaseOps (){
+    const searchDatabaseOutput = await searchDatabase ();
+    console.log (searchDatabaseOutput);
+
+    const obtainedVideosOutput = await obtainedVideos ();
+    console.log (obtainedVideosOutput);
+
+    const uploadedVideosOutput = await uploadedVideos ();
+    console.log (uploadedVideosOutput);
+
+    console.log ("Operations Concluded")
+}
+databaseOps ();
+
+
+
+// EXAMPLE 2 - ASYNC/AWAIT
+function selectCreditCard (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let creditCardSelected = true;
+            if (creditCardSelected){
+                resolve ("I successfully selected a credit card");
+            }
+            else {
+                reject ("I did not select a credit card");
+            }
+        }, 4500);
+    });
+}
+
+function validatedCreditCard (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let creditCardValidated = true;
+            if (creditCardValidated){
+                resolve ("I successfully validated the credit card number");
+            }
+            else {
+                reject ("I could not validate the credit card number");
+            }
+        }, 100);
+    });
+}
+
+function returnedCreditCard (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let creditCardReturned = true;
+            if (creditCardReturned){
+                resolve ("I returned the credit card");
+            }
+            else {
+                reject ("I did not return the credit card");
+            }
+        }, 200);
+    });
+}
+
+async function creditCardOps (){
+    let selectCreditCardOutput = await selectCreditCard ();
+    console.log (selectCreditCardOutput);
+
+    let validatedCreditCardOutput = await validatedCreditCard ();
+    console.log (validatedCreditCardOutput);
+
+    let returnedCreditCardOutput = await returnedCreditCard ();
+    console.log (returnedCreditCardOutput);
+
+    console.log ("Operations Completed")
+}
+creditCardOps ();
+
+
+
+// EXAMPLE 3 - ASYNC/AWAIT
+function fixTheCar (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let carFixed = true;
+            if (carFixed){
+                resolve ("I fixed the car");
+            }
+            else {
+                reject ("I did not fix the car");
+            }
+        }, 5000);
+    });
+}
+
+function testTheCar (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let carTested = true;
+            if (carTested){
+                resolve ("I tested the car");
+            }
+            else {
+                reject ("I did not test the car");
+            }
+        }, 100);
+    });
+}
+
+function returnedTheCar (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let carReturned = false;
+            if (carReturned){
+                resolve ("I returned the car");
+            }
+            else {
+                reject ("I did not return the car");
+            }
+        }, 200);
+    });
+}
+
+async function carRepair (){
+try{
+    let fixTheCarResult = await fixTheCar ();
+    console.log (fixTheCarResult);
+
+    let testTheCarResult = await testTheCar ();
+    console.log (testTheCarResult);
+
+    let returnedTheCarResult = await returnedTheCar ();
+    console.log (returnedTheCarResult);
+
+    console.log ("Car Repair Concluded")
+}
+catch (error){
+    console.error (error);
+}
+    }
+carRepair ();
+
+
+/* ASYNCHRONOUS PROGRAMMING - ASYNC/AWAIT 
+These are JavaScript keywords which when used together, provide a declarative way to define asynchronous 
+functions and use their results. 
+
+When used together, Async/Await simplify the syntax necessary to deliver a promise-based API.
+
+The 'await' keyword is used inside an async function to pause its execution and wait for a promise to 
+resolve before continuing.
+
+Async makes a function to return a promise. 
+Await makes an async function to wait for a promise.
+
+Both are usually used together. 
+When used together, these two keywords enable a programmer to write an asynchronous code in a synchronous manner. */
+
+// EXAMPLE 1A - ASYNC/AWAIT
+/*
+Steps - On-campus Accomodation
+(1) Apply online
+(2) Submit personal documents
+(3) Make payment through teller
+(4) Wait for list
+(5) Check for hall and room number
+(6) Move in on resumption date
+(7) Operation completed
+
+*/  
+
+function appliedOnline (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let appliedOnline = true;
+            if (appliedOnline){
+                resolve ("I successfully applied online");
+            }
+            else {
+                reject ("I did not apply online");
+            }
+        }, 4000);
+    });
+}
+
+function submittedPersonalDocument (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let submittedPersonalDocument = true;
+            if (submittedPersonalDocument){
+                resolve ("I submitted my personal documents");
+            }
+            else {
+                reject ("I did not submit my personal documents");
+            }
+        }, 4500);
+    });
+}
+
+
+function madePayment (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let madePayment = true;
+            if (madePayment){
+                resolve ("I made payment through teller");
+            }
+            else {
+                reject ("I did not make payment through teller");
+            }
+        }, 5000);
+    });
+}
+
+function waitedForList (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let waitedForList = true;
+            if (waitedForList){
+                resolve ("I waited for the list of successful candidates");
+            }
+            else {
+                reject ("I did not wait for the list of successful candidates");
+            }
+        }, 5500);
+    });
+}
+
+function hallCheck (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let hallCheck = true;
+            if (hallCheck){
+                resolve ("I checked for my hall and room number");
+            }
+            else {
+                reject ("I did not check for my hall and room number");
+            }
+        }, 6000);
+    });
+}
+
+function movedIn (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let movedIn = true;
+            if (movedIn){
+                resolve ("I moved into my room on campus");
+            }
+            else {
+                reject ("I did not move into my room on campus");
+            }
+        }, 6500);
+    });
+}
+
+function operationCompleted (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let operationCompleted = true;
+            if (operationCompleted){
+                resolve ("Operation is complete");
+            }
+            else {
+                reject ("Operation is still pending");
+            }
+        }, 7000);
+    });
+}
+
+async function accomodation (){
+    const appliedOnlineResult = await appliedOnline ();
+    console.log (appliedOnlineResult);
+
+    const submittedPersonalDocumentResult = await submittedPersonalDocument ();
+    console.log (submittedPersonalDocumentResult);
+
+    const madePaymentResult = await madePayment ();
+    console.log (madePaymentResult);
+
+    const waitedForListResult = await waitedForList ();
+    console.log (waitedForListResult);
+
+    const hallCheckResult = await hallCheck ();
+    console.log (hallCheckResult);
+
+    const movedInResult = await movedIn ();
+    console.log (movedInResult);
+
+    console.log ("Operations Concluded")
+}
+accomodation ();
+
+// Example 1B
+function appliedOnline (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let appliedOnline = true;
+            if (appliedOnline){
+                resolve ("I successfully applied online");
+            }
+            else {
+                reject ("I did not apply online");
+            }
+        }, 4000);
+    });
+}
+
+function submittedPersonalDocument (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let submittedPersonalDocument = true;
+            if (submittedPersonalDocument){
+                resolve ("I submitted my personal documents");
+            }
+            else {
+                reject ("I did not submit my personal documents");
+            }
+        }, 4500);
+    });
+}
+
+
+function madePayment (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let madePayment = true;
+            if (madePayment){
+                resolve ("I made payment through teller");
+            }
+            else {
+                reject ("I did not make payment through teller");
+            }
+        }, 5000);
+    });
+}
+
+function waitedForList (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let waitedForList = true;
+            if (waitedForList){
+                resolve ("I waited for the list of successful candidates");
+            }
+            else {
+                reject ("I did not wait for the list of successful candidates");
+            }
+        }, 5500);
+    });
+}
+
+function hallCheck (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let hallCheck = true;
+            if (hallCheck){
+                resolve ("I checked for my hall and room number");
+            }
+            else {
+                reject ("I did not check for my hall and room number");
+            }
+        }, 6000);
+    });
+}
+
+function movedIn (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let movedIn = false;
+            if (movedIn){
+                resolve ("I moved into my room on campus");
+            }
+            else {
+                reject ("I did not move into my room on campus");
+            }
+        }, 6500);
+    });
+}
+
+function operationCompleted (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let operationCompleted = true;
+            if (operationCompleted){
+                resolve ("Operation is complete");
+            }
+            else {
+                reject ("Operation is still pending");
+            }
+        }, 7000);
+    });
+}
+
+async function accomodation (){
+    try{
+        const appliedOnlineResult = await appliedOnline ();
+        console.log (appliedOnlineResult);
+
+        const submittedPersonalDocumentResult = await submittedPersonalDocument ();
+        console.log (submittedPersonalDocumentResult);
+
+        const madePaymentResult = await madePayment ();
+        console.log (madePaymentResult);
+
+        const waitedForListResult = await waitedForList ();
+        console.log (waitedForListResult);
+
+        const hallCheckResult = await hallCheck ();
+        console.log (hallCheckResult);
+
+        const movedInResult = await movedIn ();
+        console.log (movedInResult);
+
+        console.log ("Operations Concluded")
+    }
+    catch (error){
+        console.error (error);
+    }
+}
+accomodation (); 
+
+// Example 1C - Class Work 1
+/* 
+
+TITLE: HOW TO MAKE PEPPER-SOUP
+(1) Decide on the type of pepper soup
+(2) Make a list
+(3) Decide the market
+(4) Buy Ingredients
+(5) Prepare and wash the ingredients
+(6) Put all the ingredients in a pot
+(7) Start cooking / set cooking time
+(8) Allow to cook for 40 to 50 minutes
+(9) Lower the heat and allow to simmer
+(10) Dish out
+(11) Serve
+(12) Operation completed.
+
+*/
+
+function pepperSoupType (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let pepperSoupTypeDecision = true;
+            if (pepperSoupTypeDecision){
+                resolve ("I decided on the type of pepper soup");
+            }
+            else {
+                reject ("I did not decide on the type of pepper soup");
+            }
+        }, 500);
+    });
+}
+
+function ingredientsList (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let makeList = true;
+            if (makeList){
+                resolve ("I wrote a list of ingredients");
+            }
+            else {
+                reject ("I did not write a list of Ingredients");
+            }
+        }, 1000);
+    });
+}
+
+function decideMarket (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let marketDecide = true;
+            if (marketDecide){
+                resolve ("I decided on which market to shop in");
+            }
+            else {
+                reject ("I do not know which market to shop in");
+            }
+        }, 1500);
+    });
+}
+
+function buyIngredients (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let purchaseIngredients = true;
+            if (purchaseIngredients){
+                resolve ("I purchased all the ingredients");
+            }
+            else {
+                reject ("I did not purchase all ingredients");
+            }
+        }, 2000);
+    });
+}
+
+function prepareAndWash (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let prepareIngredients = true;
+            if (prepareIngredients){
+                resolve ("I prepared and washed all the ingredients");
+            }
+            else {
+                reject ("I did not prepare and wash all the ingredients");
+            }
+        }, 2500);
+    });
+}
+
+function inAPot (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let allIngredientsInAPot = true;
+            if (allIngredientsInAPot){
+                resolve ("I added all the ingredients in a pot");
+            }
+            else {
+                reject ("I did not add all the ingredients in a pot");
+            }
+        }, 3000);
+    });
+}
+
+function startCooking (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let cookingBegins = true;
+            if (cookingBegins){
+                resolve ("I started cooking");
+            }
+            else {
+                reject ("I did not start cooking");
+            }
+        }, 3500);
+    });
+}
+
+function cookingTime (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let cookingTimeSet = true;
+            if (cookingTimeSet){
+                resolve ("I set the time for cooking");
+            }
+            else {
+                reject ("I did not set the time for cooking");
+            }
+        }, 4000);
+    });
+}
+
+function lowerHeat (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let lowHeat = true;
+            if (lowHeat){
+                resolve ("I lowered the heat");
+            }
+            else {
+                reject ("I did not lower the heat");
+            }
+        }, 4500);
+    });
+}
+
+function dishOut (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let dishItOut = true;
+            if (dishItOut){
+                resolve ("I dished out the pepper soup");
+            }
+            else {
+                reject ("I did not dish out the pepper soup");
+            }
+        }, 5000);
+    });
+}
+
+function serveMeal (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let servePepperSoup = true;
+            if (servePepperSoup){
+                resolve ("I served the pepper soup");
+            }
+            else {
+                reject ("I did not serve the pepper soup");
+            }
+        }, 5500);
+    });
+}
+
+function operationCompleted (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let completedOperation = true;
+            if (completedOperation){
+                resolve ("Cooking completed");
+            }
+            else {
+                reject ("Cooking not completed");
+            }
+        }, 6000);
+    });
+}
+
+
+async function pepperSoupPreparation (){
+    try{
+        const pepperSoup = await pepperSoupType ();
+        console.log (pepperSoup);
+
+        const ingredients = await ingredientsList ();
+        console.log (ingredients);
+
+        const decide = await decideMarket ();
+        console.log (decide);
+
+        const buy = await buyIngredients ();
+        console.log (buy);
+
+        const prepare = await prepareAndWash ();
+        console.log (prepare);
+
+        const putInPot = await inAPot ();
+        console.log (putInPot);
+
+        const cook = await startCooking ();
+        console.log (cook);
+
+        const cookTime = await cookingTime ();
+        console.log (cookTime);
+
+        const lowHeat = await lowerHeat ();
+        console.log (lowHeat);
+
+        const dishIt = await dishOut ();
+        console.log (dishIt);
+
+        const serve = await serveMeal ();
+        console.log (serve);
+
+        const complete = await operationCompleted ();
+        console.log(complete);
+    } catch (err){
+        console.log(err);
+    }
+}
+pepperSoupPreparation ();
+
+
+// EXAMPLE 1C - CLASSWORK 2
+/* 
+TITLE: COMPANY - WORKERS BIO
+
+*/
+ 
+function workersBio () {
+    return new Promise((resolve, reject) => {
+        const isWorkers = true;
+        
+        setTimeout(() => {
+            const workersData = {
+                name: "Mr Ndubuisi",
+                role: "Software Developer",
+                department: "IT"
+            }
+
+            if (isWorkers){
+                resolve (workersData);
+            }
+            else {
+                reject ("Could not find worker");
+            }
+
+        }, 5000)
+    })
+}
+
+function workersBio1 () {
+    return new Promise((resolve, reject) => {
+        const isWorkers = true;
+        
+        setTimeout(() => {
+            const workersData = {
+                name: "Mr Chiemezie",
+                role: "Accountant",
+                department: "IT"
+            }
+
+            if (isWorkers){
+                resolve (workersData);
+            }
+            else {
+                reject ("Could not find worker");
+            }
+
+        }, 5000)
+    })
+}
+
+async function checkWorkers (){
+    try{
+        const worker1 = await workersBio ();
+        console.log (worker1);
+
+        const worker2 = await workersBio1();
+        console.log(worker2);
+
+    } catch (err){
+        console.log(err);
+    }
+}
+checkWorkers ();
+ 
+// Example 1C - Class Work 3
+/* 
+
+TITLE: How to farm 
+(1) Decide on the crop to farm
+(2) Land preparation
+(3) Get the seeds
+(4) Go plant the seeds
+(5) Weed the farm
+(6) Apply fertilizer
+(7) Weed the second time
+(8) Allow to mature and ripen
+(9) Harvest
+(10) Post harvest processing
+(11) packaging and storing
+(12) Sales
+(13) Operations completed
+
+*/
+
+function cropType (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let cropTypeDecision = true;
+            if (cropTypeDecision){
+                resolve ("I decided on the type of crop to farm");
+            }
+            else {
+                reject ("I did not decide on the type of crop to farm");
+            }
+        }, 500);
+    });
+}
+
+function prepareLand (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let landPreparation = true;
+            if (landPreparation){
+                resolve ("I got the land prepared");
+            }
+            else {
+                reject ("I did not get the land prepared");
+            }
+        }, 1000);
+    });
+}
+
+function getSeeds (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let getMaizeSeed = true;
+            if (getMaizeSeed){
+                resolve ("I got the maize seeds");
+            }
+            else {
+                reject ("I do not get the maize seeds");
+            }
+        }, 1500);
+    });
+}
+
+function plantSeeds (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let plantTheSeed = true;
+            if (plantTheSeed){
+                resolve ("I planted the maize seeds");
+            }
+            else {
+                reject ("I did not plant the maize seeds");
+            }
+        }, 2000);
+    });
+}
+
+function firstFarmWeeding (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let firstWeeding = true;
+            if (firstWeeding){
+                resolve ("I did the first weeding");
+            }
+            else {
+                reject ("I did not do the first weeding");
+            }
+        }, 2500);
+    });
+}
+
+function fertilizerApplication (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let applyFertilizer = true;
+            if (applyFertilizer){
+                resolve ("I applied fertilizer on the farm");
+            }
+            else {
+                reject ("I did not apply fertilizer on the farm");
+            }
+        }, 3000);
+    });
+}
+
+function secondFarmWeeding (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let secondWeeding = true;
+            if (secondWeeding){
+                resolve ("I did the second weeding");
+            }
+            else {
+                reject ("I did not do the second weeding");
+            }
+        }, 3500);
+    });
+}
+
+function allowToMature (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let matureAndRipen = true;
+            if (matureAndRipen){
+                resolve ("I allowed the maize to mature and ripen");
+            }
+            else {
+                reject ("I did not allow the maize to mature and ripen");
+            }
+        }, 4000);
+    });
+}
+
+function harvest (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let harvestTime = true;
+            if (harvestTime){
+                resolve ("I harvested the maize");
+            }
+            else {
+                reject ("I did not harvest the maize");
+            }
+        }, 4500);
+    });
+}
+
+function postHarvest (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let postHarvestProcessing = true;
+            if (postHarvestProcessing){
+                resolve ("I processed the harvest");
+            }
+            else {
+                reject ("I did not process the harvest");
+            }
+        }, 5000);
+    });
+}
+
+function packaging (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let maizePackaging = true;
+            if (maizePackaging){
+                resolve ("I packaged the maize for sales");
+            }
+            else {
+                reject ("I did not package the maize for sales");
+            }
+        }, 5500);
+    });
+}
+
+function sales (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let soldMaize = true;
+            if (soldMaize){
+                resolve ("I sold the maize");
+            }
+            else {
+                reject ("I did not sell the maize");
+            }
+        }, 6000);
+    });
+}
+
+function operationCompleted (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let completed = true;
+            if (completed){
+                resolve ("Operation is complete");
+            }
+            else {
+                reject ("Operation is not complete");
+            }
+        }, 6500);
+    });
+}
+
+
+async function maizeFarming (){
+    try{
+        const crop = await cropType ();
+        console.log (crop);
+
+        const prepareL = await prepareLand ();
+        console.log (prepareL);
+
+        const seeds = await getSeeds ();
+        console.log (seeds);
+
+        const plantSeed = await plantSeeds ();
+        console.log (plantSeed);
+
+        const firstWeed = await firstFarmWeeding ();
+        console.log (firstWeed);
+
+        const fertilizer = await fertilizerApplication ();
+        console.log (fertilizer);
+
+        const secondWeed = await secondFarmWeeding ();
+        console.log(secondWeed);
+
+        const mature = await allowToMature ();
+        console.log (mature);
+
+        const harvestTime = await harvest ();
+        console.log (harvestTime);
+
+        const postHarvestTime = await postHarvest ();
+        console.log (postHarvestTime);
+
+        const package = await packaging ();
+        console.log (package);
+
+        const sale = await sales ();
+        console.log(sale);
+
+        const complete = await operationCompleted ();
+        console.log(complete);
+
+    } catch (err){
+        console.log(err);
+    }
+}
+ maizeFarming(); 
+
+ function plantType (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let plantTypeDecision = true;
+            if (plantTypeDecision){
+                resolve ("I decided on the type of plant to farm");
+            }
+            else {
+                reject ("I did not decide on the type of plant to farm");
+            }
+        }, 500);
+    });
+}
+
+function prepareSoil (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let soilPreparation = true;
+            if (soilPreparation){
+                resolve ("I got the soil prepared");
+            }
+            else {
+                reject ("I did not get the soil prepared");
+            }
+        }, 550);
+    });
+}
+
+function getSoilSeeds (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let gotPlantSeed = true;
+            if (gotPlantSeed){
+                resolve ("I got the plant seeds");
+            }
+            else {
+                reject ("I do not get the plant seeds");
+            }
+        }, 600);
+    });
+}
+
+function plantSeeds2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let plantTheSeed2 = true;
+            if (plantTheSeed2){
+                resolve ("I planted the sugarcane seeds");
+            }
+            else {
+                reject ("I did not plant the sugarcane seeds");
+            }
+        }, 650);
+    });
+}
+
+function firstFarmWeeding2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let firstWeeding2 = true;
+            if (firstWeeding2){
+                resolve ("I did the first weeding2");
+            }
+            else {
+                reject ("I did not do the first weeding2");
+            }
+        }, 700);
+    });
+}
+
+function fertilizerApplication2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let applyFertilizer2 = false;
+            if (applyFertilizer2){
+                resolve ("I applied fertilizer2 on the farm");
+            }
+            else {
+                reject ("I did not apply fertilizer2 on the farm");
+            }
+        }, 750);
+    });
+}
+
+function secondFarmWeeding2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let secondWeeding2 = true;
+            if (secondWeeding2){
+                resolve ("I did the second weeding2");
+            }
+            else {
+                reject ("I did not do the second weeding2");
+            }
+        }, 800);
+    });
+}
+
+function allowToMature2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let matureAndRipen2 = true;
+            if (matureAndRipen2){
+                resolve ("I allowed the maize to mature and ripen2");
+            }
+            else {
+                reject ("I did not allow the maize to mature and ripen2");
+            }
+        }, 850);
+    });
+}
+
+function harvest2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let harvestTime2 = true;
+            if (harvestTime2){
+                resolve ("I harvested the maize2");
+            }
+            else {
+                reject ("I did not harvest the maize2");
+            }
+        }, 900);
+    });
+}
+
+function postHarvest2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let postHarvestProcessing2 = true;
+            if (postHarvestProcessing2){
+                resolve ("I processed the harvest2");
+            }
+            else {
+                reject ("I did not process the harvest2");
+            }
+        }, 950);
+    });
+}
+
+function packaging2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let maizePackaging2 = true;
+            if (maizePackaging2){
+                resolve ("I packaged the maize for sales2");
+            }
+            else {
+                reject ("I did not package the maize for sales2");
+            }
+        }, 1000);
+    });
+}
+
+function sales2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let soldMaize2 = false;
+            if (soldMaize2){
+                resolve ("I sold the maize2");
+            }
+            else {
+                reject ("I did not sell the maize2");
+            }
+        }, 1050);
+    });
+}
+
+function operationCompleted2 (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let completed2 = true;
+            if (completed2){
+                resolve ("Operation is complete2");
+            }
+            else {
+                reject ("Operation is not complete2");
+            }
+        }, 1100);
+    });
+}
+
+
+async function maizeFarming2 (){
+    try{
+        const crop2 = await plantType ();
+        console.log (crop2);
+
+        const prepareL2 = await prepareSoil ();
+        console.log (prepareL2);
+
+        const seeds2 = await getSoilSeeds ();
+        console.log (seeds2);
+
+        const plantSeed2 = await plantSeeds2 ();
+        console.log (plantSeed2);
+
+        const firstWeed2 = await firstFarmWeeding2 ();
+        console.log (firstWeed2);
+
+        const fertilizer2 = await fertilizerApplication2 ();
+        console.log (fertilizer2);
+
+        const secondWeed2 = await secondFarmWeeding2 ();
+        console.log(secondWeed2);
+
+        const mature2 = await allowToMature2 ();
+        console.log (mature2);
+
+        const harvestTime2 = await harvest2 ();
+        console.log (harvestTime2);
+
+        const postHarvestTime2 = await postHarvest2 ();
+        console.log (postHarvestTime2);
+
+        const package2 = await packaging2 ();
+        console.log (package2);
+
+        const sale2 = await sales2 ();
+        console.log(sale2);
+
+        const complete2 = await operationCompleted2 ();
+        console.log(complete2);
+
+    } catch (err){
+        console.log(err);
+    }
+}
+ maizeFarming2();
+
+
+
+// Example 1D
+function searchDatabase (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let databaseSearched = true;
+            if (databaseSearched){
+                resolve ("I successfully searched the database");
+            }
+            else {
+                reject ("I could not search the database");
+            }
+        }, 4000);
+    });
+}
+
+function obtainedVideos (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let videosProcured = true;
+            if (videosProcured){
+                resolve ("I successfully obtained the videos");
+            }
+            else {
+                reject ("I did not obtain the videos");
+            }
+        }, 100);
+    });
+}
+
+function uploadedVideos (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let videosInstalled = true;
+            if (videosInstalled){
+                resolve ("I successfully uploaded the videos");
+            }
+            else {
+                reject ("I did not upload the videos");
+            }
+        }, 200);
+    });
+}
+
+async function databaseOps (){
+    const searchDatabaseOutput = await searchDatabase ();
+    console.log (searchDatabaseOutput);
+
+    const obtainedVideosOutput = await obtainedVideos ();
+    console.log (obtainedVideosOutput);
+
+    const uploadedVideosOutput = await uploadedVideos ();
+    console.log (uploadedVideosOutput);
+
+    console.log ("Operations Concluded")
+}
+databaseOps ();
+
+ 
+
+// EXAMPLE 1E - ASYNC/AWAIT
+function searchDatabase (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let databaseSearched = true;
+            if (databaseSearched){
+                resolve ("I successfully searched the database");
+            }
+            else {
+                reject ("I could not search the database");
+            }
+        }, 4000);
+    });
+}
+
+function obtainedVideos (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let videosProcured = true;
+            if (videosProcured){
+                resolve ("I successfully obtained the videos");
+            }
+            else {
+                reject ("I did not obtain the videos");
+            }
+        }, 100);
+    });
+}
+
+function uploadedVideos (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let videosInstalled = true;
+            if (videosInstalled){
+                resolve ("I successfully uploaded the videos");
+            }
+            else {
+                reject ("I did not upload the videos");
+            }
+        }, 200);
+    });
+}
+
+async function databaseOps (){
+    const searchDatabaseOutput = await searchDatabase ();
+    console.log (searchDatabaseOutput);
+
+    const obtainedVideosOutput = await obtainedVideos ();
+    console.log (obtainedVideosOutput);
+
+    const uploadedVideosOutput = await uploadedVideos ();
+    console.log (uploadedVideosOutput);
+
+    console.log ("Operations Concluded")
+}
+databaseOps ();
+
+
+
+// EXAMPLE 2 - ASYNC/AWAIT
+function selectCreditCard (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let creditCardSelected = true;
+            if (creditCardSelected){
+                resolve ("I successfully selected a credit card");
+            }
+            else {
+                reject ("I did not select a credit card");
+            }
+        }, 4500);
+    });
+}
+
+function validatedCreditCard (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let creditCardValidated = true;
+            if (creditCardValidated){
+                resolve ("I successfully validated the credit card number");
+            }
+            else {
+                reject ("I could not validate the credit card number");
+            }
+        }, 100);
+    });
+}
+
+function returnedCreditCard (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let creditCardReturned = true;
+            if (creditCardReturned){
+                resolve ("I returned the credit card");
+            }
+            else {
+                reject ("I did not return the credit card");
+            }
+        }, 200);
+    });
+}
+
+async function creditCardOps (){
+    let selectCreditCardOutput = await selectCreditCard ();
+    console.log (selectCreditCardOutput);
+
+    let validatedCreditCardOutput = await validatedCreditCard ();
+    console.log (validatedCreditCardOutput);
+
+    let returnedCreditCardOutput = await returnedCreditCard ();
+    console.log (returnedCreditCardOutput);
+
+    console.log ("Operations Completed")
+}
+creditCardOps ();
+
+
+// EXAMPLE 3 - ASYNC/AWAIT
+function fixTheCar (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let carFixed = true;
+            if (carFixed){
+                resolve ("I fixed the car");
+            }
+            else {
+                reject ("I did not fix the car");
+            }
+        }, 5000);
+    });
+}
+
+function testTheCar (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let carTested = true;
+            if (carTested){
+                resolve ("I tested the car");
+            }
+            else {
+                reject ("I did not test the car");
+            }
+        }, 100);
+    });
+}
+
+function returnedTheCar (){
+    return new Promise ((resolve, reject)=>{
+        setTimeout (()=>{
+            let carReturned = false;
+            if (carReturned){
+                resolve ("I returned the car");
+            }
+            else {
+                reject ("I did not return the car");
+            }
+        }, 200);
+    });
+}
+
+async function carRepair (){
+try{
+    let fixTheCarResult = await fixTheCar ();
+    console.log (fixTheCarResult);
+
+    let testTheCarResult = await testTheCar ();
+    console.log (testTheCarResult);
+
+    let returnedTheCarResult = await returnedTheCar ();
+    console.log (returnedTheCarResult);
+
+    console.log ("Car Repair Concluded")
+}
+catch (error){
+    console.error (error);
+}
+    }
+carRepair (); 
+
+
+
+/* CONSTRUCTOR FUNCTIONS - FUNCTION TYPE 5 
+Also known as OBJECT CONSTRUCTORS and/or OBJECT CONSTRUCTOR FUNCTIONS, Constructor Functions are a 
+special function type that are used to create and initialise different instances of an object. 
+
+Any time that a web programmer wants to create multiple objects with similar properties, constructor 
+functions are used.
+
+A constructor function takes an object, its properties and its values and renders them in a manner 
+that is far simpler than an object would. It creates a replicable template: a template which if it 
+did not exist, the web programmer will have to spend time manually coding every instruction that is 
+meant to be executed.
+
+See an example / instance of an object below:
+    - Person
+        - name: "Jason",
+        - gender: "male",
+        - height: "6ft",
+        - nationality: "American",
+        - carOwned: "Mercedes",
+        - model: 2025
+    
+Suppose you have 50 persons and you want to capture all the properties and values of each of those 50 persons, it will be repetitive and long to copy and paste the above object 50 times and console.log each one. This is where a constructor function comes in. It uses the function keyword and creates a template which it uses to create 50 instances of persons. 
+
+This is a faster and more efficient method, which is why constructor functions are also known as object constructors and / or object constructor functions.
+
+Let us attempt to use a constructor function to create a template for the above object */
+        function Persona(name, gender, height, nationality, carOwned, model){
+            this.name = name,
+            this.gender = gender,
+            this.height = height,
+            this.nationality = nationality,
+            this.carOwned = carOwned,
+            this.model = model
+        }
+        
+        const persona1 = new Persona("Eric", "Male", "6ft", "American", "Toyota", "2025");
+
+        console.log(persona1.name);
+        console.log(persona1.gender);
+        console.log(persona1.height);
+        console.log(persona1.nationality);
+        console.log(persona1.carOwned);
+        console.log(persona1.model);
+
+/* Note that we have used the newly created constructor function above to create an object template. From this template, we have created one person who we called person1 and gave an argument for by giving person1 a name, a gender, a height, a nationality, etc. 
+
+We can use this same template to create 1 million persons and give each person his / her own properties and values like name, gender, height, nationality, etc.
+
+We will demonstrate this with the codes below. We are going to use the template created by the constructor function to create instances of just five persons. See the examples below: */
+
+
+function Individual(name, gender, height, nationality, carOwned, model){
+    this.name = name,
+    this.gender = gender,
+    this.height = height,
+    this.nationality = nationality,
+    this.carOwned = carOwned,
+    this.model = model
+}
+
+let individual1 = new Individual("Eric", "Male", "6ft", "American", "Toyota", "2025");
+let individual2 = new Individual("Chioma", "Female", "6ft", "Nigerian", "Mercedes", "2024");
+let individual3 = new Individual("John", "Male", "5ft", "England", "Honda", "2023");
+let individual4 = new Individual("Alice", "Female", "6ft", "Brazilian", "SUV", "2022");
+let individual5 = new Individual("Yamashita", "Male", "6ft", "Japanese", "Honda", "2020");
+
+console.log(individual1.name);
+console.log(individual1.gender);
+console.log(individual1.height);
+console.log(individual1.nationality);
+console.log(individual1.carOwned);
+console.log(individual1.model);
+
+console.log(individual2.name);
+console.log(individual2.gender);
+console.log(individual2.height);
+console.log(individual2.nationality);
+console.log(individual2.carOwned);
+console.log(individual2.model);
+
+console.log(individual3.name);
+console.log(individual3.gender);
+console.log(individual3.height);
+console.log(individual3.nationality);
+console.log(individual3.carOwned);
+console.log(individual3.model);
+
+console.log(individual4.name);
+console.log(individual4.gender);
+console.log(individual4.height);
+console.log(individual4.nationality);
+console.log(individual4.carOwned);
+console.log(individual4.model);
+
+console.log(individual5.name);
+console.log(individual5.gender);
+console.log(individual5.height);
+console.log(individual5.nationality);
+console.log(individual5.carOwned);
+console.log(individual5.model);
+
+
+/* CLASS EXAMPLE - Sample JAMB Result Sample */
+function Candidate(lastName, middleName, firstName, gender, nationality, state, LGA, town, center, course, subject1, subject2, subject3, subject4, subject5, score1, score2, score3, score4, score5, totalScore, grade) {
+    this.lastName = lastName;
+    this.middleName = middleName;
+    this.firstName = firstName;
+    this.gender = gender;
+    this.nationality = nationality;
+    this.state = state;
+    this.LGA = LGA;
+    this.town = town;
+    this.center = center;
+    this.course = course;
+    this.subject1 = subject1;
+    this.subject2 = subject2;
+    this.subject3 = subject3;
+    this.subject4 = subject4;
+    this.subject5 = subject5;
+    this.score1 = score1;
+    this.score2 = score2;
+    this.score3 = score3;
+    this.score4 = score4;
+    this.score5 = score5;
+    this.totalScore = totalScore;
+    this.grade = grade;
+}
+
+let candidate1 = new Candidate("Last Name: Garba", "Middle Name: James", "First Name: Sarah", "Gender: Female", "Nationality: Nigeria", "State: Adamawa", "LGA: Yola North", "Town: Jimeta", "Examination Center: FCE Yola", "Course: Medicine", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "English: 95", "Mathematics: 97", "Physics: 98", "Chemistry: 96", "Biology: 95", "Total Score: 481", "Grade: Pass");
+
+let candidate2 = new Candidate("Last Name: Ibiam", "Middle Name: Chioma", "First Name: Eudorah", "Gender: Female", "Nationality: Nigeria", "State: Ebonyi", "LGA: Afikpo North", "Town: Afikpo", "Examination Center: Federal Polytechnic", "Course: Computer Science", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Geography", "Subject5: Economics", "English: 95", "Mathematics: 97", "Physics: 98", "Geography: 96", "Economics: 95", "Total Score: 481", "Grade: Pass");
+
+let candidate3 = new Candidate("Last Name: Ugwu", "Middle Name: Martha", "First Name: Chinenye", "Gender: Female", "Nationality: Nigeria", "State: Enugu", "LGA: Nsukka", "Town: Obino", "Examination Center: UNN", "Course: Industrial Physics", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "English: 95", "Mathematics: 97", "Physics: 98", "Chemistry: 96", "Biology: 95", "Total Score: 481", "Grade: Pass");
+
+let candidate4 = new Candidate("Last Name: Uchenwoke", "Middle Name: Franklin", "First Name: Chiemezie", "Gender: Male", "Nationality: Nigeria", "State: Anambra", "LGA: Anaocha", "Town: Neni", "Examination Center: UNIZIK", "Course: Medicine", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "English: 95", "Mathematics: 97", "Physics: 98", "Chemistry: 96", "Biology: 95", "Total Score: 481", "Grade: Pass");
+
+console.log(candidate1.lastName);
+console.log(candidate1.middleName);
+console.log(candidate1.firstName);
+console.log(candidate1.gender);
+console.log(candidate1.nationality);
+console.log(candidate1.state);
+console.log(candidate1.LGA);
+console.log(candidate1.town);
+console.log(candidate1.center);
+console.log(candidate1.course);
+console.log(candidate1.subject1);
+console.log(candidate1.subject2);
+console.log(candidate1.subject3);
+console.log(candidate1.subject4);
+console.log(candidate1.subject5);
+console.log(candidate1.score1);
+console.log(candidate1.score2);
+console.log(candidate1.score3);
+console.log(candidate1.score4);
+console.log(candidate1.score5);
+console.log(candidate1.totalScore);
+console.log(candidate1.grade);
+
+console.log(candidate2.lastName);
+console.log(candidate2.middleName);
+console.log(candidate2.firstName);
+console.log(candidate2.gender);
+console.log(candidate2.nationality);
+console.log(candidate2.state);
+console.log(candidate2.LGA);
+console.log(candidate2.town);
+console.log(candidate2.center);
+console.log(candidate2.course);
+console.log(candidate2.subject1);
+console.log(candidate2.subject2);
+console.log(candidate2.subject3);
+console.log(candidate2.subject4);
+console.log(candidate2.subject5);
+console.log(candidate2.score1);
+console.log(candidate2.score2);
+console.log(candidate2.score3);
+console.log(candidate2.score4);
+console.log(candidate2.score5);
+console.log(candidate2.totalScore);
+console.log(candidate2.grade);
+
+console.log(candidate3.lastName);
+console.log(candidate3.middleName);
+console.log(candidate3.firstName);
+console.log(candidate3.gender);
+console.log(candidate3.nationality);
+console.log(candidate3.state);
+console.log(candidate3.LGA);
+console.log(candidate3.town);
+console.log(candidate3.center);
+console.log(candidate3.course);
+console.log(candidate3.subject1);
+console.log(candidate3.subject2);
+console.log(candidate3.subject3);
+console.log(candidate3.subject4);
+console.log(candidate3.subject5);
+console.log(candidate3.score1);
+console.log(candidate3.score2);
+console.log(candidate3.score3);
+console.log(candidate3.score4);
+console.log(candidate3.score5);
+console.log(candidate3.totalScore);
+console.log(candidate3.grade);
+
+console.log(candidate4.lastName);
+console.log(candidate4.middleName);
+console.log(candidate4.firstName);
+console.log(candidate4.gender);
+console.log(candidate4.nationality);
+console.log(candidate4.state);
+console.log(candidate4.LGA);
+console.log(candidate4.town);
+console.log(candidate4.center);
+console.log(candidate4.course);
+console.log(candidate4.subject1);
+console.log(candidate4.subject2);
+console.log(candidate4.subject3);
+console.log(candidate4.subject4);
+console.log(candidate4.subject5);
+console.log(candidate4.score1);
+console.log(candidate4.score2);
+console.log(candidate4.score3);
+console.log(candidate4.score4);
+console.log(candidate4.score5);
+console.log(candidate4.totalScore);
+console.log(candidate4.grade);
+
+/* EXAMPLE 2 - Sample WAEC Result Sheet */
+function Student(lastName, middleName, firstName, gender, nationality, state, LGA, town, center, examNumber, subject1, subject2, subject3, subject4, subject5, subject6, subject7, subject8, subject9, subject10, subject11, subject12, score1, score2, score3, score4, score5,score6, score7, score8, score9, score10, score11, score12, totalSubjectsRegistered, totalCredits) {
+    this.lastName = lastName;
+    this.middleName = middleName;
+    this.firstName = firstName;
+    this.gender = gender;
+    this.nationality = nationality;
+    this.state = state;
+    this.LGA = LGA;
+    this.town = town;
+    this.center = center;
+    this.examNumber = examNumber;
+    this.subject1 = subject1;
+    this.subject2 = subject2;
+    this.subject3 = subject3;
+    this.subject4 = subject4;
+    this.subject5 = subject5;
+    this.subject6 = subject6;
+    this.subject7 = subject7;
+    this.subject8 = subject8;
+    this.subject9 = subject9;
+    this.subject10 = subject10;
+    this.subject11 = subject11;
+    this.subject12 = subject12;
+    this.score1 = score1;
+    this.score2 = score2;
+    this.score3 = score3;
+    this.score4 = score4;
+    this.score5 = score5;
+    this.score6 = score6;
+    this.score7 = score7;
+    this.score8 = score8;
+    this.score9 = score9;
+    this.score10 = score10;
+    this.score11 = score11;
+    this.score12 = score12;
+    this.totalSubjectsRegistered = totalSubjectsRegistered;
+    this.totalCredits = totalCredits;
+}
+
+let student1 = new Student("Last Name: Garba", "Middle Name: James", "First Name: Sarah", "Gender: Female", "Nationality: Nigeria", "State: Adamawa", "LGA: Yola North", "Town: Jimeta", "Examination Center: FCE Yola", "Exam Number: 21234", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 12");
+
+let student2 = new Student("Last Name: Ibiam", "Middle Name: Chioma", "First Name: Eudorah", "Gender: Female", "Nationality: Nigeria", "State: Ebonyi", "LGA: Afikpo North", "Town: Afikpo", "Examination Center: Federal Polytechnic", "Exam Number: 21207", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 9");
+
+let student3 = new Student("Last Name: Ugwu", "Middle Name: Martha", "First Name: Chinenye", "Gender: Female", "Nationality: Nigeria", "State: Enugu", "LGA: Nsukka", "Town: Obino", "Examination Center: UNN", "Exam Number: 21005", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 11", "Total Credit: 12");
+
+let student4 = new Student("Last Name: Uchenwoke", "Middle Name: Franklin", "First Name: Chiemezie", "Gender: Male", "Nationality: Nigeria", "State: Anambra", "LGA: Anaocha", "Town: Neni", "Examination Center: UNIZIK", "Exam Number: 21999", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 12");
+
+console.log(student1.lastName);
+console.log(student1.middleName);
+console.log(student1.firstName);
+console.log(student1.gender);
+console.log(student1.nationality);
+console.log(student1.state);
+console.log(student1.LGA);
+console.log(student1.town);
+console.log(student1.center);
+console.log(student1.examNumber);
+console.log(student1.subject1);
+console.log(student1.subject2);
+console.log(student1.subject3);
+console.log(student1.subject4);
+console.log(student1.subject5);
+console.log(student1.subject6);
+console.log(student1.subject7);
+console.log(student1.subject8);
+console.log(student1.subject9);
+console.log(student1.subject10);
+console.log(student1.subject11);
+console.log(student1.subject12);
+console.log(student1.score1);
+console.log(student1.score2);
+console.log(student1.score3);
+console.log(student1.score4);
+console.log(student1.score5);
+console.log(student1.score6);
+console.log(student1.score7);
+console.log(student1.score8);
+console.log(student1.score9);
+console.log(student1.score10);
+console.log(student1.score11);
+console.log(student1.score12);
+console.log(student1.totalSubjectsRegistered);
+console.log(student1.totalCredits);
+
+console.log(student2.lastName);
+console.log(student2.middleName);
+console.log(student2.firstName);
+console.log(student2.gender);
+console.log(student2.nationality);
+console.log(student2.state);
+console.log(student2.LGA);
+console.log(student2.town);
+console.log(student2.center);
+console.log(student2.examNumber);
+console.log(student2.subject1);
+console.log(student2.subject2);
+console.log(student2.subject3);
+console.log(student2.subject4);
+console.log(student2.subject5);
+console.log(student2.subject6);
+console.log(student2.subject7);
+console.log(student2.subject8);
+console.log(student2.subject9);
+console.log(student2.subject10);
+console.log(student2.subject11);
+console.log(student2.subject12);
+console.log(student2.score1);
+console.log(student2.score2);
+console.log(student2.score3);
+console.log(student2.score4);
+console.log(student2.score5);
+console.log(student2.score6);
+console.log(student2.score7);
+console.log(student2.score8);
+console.log(student2.score9);
+console.log(student2.score10);
+console.log(student2.score11);
+console.log(student2.score12);
+console.log(student2.totalSubjectsRegistered);
+console.log(student2.totalCredits);
+
+console.log(student3.lastName);
+console.log(student3.middleName);
+console.log(student3.firstName);
+console.log(student3.gender);
+console.log(student3.nationality);
+console.log(student3.state);
+console.log(student3.LGA);
+console.log(student3.town);
+console.log(student3.center);
+console.log(student3.examNumber);
+console.log(student3.subject1);
+console.log(student3.subject2);
+console.log(student3.subject3);
+console.log(student3.subject4);
+console.log(student3.subject5);
+console.log(student3.subject6);
+console.log(student3.subject7);
+console.log(student3.subject8);
+console.log(student3.subject9);
+console.log(student3.subject10);
+console.log(student3.subject11);
+console.log(student3.subject12);
+console.log(student3.score1);
+console.log(student3.score2);
+console.log(student3.score3);
+console.log(student3.score4);
+console.log(student3.score5);
+console.log(student3.score6);
+console.log(student3.score7);
+console.log(student3.score8);
+console.log(student3.score9);
+console.log(student3.score10);
+console.log(student3.score11);
+console.log(student3.score12);
+console.log(student3.totalSubjectsRegistered);
+console.log(student3.totalCredits);
+
+console.log(student4.lastName);
+console.log(student4.middleName);
+console.log(student4.firstName);
+console.log(student4.gender);
+console.log(student4.nationality);
+console.log(student4.state);
+console.log(student4.LGA);
+console.log(student4.town);
+console.log(student4.center);
+console.log(student4.examNumber);
+console.log(student4.subject1);
+console.log(student4.subject2);
+console.log(student4.subject3);
+console.log(student4.subject4);
+console.log(student4.subject5);
+console.log(student4.subject6);
+console.log(student4.subject7);
+console.log(student4.subject8);
+console.log(student4.subject9);
+console.log(student4.subject10);
+console.log(student4.subject11);
+console.log(student4.subject12);
+console.log(student4.score1);
+console.log(student4.score2);
+console.log(student4.score3);
+console.log(student4.score4);
+console.log(student4.score5);
+console.log(student4.score6);
+console.log(student4.score7);
+console.log(student4.score8);
+console.log(student4.score9);
+console.log(student4.score10);
+console.log(student4.score11);
+console.log(student4.score12);
+console.log(student4.totalSubjectsRegistered);
+console.log(student4.totalCredits);
+
+
+/* A constructor function therefore is similar to an object and its properties and values.
+
+    - It makes use of the 'new' keyword and uses it to create a new instance of the same object.
+      If that 'new' keyword is omitted, the constructor function will not behave as expected. 
+
+    - It makes use of the 'this' keyword to refer to the object being created by the constructor.
+
+    - Lastly, it typically makes use of an uppercase first letter to name its function.
+
+We will demonstrate the syntax of a constructor function by firstly defining an object, its properties 
+and values.
+
+Then we will convert that object into a constructor function. 
+We will call the function after that and display the output.
+
+Let us start with three (3) objects:
+       1 - a person object
+       2 - a fruit object
+       3 - a country object
+
+EXAMPLE 1 
+
+    let thePerson1 = {
+        first name: "Jason",
+        middle name: "Damian",
+        last name: "Woods",
+        age: "37"        
+      }      
+
+      let thePerson2 = {
+        first name: "Chinenye",
+        middle name: "Angela",
+        last name: "Adaku",
+        age: "30"       
+      }    
+
+      let thePerson3 = {
+        first name: "Abubakar",
+        middle name: "Mohammed",
+        last name: "Adamu",
+        age: "47"          
+      }    
+
+     
+      let theFruit1 = {
+        name: "Banana",
+        type: "Jamaican",
+        store: "Walmart",
+        price: "$1"        
+      }      
+
+      let theFruit2 = {
+        name: "Apple",
+        type: "Gala",
+        store: "Kroeger",
+        price: "$2"        
+      }      
+
+      let theFruit3 = {
+        name: "Oranges",
+        type: "Golden",
+        store: "Publix",
+        price: "$1"        
+      }      
+
+
+      let theCountry1 = {
+        country name: "USA",
+        population: "350m",
+        gdp: "$3t"
+        continent: "North America", 
+      }      
+
+      let theCountry2 = {
+        country name: "Canada",
+        population: "40m",
+        gdp = "$1t"
+        continent: "North America", 
+      }    
+
+      let theCountry3 = {
+        country name: "Mexico",
+        population: "10m",
+        gdp: "500m",
+        continent: "South America",        
+      }    
+
+Note the following in the object examples above
+      - The first line in each example gives us the object (person, fruit, country)
+      - The 2nd, 3rd and 4th lines gave us the properties per object and their corresponding values
+
+We are going to render these objects and their properties using a constructor function. 
+We will start by creating a constructor from where we will build multiple instances of the object 
+and their different properties. 
+
+We will also make use of the 'new' and 'this' keywords. 
+
+Lastly we will build a replicable template.    */
+
+
+
+
+// DEMONSTRATION - CONSTRUCTOR FUNCTIONS
+function Person(firstName, middleName, lastName, age){
+    this.firstName = firstName,
+    this.middleName = middleName,
+    this.lastName = lastName,
+    this.age = age
+}
+
+let Person1 = new Person ("Jason", "Damian", "Woods", "37");
+let Person2 = new Person ("Chinenye", "Angela", "Adaku", "30");
+let Person3 = new Person ("Abubakar", "Mohammed", "Adamu", "47");
+let Person4 = new Person ("Kwame", "James", "Mensah", "27");
+let Person5 = new Person ("Kofi", "Yaw", "Abena", "22");
+let Person6 = new Person ("Abimbola", "James", "Lookman", "33");
+let Person7 = new Person ("Kemi", "Victoria", "Badenoch", "45");
+
+console.log(Person1.firstName);
+console.log(Person1.middleName);
+console.log(Person1.lastName);
+console.log(Person1.age);
+
+console.log(Person2.firstName);
+console.log(Person2.middleName);
+console.log(Person2.lastName);
+console.log(Person2.age);
+
+console.log(Person3.firstName);
+console.log(Person3.middleName);
+console.log(Person3.lastName);
+console.log(Person3.age);
+
+console.log(Person4.firstName);
+console.log(Person4.middleName);
+console.log(Person4.lastName);
+console.log(Person4.age);
+
+console.log(Person5.firstName);
+console.log(Person5.middleName);
+console.log(Person5.lastName);
+console.log(Person5.age);
+
+console.log(Person6.firstName);
+console.log(Person6.middleName);
+console.log(Person6.lastName);
+console.log(Person6.age);
+
+console.log(Person7.firstName);
+console.log(Person7.middleName);
+console.log(Person7.lastName);
+console.log(Person7.age);
+
+
+function Fruits(name, type, store, price) {
+    this.name = name
+    this.type = type,
+    this.store = store,
+    this.price = price
+}
+
+let Fruits1 = new Fruits("banana", "jamaican", "walmart", "$1");
+let Fruits2 = new Fruits("apple", "gala", "kroeger", "$2");
+let Fruits3 = new Fruits("oranges", "golden", "publix", "$1");
+let Fruits4 = new Fruits("plums", "australian", "pulix", "$2");
+let Fruits5 = new Fruits("tangerine", "arizona", "walmart", "$1.50");
+let Fruits6 = new Fruits("avocado", "mexican", "walmart", "$2.50");
+let Fruits7 = new Fruits("watermelon", "ghanaian", "publix", "$1.75");
+
+console.log(Fruits1.name);
+console.log(Fruits1.type);
+console.log(Fruits1.store);
+console.log(Fruits1.price);
+
+console.log(Fruits2.name);
+console.log(Fruits2.type);
+console.log(Fruits2.store);
+console.log(Fruits2.price);
+
+console.log(Fruits3.name);
+console.log(Fruits3.type);
+console.log(Fruits3.store);
+console.log(Fruits3.price);
+
+console.log(Fruits4.name);
+console.log(Fruits4.type);
+console.log(Fruits4.store);
+console.log(Fruits4.price);
+
+console.log(Fruits5.name);
+console.log(Fruits5.type);
+console.log(Fruits5.store);
+console.log(Fruits5.price);
+
+console.log(Fruits6.name);
+console.log(Fruits6.type);
+console.log(Fruits6.store);
+console.log(Fruits6.price);
+
+console.log(Fruits7.name);
+console.log(Fruits7.type);
+console.log(Fruits7.store);
+console.log(Fruits7.price);
+
+
+function Country(name, population, gdp, continent) {
+    this.name = name,
+    this.population = population,
+    this.gdp = gdp,
+    this.continent = continent
+}
+
+let Country1 = new Country("USA", "350m", "$3t", "North America");
+let Country2 = new Country("Canada", "40m", "$1t", "North America");
+let Country3 = new Country("Mexico", "10m", "$500m", "South America");
+let Country4 = new Country("UK", "200m", "$1.5t", "Europe");
+let Country5 = new Country("Japan", "500m", "$5t", "Asia");
+let Country6 = new Country("Nigeria", "100m", "$1t", "Africa");
+let Country7 = new Country("Ghana", "70m", "$1t", "Africa");
+
+console.log(Country1.name);
+console.log(Country1.population);
+console.log(Country1.gdp);
+console.log(Country1.continent);
+
+console.log(Country2.name);
+console.log(Country2.population);
+console.log(Country2.gdp);
+console.log(Country2.continent);
+
+console.log(Country3.name);
+console.log(Country3.population);
+console.log(Country3.gdp);
+console.log(Country3.continent);
+
+console.log(Country4.name);
+console.log(Country4.population);
+console.log(Country4.gdp);
+console.log(Country4.continent);
+
+console.log(Country5.name);
+console.log(Country5.population);
+console.log(Country5.gdp);
+console.log(Country5.continent);
+
+console.log(Country6.name);
+console.log(Country6.population);
+console.log(Country6.gdp);
+console.log(Country6.continent);
+
+console.log(Country7.name);
+console.log(Country7.population);
+console.log(Country7.gdp);
+console.log(Country7.continent);
+
+
+
+/* RECURSION/ RECURSIVE FUNCTIONS - FUNCTION TYPE SIX (6)
+In computer science and software engineering, recursion is a technique used to break 
+complex problems into smaller parts that are simpler to execute and are repeatable. 
+
+When you apply a recursive technique, you repeat smaller portions of a bigger problem
+until you completely solve the bigger problem and aggregate the answers into one.
+
+Recursion is a technique in which the solution to a bigger problem is dependent on the
+aggregate solutions of each of the smaller sub-problems that make up the bigger problem. 
+
+When executed as code, recursion is typically expressed as a function which calls itself 
+over and over until it reaches a stopping or terminating condition. In this regard, a 
+recursive function is similar to a loop; a WHILE LOOP. 
+
+Both loop and recursion are used to build algorithms and develop software. 
+
+Yet, there is a difference.
+
+A loop uses an iterative process that calls itself over and over again, repeating the same
+code until it solves the problem. When we use a simple 'for loop' process for example to
+display numbers 1 - 10, we follow an iterative process. We finish one step and move to 
+another sequentially and continue in an iterative manner until we finish solving the problem.
+
+Recursion is different in that it follows a slightly different process which is NOT ITERATIVE.
+Recursion will break down the problem into smaller solvable units and keep recursing into 
+itself until it reaches a terminal condition. Then it stops.
+
+Recursion is very functional when applied to a tree structure or to objects composed of other objects.
+
+Every recursive function has two (2) major parts:
+       1 - The Base Case
+       2 - The Recursive Case
+
+The Base Case is what causes the recursive function not to repeatedly call itself 'ad inifitum'. 
+The Base Case is also called the Terminating or Stopping condition. 
+
+Without a Base Case, every code executed recursively will loop infinitely and/or lead to stack overflow.
+
+The Recursive Case is the function that repeatedly calls itself, usually with an argument different from
+what was called before. This explains why recursion is very useful when applied to a tree structure.
+
+Let us attempt to create a function that allows us to count down numbers. 
+We will create three (3) instances of this countdown:
+      1 - Using a Loop
+      2 - Using Recursion without a base case
+      3 - Using Recursion with a base case   */
+
+
+// RECURSION - EXAMPLE 1 - USING A LOOP
+let countDown = (sum) =>{
+    while (sum > 0){
+        console.log(sum)
+        sum--;
+    }
+};
+countDown (10);
+
+
+// EXAMPLE 2 - RECURSIVE FUNCTION WITHOUT A BASE CASE
+const myCountDown = (launch) => {
+    console.log (launch);
+    myCountDown (launch);
+};
+// myCountDown (5);
+
+/*** Do not attempt to uncomment Example 2 above as it has no terminating or base case and will lead
+     to an infinite loop/ stack overflow. This can crash your system. 
+     
+     In every recursive function, JavaScript first looks for the base or terminating case. 
+     If it does not find it, it loops interminably.
+     
+     In Example 2 above, JavaScript did not see a base case and so, this leads to an infinite loop.
+     
+     Let us now go to Example 3 below and tell JavaScript to stop looping. 
+     We will do this by inserting a base case.   */
+
+
+// EXAMPLE 3 - RECURSIVE FUNCTION WITH A BASE CASE
+   const theCountDown = (kickOff) =>{
+     if (kickOff === 0){
+         return;
+     }
+         console.log (kickOff)
+         theCountDown (kickOff - 1);
+     };
+     theCountDown (25);
+
+
+// EXAMPLE 4 - USING A LOOP (CLASS WORK)
+let evenNumbers1 = (even) =>{
+    while (even > 0){
+        if (even % 2 === 0){
+            console.log (even)
+        }
+        even--;
+    }
+};
+evenNumbers1 (20);
+
+
+// EXAMPLE 5 - RECURSIVE FUNCTION WITH A BASE CASE (CLASS WORK)
+const oddNumbers = (odd) =>{
+    if (odd === 0){
+        return;
+    };
+    if (odd % 2 === 1){
+        console.log (odd)
+    } 
+        oddNumbers (odd - 1);
+    };
+    oddNumbers (15);
+
+
+
+/* 
+HIGHER ORDER FUNCTIONS (MAP, FILTER, REDUCE) - FUNCTION TYPE SEVEN (7) 
+
+map(), filter() and reduce() are a unique set of capabilities that JavaScript brings into programming. 
+They can be treated as Higher Order Functions because they take user-defined functions as parameters. 
+
+Higher Order Functions are also known as ARRAY METHODS.
+
+Let us quickly look at each of them starting with map();
+
+
+MAP (map())
+map() is used when you need to apply the same operation to every element in an array resulting in
+the transformation of the original array to a new array of same length but different set of values.
+
+So map() therefore does the following:
+    1 - It creates a new array from calling a function for each array element
+    2 - It does not execute the function for empty element
+    3 - It leaves the original array unchanged
+
+In other words, when you execute a map method, you leave the original array intact but create
+a new array of the same length, but with a transformed set of values.
+
+Example:
+    original array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    action to be performed = double each element in the array set above
+
+    new array created = [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+
+    - Notice that the original array above is left unchanged
+    - Notice also that the same action is applied to every element in the array
+    - Lastly, notice that a new array is created from the original one. 
+    - The new array has the same length as the old one but with different set of values
+
+    
+REAL LIFE APPLICATION - WHY map() is IMPORTANT?
+
+Case 1 - Imagine a situation where you work with Amazon and Amazon has 1000 products on display
+and you want to give customers a holiday discount of 50%. You can do that using map().
+
+The first thing you do is capture all the prices you want to apply discount to into a one 
+dimensional array format. For example:
+     Amazon prices = ["$4", "$6", "$2", "$24", "$14", "$16", "$40", "$13", "$30"];
+     Apply 50% discount
+     New Amazon prices = ["$2", "$3", "$1", "$12", "$7", "$8", "$20", "$6.50", "$15"]
+
+
+Case 2 - Imagine a case where you have 50 names all in lower case and you either want to
+convert each of the first letter to upper case or all the names to upper case. 
+You can use the map() method. 
+Example:
+     Names of African actors = ["samloko", "julietibrahim", "osuofia", "kennethokonkwo"];
+     Action to be performed = convert all the names to upper case
+     Names in upper case = = ["SAMLOKO", "JULIETIBRAHIM", "OSUOFIA", "KENNETHOKONKWO"]
+
+
+Case 3 - Imagine a situation where you import 100,000 records from a 3rd party source
+and the date format is different from the format that your data dictionary accepts;
+and now you have to convert 100,000 dates into a format that your database will accept
+Example:
+      Original date format = ["12/12/2024", "03/11/2023", "17/08/2022", "09/10/2021"];
+      Action to be performed = convert the date format above to "mm-dd-yyyy"
+      New date format = ["12-12-2024", "11-03-2023", "08-17-2022", "10-09-2021"]
+
+
+DEMONSTRATION USING ACTUAL SYNTAX
+
+DEMONSTRATION 1
+Imagine an array of say 7 elements denoting the monthly salaries of 7 staff in a company.
+The business owner wants to pay his staff a holiday bonus of double what they earn monthly.
+      Current monthly pay = ["$5000", "$6000", "$7200", "$8000", "$10000", "$14000", "$15000"];
+      Action to be performed = double the salaries
+      New date format = ["$10000", "$12000", "$14400", "$16000", "$20000", "$28000", "$30000"]
+
+    - To convert this to code, we need to remember that the map() method uses the .map() keyword
+
+    - Inside of the parenthesis, you put the instructions that are to be executed and give that
+      instruction a new function name. 
+      
+    - It is that new function name that will be console.log to render the new array of salaries.
+
+Let us do this example using an arrow function  */ 
+
+const staffSalaries = [5000, 6000, 7200, 8000, 10000, 14000, 15000];
+
+const newStaffSalaries = staffSalaries.map(n => n*2);
+
+console.log (newStaffSalaries);
+
+
+//DEMONSTRATION 2
+const africanActors = ["sam loko", "juliet ibrahim", "patience ozokwor", "kenneth okonkwo"]
+
+const upperCaseActors = africanActors.map(upperCase);
+
+console.log (upperCaseActors);
+
+function upperCase (element){
+    return element.toUpperCase();
+}
+
+
+//DEMONSTRATION 3 (CLASS WORK 1 - By Patrick Nkwo)
+const foodPrices = [100, 150, 200, 500, 800, 1000]
+
+const percentageFoodPriceIncrease = foodPrices.map(val => percentageIncrease(val, 10));
+
+console.log (percentageFoodPriceIncrease);
+
+function percentageIncrease (element, percentage){
+    return element *((percentage + 100)/100);
+}
+
+
+// DEMONSTRATION 4 (CLASS WORK 2)
+const stampRate = [200, 500, 100, 50, 300, 1000, 2000];
+
+const newStampRate = stampRate.map(n => n/10 + n);
+
+console.log (newStampRate);
+
+
+
+// DEMONSTRATION 5 (CLASS WORK 3A)
+const waterRate = [300, 600, 700, 500, 400, 100, 200];
+
+const newWaterRate = waterRate.map(n => n * 1.2);
+
+console.log (newWaterRate);
+
+
+// DEMONSTRATION 6 (CLASS WORK 3B)
+const fireRate = [300, 600, 700, 500, 400, 100, 200];
+
+const newFireRate = fireRate.map(n => n/5 + n);
+
+console.log (newFireRate);
+
+
+
+/* 
+FILTER (filter()) 
+The Filter (filter()) method of an array is a bit different from the map() method.
+
+The filter() method is used to create a new array, this new array contains only elements 
+that pass a given test. The new array is a smaller portion of the original one.
+The new array returns a subset of the original array set.
+
+The filter() method uses Boolean logic in its callback function to determine whether 
+or not each item in an original array should be included in the new and smaller array.
+
+The filter() method is iterative. It calls a provided function once for each array and
+constructs a new array made up of all the values for which the callback returns a true value.
+
+Array elements which do not pass the callback function test are excluded from being included
+in the new array. Let us look at several examples
+
+EXAMPLE 1: 
+    Original array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    Action to be performed = (a) select even numbers in the array set
+                             (b) display the result in a new array
+    New array/result = [2, 4, 6, 8, 10];
+
+
+EXAMPLE 2:
+    Original array (scores by students in a course) = [70, 65, 90, 85, 42, 98, 87, 71, 75];
+    Action to be performed = (a) create an admission list by selecting those whose grade >= 80
+                             (b) display the result/output in a new array
+    New array/result = [90, 85, 98, 87];
+
+    
+EXAMPLE 3:
+    Original array (monthly crime statistics average for 10 years) = 
+             ["Jan-250", "Feb- 350", "Mar-300", "Apr-300", 'May-150", "Jun-256", "Jul-177"];
+    Actions to be performed = predict months that crime is likely to cross the 200 threshhold
+    New array/output = ["Jan", "Feb", "Mar", "Apr", "Jun"];
+
+You can see from the three(3) examples above that the reduce() array method has day-to-day
+application. It can be used in any situation; eduction, healthcare, crime management, etc.
+
+It is important to note that as in map(), filter() uses the filter() keyword.
+Let us try a few practical coding examples.
+
+Our 1st example will use an arrow function. Our other examples will use a normal, non-arrow function.
+*/
+
+// DEMONSTRATION 1 - USING AN ARROW FUNCTION
+const iNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const iEvenNumbers = iNumbers.filter(n => n % 2 === 0);
+console.log (iEvenNumbers);
+
+
+// DEMONSTRATION 2 - USING A NORMAL CALLBACK FUNCTION
+let tNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let tAllEven = tNumbers.filter(tEven);
+
+console.log (tAllEven);
+
+function tEven (element){
+    return element % 2 === 0
+} 
+
+
+// DEMONSTRATION 3 - DECLARING A FUNCTION BEFORE CALLING IT (CLASS WORK)
+let zNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let zAllEven = zNumbers.filter(zEven);
+
+console.log (zAllEven);
+
+function zEven (element){
+    return element % 2 === 0
+} 
+
+
+// DEMONSTRATION 4 - USING A NORMAL CALLBACK FUNCTION (ODD NUMBERS)
+let kNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+let kAllOdd = kNumbers.filter(kOdd);
+
+console.log (kAllOdd);
+
+function kOdd (element){
+    return element % 2 !== 0;
+} 
+
+
+// DEMONSTRATION 5 - USING A NORMAL CALLBACK FUNCTION
+const iGrades = [1600, 1300, 1500, 1550, 1000, 950, 1100, 1400];
+
+const iResult = iGrades.filter(iScores);
+
+console.log (iResult);
+
+function iScores (element){
+    return element >= 1400;
+}
+
+
+// DEMONSTRATION 6 - USING AN ARROW FUNCTION (CLASS WORK)
+const tempRead = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
+const tempEvenRead = tempRead.filter(n => n % 5 === 0);
+console.log (tempEvenRead);
+
+
+// DEMONSTRATION 7 - USING A NORMAL CALLBACK FUNCTION (CLASS WORK)
+const tempRead2 = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
+
+const tempRead4 = tempRead2.filter(tempRead3);
+
+console.log (tempRead4);
+
+function tempRead3 (element){
+    return element > 60;
+}
+
+
+// DEMONSTRATION 7 - USING AN ARROW FUNCTION (CLASS WORK)
+const applicants = [{name:"John Doe", yearOfExperience:3, skill:"HTML"}, 
+                    {name:"Jane Doe", yearOfExperience:5, skill:"CSS"},
+                    {name:"James Smith", yearOfExperience:4, skill:"JavaScript"}];
+// const requiredYearsOfExperience = 5;
+// const requiredSkill = CSS;
+const eligibleCandidates = applicants.filter(applicant => applicant.yearOfExperience >= 5);
+
+console.log (eligibleCandidates);
+
+
+
+/* 
+REDUCE (reduce()) 
+REDUCE (reduce()) is one of the higher order functions in JavaScript, just like map() and filter().
+
+It executes a "reducer" callback function over every element in an array, in an iterative manner.
+
+When this is done, it accumulates the output of every previous operation and uses the accumulated
+result to work on/determine the value of the next item in the array. It continues this until every
+element in the array is iterated.
+
+Let us demonstrate this using a simple example:
+
+Original array = [1, 2, 3, 4, 5];
+
+When we apply the reduce() method and ask JavaScript to come up with the total sum, here is what
+reduce() does:
+      step 1 - it treats the first element as the starting element or accumulator value (1)
+
+      step 2 - it adds one(1) to two(2). This gives the total of three(3)
+      
+      step 3 - it now takes three(3) as the new accumulator value and adds three(3) to it. 
+               this gives it the total of six(6). Six(6) becomes the new accumulator value.
+
+      step 4 - it takes six(6) and adds to the next element which is four (4), giving a total
+               of ten(10) which becomes the new accumulator value
+
+      step 5 - using ten(10) as the new accumulator value, it now adds it to the next element.
+               which is five(5), giving a total of fifteen(15)
+
+What the reduce method has done is take an array of five (5) elements and reduce the output to 
+one(1), using an iterative callback function. Let us show another example below.
+
+We are trying to obtain the maximum or minimum value from a number set, displaced in form of
+an array. Let us assume that the array is the same as the one above, [1, 2, 3, 4, 5].
+
+The reduce() method will start with an initial accumulator value, which in this case is one (1).
+
+It will then iterate through every element until it gets to the end and then display a single value,
+which is either the minimum or maximum, depending on what it initially set out to accomplish.
+
+When dealing with the reducer method, it is important to understand two key concepts:
+      1 - the reducer
+      2 - the accumulator
+
+It is important that the initial accumulator value be defined. if this is not done, there might be
+errors or bugs in our code. 2ndly, the reducer operation must also be defined and these two must be
+passed into the callback function. In doing this, four(4) key arguments are passed to the callback
+function.
+      1 - the accumulator value
+      2 - the item value
+      3 - the index of the current value
+      4 - the array from which the method is called
+
+So the reduce() method, for those who understand arrays is similar to the forEach method() except
+that the reduce() method comes with the added ability to collect the result of each iteration as a
+single value. Let us try coding some examples.
+
+Suppose Jason is taking an Introduction to Computer Science course and did five(5) tests during 
+the semester, and his grades are as follows: [18, 19, 17, 15, 18];
+
+Now the instructor wants to total his scores for the semester in this course.
+
+Let us write a simple reduce() function or method for this.  */
+
+// DEMONSTRATION 1 - USING REDUCE(reduce()) METHOD TO COMPUTE TOTAL SCORES
+let jasonGrades = [18, 19, 17, 15, 18];
+
+let totalJasonGrades = jasonGrades.reduce(sum);
+
+console.log (totalJasonGrades);
+
+function sum1 (accumulator, element){
+    return accumulator + element
+}
+
+
+// DEMONSTRATION 2 - A cashier wants to add up total sales for the day using the reduce() method
+let totalSales = [300, 4000, 5100, 1200, 1500, 6000];
+
+let grandTotalSales = totalSales.reduce(sales);
+
+console.log ("$" + grandTotalSales);
+
+function sales (accumulator, element){
+    return accumulator + element
+}
+
+
+// DEMONSTRATION 3 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MAXIMUM VALUE
+let tempValue = [22, 25, 27, 28, 30, 33, 35];
+
+let maxTempValue = tempValue.reduce(getMax);
+
+console.log (maxTempValue + " degrees" + " Centigrade");
+
+console.log (maxTempValue + "°" + " Centigrade");
+
+function getMax (accumulator, element){
+    return Math.max (accumulator, element);
+}
+
+
+// DEMONSTRATION 4 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MINIMUM VALUE
+let minCost = [2, 3, 7, 5, 1, 4, 8, 6, 11, 13, 0.5];
+
+let leastCost = minCost.reduce(getCost);
+
+console.log (leastCost);
+
+function getCost (accumulator, element){
+    return Math.min (accumulator, element);
+}
+
+ 
+//DEMONSTRATION 5 - USING REDUCE (reduce()) METHOD TO FIND OUT THE HIGHEST ELECTION SCORE - CLASS WORK 1
+let electionScores = [100, 121, 200, 612, 300, 244, 233, 150];
+
+let highestElectionScores = electionScores.reduce(getScores);
+
+console.log (highestElectionScores);
+
+function getScores (accumulator, element){
+    return Math.max (accumulator, element);
+}
+
+
+// DEMONSTRATION 6 - USING REDUCE (reduce()) METHOD TO FIND THE TOTAL BLAZER COST - CLASS WORK 2
+let theBlazerCost = [250, 350, 550, 1500]; 
+
+let sumBlazerCost = theBlazerCost.reduce(theBlazer)
+
+console.log ("$" + sumBlazerCost);
+
+function theBlazer (accumulator, element){
+    return accumulator + element
+}
+
+
+// DEMONSTRATION 7 - USING REDUCE (reduce()) METHOD TO GET THE MINIMUM HAIR CREAM COST - CLASS WORK 3
+let hairCream = ["blue-250", "white-300", "red-500", "green-800"]; 
+
+let minHairCream = hairCream.reduce(minHair, Infinity);
+
+console.log(minHairCream);
+
+function minHair(accumulator, element){
+    // Extract the numeric value from the string
+    let value = parseInt(element.split('-')[1]);
+
+    return Math.min(accumulator, value);
+}
+
+
+
+/* 
+
+1.JavaScript is an event-driven and a synchronous programming language
+2. By synchronous, it means that Code 1 must be executed before code 2, regardless of the time it takes to execute code 1. So JavaScript executes codes sequentially
+3. This means that if there are 100 lines of code, JavaScript will iterate through each line in a sequential and linear manner, with each new line waiting for the preceeding one to finish executing
+4. So when code in line 2 takes 1000 seconds to execute and code in line 3 takes only 2 seconds, code in line 3 must wait for code in line 2 to finish executing
+5. This is known as CODE BLOCKING
+6. In other words, Synchronous programming leads to CODE BLOCKING. This can cause a program to take a very long time to execute
+
+7. To deal with this matter, the concept of ASYNCHRONOUS PROGRAMMING was developed
+8. This concept of ASYNCHRONOUS PROGRAMMING uses a function called CALLBACK FUNCTION to make its asynchronous operation possible
+9. Asynchronous programming means that no code is blocked. If the code in line 2 will take 1000 seconds to execute, the callback function will take that code and pass on to another part of the browser to execute, leaving the main browser to proceed to line 3
+10. Asynchronous programming and call back functions created a big relief in the programming community
+11. However, it led to another problem which had to do with NESTED functions
+12. NESTED functions are functions that are nested in preceeding functions. This in itself created new problems with callbacks. This problem is that of complicated nests that can cause a program to loop interminably, leading to what is known as a CALLBACK HELL or a PYRAMMID OF DOOM
+To solve the problem of pyramid of doom, JavaScript invented a new method known as PROMISES or Method Chaining
+
+13. Method Chaining (Promises) enabled JavaScript to either RESOLVE or REJECT an API call or request...also enabling JavaScript to display the status of an asynchronous request...
+14. Finally, to deal with problems that came with PROMISES and METHOD CHAINING, JaavaScript created a final approach called ASYNC/ AWAIT
+15. async / await helps asynchronous programming execute its code effortlessly like SYNCHRONOUS PRograms
+
+*/
