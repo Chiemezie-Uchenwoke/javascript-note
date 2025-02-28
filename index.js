@@ -5480,7 +5480,7 @@ function Student(lastName, middleName, firstName, gender, nationality, state, LG
     this.totalCredits = totalCredits;
 }
 
-let student1 = new Student("Last Name: Garba", "Middle Name: James", "First Name: Sarah", "Gender: Female", "Nationality: Nigeria", "State: Adamawa", "LGA: Yola North", "Town: Jimeta", "Examination Center: FCE Yola", "Exam Number: 21234", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 12");
+let student12 = new Student("Last Name: Garba", "Middle Name: James", "First Name: Sarah", "Gender: Female", "Nationality: Nigeria", "State: Adamawa", "LGA: Yola North", "Town: Jimeta", "Examination Center: FCE Yola", "Exam Number: 21234", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 12");
 
 let student2 = new Student("Last Name: Ibiam", "Middle Name: Chioma", "First Name: Eudorah", "Gender: Female", "Nationality: Nigeria", "State: Ebonyi", "LGA: Afikpo North", "Town: Afikpo", "Examination Center: Federal Polytechnic", "Exam Number: 21207", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 9");
 
@@ -5488,42 +5488,42 @@ let student3 = new Student("Last Name: Ugwu", "Middle Name: Martha", "First Name
 
 let student4 = new Student("Last Name: Uchenwoke", "Middle Name: Franklin", "First Name: Chiemezie", "Gender: Male", "Nationality: Nigeria", "State: Anambra", "LGA: Anaocha", "Town: Neni", "Examination Center: UNIZIK", "Exam Number: 21999", "Subject1: English", "Subject2: Mathematics", "Subject3: Physics", "Subject4: Chemistry", "Subject5: Biology", "Subject6: Literature in English", "Subject7: Further Mathematics", "Subject8: Geography", "Subject9: Health Science", "Subject10: CRS", "Subject11: Civil Education", "Subject12: Technical Drawing", "English: A1", "Mathematics: A1", "Physics: A1", "Chemistry: A1", "Biology: A1", "Literature in English: Absent", "Further Mathematics: Absent", "Geography: A1", "Health Science: A1", "CRS: A1", "Civil Education: A1","Technical Drawing: Absent", "Total Subjects Registered: 12", "Total Credit: 12");
 
-console.log(student1.lastName);
-console.log(student1.middleName);
-console.log(student1.firstName);
-console.log(student1.gender);
-console.log(student1.nationality);
-console.log(student1.state);
-console.log(student1.LGA);
-console.log(student1.town);
-console.log(student1.center);
-console.log(student1.examNumber);
-console.log(student1.subject1);
-console.log(student1.subject2);
-console.log(student1.subject3);
-console.log(student1.subject4);
-console.log(student1.subject5);
-console.log(student1.subject6);
-console.log(student1.subject7);
-console.log(student1.subject8);
-console.log(student1.subject9);
-console.log(student1.subject10);
-console.log(student1.subject11);
-console.log(student1.subject12);
-console.log(student1.score1);
-console.log(student1.score2);
-console.log(student1.score3);
-console.log(student1.score4);
-console.log(student1.score5);
-console.log(student1.score6);
-console.log(student1.score7);
-console.log(student1.score8);
-console.log(student1.score9);
-console.log(student1.score10);
-console.log(student1.score11);
-console.log(student1.score12);
-console.log(student1.totalSubjectsRegistered);
-console.log(student1.totalCredits);
+console.log(student12.lastName);
+console.log(student12.middleName);
+console.log(student12.firstName);
+console.log(student12.gender);
+console.log(student12.nationality);
+console.log(student12.state);
+console.log(student12.LGA);
+console.log(student12.town);
+console.log(student12.center);
+console.log(student12.examNumber);
+console.log(student12.subject1);
+console.log(student12.subject2);
+console.log(student12.subject3);
+console.log(student12.subject4);
+console.log(student12.subject5);
+console.log(student12.subject6);
+console.log(student12.subject7);
+console.log(student12.subject8);
+console.log(student12.subject9);
+console.log(student12.subject10);
+console.log(student12.subject11);
+console.log(student12.subject12);
+console.log(student12.score1);
+console.log(student12.score2);
+console.log(student12.score3);
+console.log(student12.score4);
+console.log(student12.score5);
+console.log(student12.score6);
+console.log(student12.score7);
+console.log(student12.score8);
+console.log(student12.score9);
+console.log(student12.score10);
+console.log(student12.score11);
+console.log(student12.score12);
+console.log(student12.totalSubjectsRegistered);
+console.log(student12.totalCredits);
 
 console.log(student2.lastName);
 console.log(student2.middleName);
@@ -5635,6 +5635,92 @@ console.log(student4.score11);
 console.log(student4.score12);
 console.log(student4.totalSubjectsRegistered);
 console.log(student4.totalCredits);
+
+// Classwork 1
+function Player(lastName, firstName, nickName, age, nationality,  nationalJerseyNumber, club, clubJerseyNumber, clubCountry, division, position, strongFoot, height, trait, goals, assist, yellowCard, redCard, marketValue){
+    this.lastName = `Last Name: ${lastName}`;
+    this.firstName = `First Name: ${firstName}`;
+    this.nickName = `Nick Name: ${nickName}`;
+    this.age = `Age: ${age}`;
+    this.nationality = `Nationality: ${nationality}`;
+    this.nationalJerseyNumber = `National Jersey Number: ${nationalJerseyNumber}`;
+    this.club = `Club: ${club}`;
+    this.clubJerseyNumber = `Club Jersey Number: ${clubJerseyNumber}`;
+    this.clubCountry = `Club Country: ${clubCountry}`;
+    this.division = `Division: ${division}`;
+    this.position = `Position: ${position}`;
+    this.strongFoot = `Strong Foot: ${strongFoot}`;
+    this.height = `Height: ${height}`;
+    this.trait = `Trait: ${trait}`;
+    this.goals = `Goals: ${goals}`;
+    this.assist = `Assist: ${assist}`;
+    this.yellowCard = `Yellow Card: ${yellowCard}`;
+    this.redCard = `Red Card: ${redCard}`;
+    this.marketValue = `Market Value: ${marketValue}`;
+    this.bio = function(){
+        console.log(`My name is ${lastName} ${firstName}. My fans call me ${nickName}. I am from ${nationality} and I play for ${club}.`);
+    }
+}
+
+const player1 = new Player("Martins", "Obafemi", "Oba Goal", 30, "Nigeria",  9, "Inter Milan", 30, "Italy", "First", "Striker", "Left", "5ft 10", "Pace", 324, 157, 25, 2, "25 Million Euros");
+console.log(player1.lastName);
+console.log(player1.firstName);
+console.log(player1.nickName);
+console.log(player1.age);
+console.log(player1.nationality);
+console.log(player1.nationalJerseyNumber);
+console.log(player1.club);
+console.log(player1.clubJerseyNumber);
+console.log(player1.clubCountry);
+console.log(player1.division);
+console.log(player1.position);
+console.log(player1.strongFoot);
+console.log(player1.height);
+console.log(player1.trait);
+console.log(player1.goals);
+console.log(player1.assist);
+console.log(player1.yellowCard);
+console.log(player1.redCard);
+console.log(player1.marketValue);
+player1.bio();
+
+// Classwork 2
+function FlightTicket(lastName, middleName, firstName, emailAddress, address, contact, nextOfKin, nextOfKinPhoneNumber, travelFrom, travelTo, boardingTime, departureTime, arrivalTime, ticketNumber, flightNumber, seatNumber){
+    this.lastName = `Last Name: ${lastName}`;
+    this.middleName = `Middle Name: ${middleName}`;
+    this.firstName = `First Name: ${firstName}`;
+    this.emailAddress = `Email Address: ${emailAddress}`;
+    this.address = `Address: ${address}`;
+    this.contact = `Contact: ${contact}`;
+    this.nextOfKin = `Next of Kin: ${nextOfKin}`;
+    this.nextOfKinPhoneNumber = `Next of Kin Phone Number: ${nextOfKinPhoneNumber}`;
+    this.travelFrom = `Travelling From: ${travelFrom}`;
+    this.travelTo = `Travelling To: ${travelTo}`;
+    this.boardingTime = `Boarding Time: ${boardingTime}`;
+    this.departureTime = `Departure Time: ${departureTime}`;
+    this.arrivalTime = `Arrival Time: ${arrivalTime}`;
+    this.ticketNumber = `Ticket Number: ${ticketNumber}`;
+    this.flightNumber = `Flight Number: ${flightNumber}`;
+    this.seatNumber = `Seat Number: ${seatNumber}`;
+}
+
+const passenger1 = new FlightTicket("Kanu", "Cynthia", "Chidinma", "cynthia@yahoo.com", "Lekki Phase 1", "+234803344556", "Kanu Grace", "+2347079778780", "Lagos, Nigeria", "New York", "11:45pm", "1:00am", "8:00am", 123456, "AB017", "16C");
+
+console.log(passenger1.lastName);
+console.log(passenger1.middleName);
+console.log(passenger1.firstName);
+console.log(passenger1.address);
+console.log(passenger1.contact);
+console.log(passenger1.nextOfKin);
+console.log(passenger1.nextOfKinPhoneNumber);
+console.log(passenger1.travelFrom);
+console.log(passenger1.travelTo);
+console.log(passenger1.boardingTime);
+console.log(passenger1.departureTime);
+console.log(passenger1.arrivalTime);
+console.log(passenger1.ticketNumber);
+console.log(passenger1.flightNumber);
+console.log(passenger1.seatNumber);
 
 
 /* A constructor function therefore is similar to an object and its properties and values.
@@ -5896,7 +5982,7 @@ console.log(Country7.continent);
 
 /* RECURSION/ RECURSIVE FUNCTIONS - FUNCTION TYPE SIX (6)
 In computer science and software engineering, recursion is a technique used to break 
-complex problems into smaller parts that are simpler to execute and are repeatable. 
+complex problems into smaller parts that are simpler to execute and that are repeatable. 
 
 When you apply a recursive technique, you repeat smaller portions of a bigger problem
 until you completely solve the bigger problem and aggregate the answers into one.
@@ -5904,13 +5990,25 @@ until you completely solve the bigger problem and aggregate the answers into one
 Recursion is a technique in which the solution to a bigger problem is dependent on the
 aggregate solutions of each of the smaller sub-problems that make up the bigger problem. 
 
+This method of problem solving in computer science is known as DIVIDE AND CONQUER. Divide and conquer is a 
+known technique in algorithm design. An algorithm is simply a series of steps used to solve a problem. 
+Recursion is a divide and conquer algorithmic method and can be executed in JavaScript as function. 
+
 When executed as code, recursion is typically expressed as a function which calls itself 
 over and over until it reaches a stopping or terminating condition. In this regard, a 
-recursive function is similar to a loop; a WHILE LOOP. 
+recursive function is similar to
+        (i) a callback function which calls itself repeatedly
+        (ii) a loop a WHILE LOOP. 
 
-Both loop and recursion are used to build algorithms and develop software. 
+However, a callback function calls itself repeatedly under asynchronous programming conditions. But a recursive function calls itself repeatedly using a divide and conquer approach.
+
+Secondly, a recursive function if similar to a for-loop in that both of them repeatedly execute themselves on a piece of code until they reach a terminal condition. However, a loop does this in an iterative manner while a recursive function does this using a divide and conquer approach.
+
+It is important to note that callback functions, for-loops and recursive functions have their roles in computer science. They help solve critical problems that may be critical to society.
 
 Yet, there is a difference.
+
+Since we have already covered callback functions, we'll focus on the difference between recursive functions and while loops.
 
 A loop uses an iterative process that calls itself over and over again, repeating the same
 code until it solves the problem. When we use a simple 'for loop' process for example to
@@ -6006,7 +6104,168 @@ const oddNumbers = (odd) =>{
     };
     oddNumbers (15);
 
+// Example 1 - Recursive Function - Recursion starts (25), countDown (-1), Base case 0
+/* const theCountDown = (kickOff) => {
+  if (kickOff === 0) {
+    return;
+  }
+  console.log(kickOff);
+  theCountDown(kickOff - 1);
+};
+theCountDown(25); */
 
+// Example 2 - Recursive Function - Recursion starts (50), countDown (-2), Base case (<= 5)
+/* const herCountDown = (kickOff) => {
+  if (kickOff <= 5) {
+    return;
+  }
+  console.log(kickOff);
+  herCountDown(kickOff - 2);
+};
+herCountDown(50); */
+
+// Example 3 - Recursive Function - Recursion starts (1), countUp (+1), Base case (50)
+/* const countUp = (herKickOff) => {
+  if (herKickOff === 50) {
+    return;
+  }
+  console.log(herKickOff);
+  countUp(herKickOff + 1);
+};
+countUp(1); */
+
+// Example 4 - Recursive Function - Recursion starts (0), countUp (+2), Base case (50)
+/* const myCountUp = (herKickOff) => {
+    if (herKickOff === 50) {
+      return;
+    }
+    console.log(herKickOff);
+    myCountUp(herKickOff + 2);
+  };
+  myCountUp(0); */
+
+  // Example 5 - Classwork 1 - Recursive Function - Recursion starts (31), countDown (-1), Base case (<=2)
+  const myBirthDay = (startTime) => {
+    if (startTime <= 2) {
+      return;
+    }
+    console.log(startTime);
+    myBirthDay(startTime - 1);
+  };
+  myBirthDay(23);
+
+
+// Example 6 - work in progress
+/* const birthDayCountDown = () => {
+  const now = new Date();
+  console.log(now);
+  const birthDate = new Date("2025-05-31T23:59:59");
+
+  const diff = birthDate - now;
+  console.log(diff);
+
+  const days = Math.floor(diff/(1000 * 60 * 60 * 24));
+
+  const hours = Math.floor(diff / (1000 * 60 * 60) % 24);
+
+  const minutes = Math.floor(diff / (1000 * 60) % 60);
+
+  const seconds = Math.floor(diff / (1000) % 60);
+
+  console.log(days, hours, minutes, seconds);
+
+  if (diff <= 0){
+    clearInterval(timeInterval);
+    return;
+  }
+} */
+// birthDayCountDown()
+// const timeInterval = setInterval(birthDayCountDown, 1000);
+
+/* 
+Early Warning System for a project that should end by June 30th, 2025. The countdown should start from today February 25th, 2025. 
+
+First Warning - March 31st, 2025 - 33rd day = 33 * 24 * 60 * 60 * 1000 
+Second warning - April 30th, 2025 - 63rd day = 63 * 24 * 60 * 60 * 1000
+Third warning - May 30th, 2025 - 94th day = 94 * 24 * 60 * 60 * 1000
+Penultimate warning - June 15th, 2025 - 109th day = 109 * 24 * 60 * 60 * 1000
+Final warning - June 29th, 2025. - 123rd day = 123 * 24 * 60 * 60 * 1000
+
+warnings should be in console.log.
+*/
+
+// We can use a single function for each of the five warnings.
+/* const warningSystem = () => {
+  const now = new Date();
+  const targetDate = new Date("2025-06-30T23:59:59");
+
+  const diff = targetDate - now;
+  console.log(diff);
+
+  const firstWarning = 33 * 24 * 60 * 60 * 1000;
+  const secondWarning = 63 * 24 * 60 * 60 * 1000;
+  const thirdWarning = 94 * 24 * 60 * 60 * 1000;
+  const penultimateWarning = 109 * 24 * 60 * 60 * 1000;
+  const finalWarning = 123 * 24 * 60 * 60 * 1000;
+
+  console.log(firstWarning, secondWarning, thirdWarning, penultimateWarning, finalWarning);
+  console.log(typeof diff, typeof firstWarning);
+
+  if (diff <= 0){
+    return;
+  }
+  else if (diff === firstWarning){
+    console.log("This is your first warning");
+  }
+  else if (diff === secondWarning){
+    console.log("This is your second warning");
+  }
+  else if (diff === thirdWarning){
+    console.log("This is your third warning");
+  }
+  else if (diff === penultimateWarning){
+    console.log("This is your penultimate warning");
+  }
+  else if (diff === finalWarning){
+      console.log("If you haven't finished the project by now, then i can't help you");
+  }
+  
+}
+warningSystem();
+ */
+
+const warningSystem1 = () => {
+    const now = new Date();
+    const targetDate = new Date("2025-02-26T01:30:00");
+  
+    const diff = targetDate - now;
+    console.log(diff);
+  
+    const firstWarning = 60 * 1.5 * 1000;
+    const secondWarning = 60 * 1 * 1000;
+    const thirdWarning = 60 * 0.5 * 1000;
+   
+  
+    // console.log(firstWarning, secondWarning, thirdWarning);
+    // console.log(typeof diff, typeof firstWarning);
+  
+    if (diff <= 0){
+      clearInterval(warningInterval);
+      return;
+    }
+    else if (diff <= firstWarning && diff > secondWarning){
+      console.log("This is your first warning");
+    }
+    else if (diff <= secondWarning && diff > thirdWarning){
+      console.log("This is your second warning");
+    }
+    else if (diff <= thirdWarning){
+      console.log("This is your third warning");
+    }
+    
+  }
+  
+  const warningInterval = setInterval(warningSystem1, 1000);
 
 /* 
 HIGHER ORDER FUNCTIONS (MAP, FILTER, REDUCE) - FUNCTION TYPE SEVEN (7) 
@@ -6099,6 +6358,9 @@ const newStaffSalaries = staffSalaries.map(n => n*2);
 console.log (newStaffSalaries);
 
 
+let 
+
+
 //DEMONSTRATION 2
 const africanActors = ["sam loko", "juliet ibrahim", "patience ozokwor", "kenneth okonkwo"]
 
@@ -6147,7 +6409,104 @@ const newFireRate = fireRate.map(n => n/5 + n);
 
 console.log (newFireRate);
 
+// Let us do this example using an arrow function  
 
+/* const staffSalaries = [5000, 6000, 7200, 8000, 10000, 14000, 15000];
+
+const newStaffSalaries = staffSalaries.map(n => n*2);
+
+console.log (newStaffSalaries); */
+
+// Demonstration 1b
+/* let currentPrice = [100, 20, 200, 300, 40, 800, 1000, 120, 80, 60];
+
+let adjustedPrice = currentPrice.map((num) => (num / 5) * 4 );
+console.log(adjustedPrice); */
+
+// DEMONSTRATION 1C
+// const currentPrice1 = ["apple: 50", "mangoes: 20", "cucumber: 10", "peaches: 5"];
+
+// const currentPrice1 = [ 50, 20, 10, 5];
+
+/* const adjustPrice1 = currentPrice1.map(num => num * 1.5);
+console.log(adjustPrice1); */
+
+/* const newPrice = [50, 20, 10, 5];
+const newAdjustedPrice = newPrice.map(price => price * 1);
+console.log(newAdjustedPrice); */
+
+function currentPrice2 (apple, mangoes, cucumber, peach){
+    console.log( "Current Prices:" + "apple: " + "$" + apple + ",", "mangoes: " + "$" + mangoes + ",", "cucumber: " + "$" + cucumber + ",", "peach: " + "$" + peach);
+  }
+  currentPrice2(50*1, 20*1, 10*1, 5*1);
+  
+  function currentPrice3 (apple, mangoes, cucumber, peach){
+    console.log("Adjusted Prices:" + "apple: " + "$" + apple + ",", "mangoes: " + "$" + mangoes + ",", "cucumber: " + "$" + cucumber + ",", "peach: " + "$" + peach);
+  }
+  currentPrice3(50*1.5, 20*1.5, 10*1.5, 5*1.5);
+  
+  // console.log(50, 20, 10, 5);
+  
+  
+  // Class Example:
+  const pricePromo = [200, 150, 185, 300, 75];
+  const promoPrice = pricePromo.map((price) => price * 0.95);
+  console.log(promoPrice);
+  
+  const pricePromo2 = ["blender: $200", "juicer: $150", "toaster: $185", "air fryer: $300", "coffee maker: $75"];
+  const promoPrice2 = pricePromo2.map((price) => `Home Appliance: ${price}`);
+  console.log(promoPrice2);
+  
+  
+  
+  //DEMONSTRATION 2
+  /* const africanActors = ["sam loko", "juliet ibrahim", "patience ozokwor", "kenneth okonkwo"]
+  
+  const upperCaseActors = africanActors.map(upperCase);
+  
+  console.log (upperCaseActors);
+  
+  function upperCase (element){
+      return element.toUpperCase();
+  } */
+  
+  
+  //DEMONSTRATION 3 (CLASS WORK 1 - By Patrick Nkwo)
+  /* const foodPrices = [100, 150, 200, 500, 800, 1000]
+  
+  const percentageFoodPriceIncrease = foodPrices.map(val => percentageIncrease(val, 10));
+  
+  console.log (percentageFoodPriceIncrease);
+  
+  function percentageIncrease (element, percentage){
+      return element *((percentage + 100)/100);
+  }
+   */
+  
+  // DEMONSTRATION 4 (CLASS WORK 2)
+  /* const stampRate = [200, 500, 100, 50, 300, 1000, 2000];
+  
+  const newStampRate = stampRate.map(n => n/10 + n);
+  
+  console.log (newStampRate);
+   */
+  
+  
+  // DEMONSTRATION 5 (CLASS WORK 3A)
+  /* const waterRate = [300, 600, 700, 500, 400, 100, 200];
+  
+  const newWaterRate = waterRate.map(n => n * 1.2);
+  
+  console.log (newWaterRate); */
+  
+  
+  // DEMONSTRATION 6 (CLASS WORK 3B)
+  /* const fireRate = [300, 600, 700, 500, 400, 100, 200];
+  
+  const newFireRate = fireRate.map(n => n/5 + n);
+  
+  console.log (newFireRate); */
+  
 
 /* 
 FILTER (filter()) 

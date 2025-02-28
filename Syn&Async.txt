@@ -488,3 +488,26 @@ performOps18().then(value=>{console.log(value);return "I downloaded the video"})
               .then(value=>{console.log(value); console.log ("I concluded the process")})
               .catch(error=>console.error(error));
  */
+
+ const currentPrice1 = ["apple: 50", "mangoes: 20", "cucumber: 10", "peaches: 5"];
+
+const newPrice = currentPrice1.map((item) => Number(item.split(":")[1]));
+console.log(newPrice);
+
+const currentPrice1 = ["apple: 50", "mangoes: 20", "cucumber: 10", "peaches: 5"];
+
+const updatedPrices = currentPrice1.map(item => {
+    const [fruit, price] = item.split(": "); // Extract fruit and price
+    return `${fruit}: ${Number(price) * 2}`; // Double the price and return formatted string
+});
+
+console.log(updatedPrices);
+// Output: ["apple: 100", "mangoes: 40", "cucumber: 20", "peaches: 10"]
+
+const currentPrice1 = ["apple: 50", "mangoes: 20", "cucumber: 10", "peaches: 5"];
+
+const updatedPrice = currentPrice1.map((item) => {
+    const [fruit, price] = item.split(":");
+    return (`${fruit}: ${Number(price * 2)}`);
+});
+console.log(updatedPrice);
