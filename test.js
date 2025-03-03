@@ -1,97 +1,147 @@
-// Let us do this example using an arrow function  
+// DEMONSTRATION 1 - USING AN ARROW FUNCTION
+const iNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const iEvenNumbers = iNumbers.filter(n => n % 2 === 0);
+console.log (iEvenNumbers);
 
-/* const staffSalaries = [5000, 6000, 7200, 8000, 10000, 14000, 15000];
+let allNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let allEven = allNumbers.filter((n) => n % 2 === 0);
+let allOdd = allNumbers.filter((n) => n % 2 != 0);
+console.log(allEven);
+console.log(allOdd);
 
-const newStaffSalaries = staffSalaries.map(n => n*2);
+// DEMONSTRATION 2 - USING A NORMAL CALLBACK FUNCTION
+let tNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-console.log (newStaffSalaries); */
+let tAllEven = tNumbers.filter(tEven);
 
-// Demonstration 1b
-/* let currentPrice = [100, 20, 200, 300, 40, 800, 1000, 120, 80, 60];
+console.log (tAllEven);
 
-let adjustedPrice = currentPrice.map((num) => (num / 5) * 4 );
-console.log(adjustedPrice); */
+function tEven (element){
+    return element % 2 === 0
+} 
 
-// DEMONSTRATION 1C
-// const currentPrice1 = ["apple: 50", "mangoes: 20", "cucumber: 10", "peaches: 5"];
-
-// const currentPrice1 = [ 50, 20, 10, 5];
-
-/* const adjustPrice1 = currentPrice1.map(num => num * 1.5);
-console.log(adjustPrice1); */
-
-/* const newPrice = [50, 20, 10, 5];
-const newAdjustedPrice = newPrice.map(price => price * 1);
-console.log(newAdjustedPrice); */
-
-function currentPrice2 (apple, mangoes, cucumber, peach){
-  console.log( "Current Prices:" + "apple: " + "$" + apple + ",", "mangoes: " + "$" + mangoes + ",", "cucumber: " + "$" + cucumber + ",", "peach: " + "$" + peach);
+const nums = [35, 48, 37, 53, 62];
+const evenNums = nums.filter(getEven);
+function getEven(element){
+  return element % 2 === 0
 }
-currentPrice2(50*1, 20*1, 10*1, 5*1);
+console.log(evenNums);
 
-function currentPrice3 (apple, mangoes, cucumber, peach){
-  console.log("Adjusted Prices:" + "apple: " + "$" + apple + ",", "mangoes: " + "$" + mangoes + ",", "cucumber: " + "$" + cucumber + ",", "peach: " + "$" + peach);
+const oddNums = nums.filter(getOdd);
+function getOdd(element){
+  return element % 2 != 0
 }
-currentPrice3(50*1.5, 20*1.5, 10*1.5, 5*1.5);
+console.log(oddNums);
 
-// console.log(50, 20, 10, 5);
-
-
-// Class Example:
-const pricePromo = [200, 150, 185, 300, 75];
-const promoPrice = pricePromo.map((price) => price * 0.95);
-console.log(promoPrice);
-
-const pricePromo2 = ["blender: $200", "juicer: $150", "toaster: $185", "air fryer: $300", "coffee maker: $75"];
-const promoPrice2 = pricePromo2.map((price) => `Home Appliance: ${price}`);
-console.log(promoPrice2);
-
-
-
-//DEMONSTRATION 2
-/* const africanActors = ["sam loko", "juliet ibrahim", "patience ozokwor", "kenneth okonkwo"]
-
-const upperCaseActors = africanActors.map(upperCase);
-
-console.log (upperCaseActors);
-
-function upperCase (element){
-    return element.toUpperCase();
-} */
-
-
-//DEMONSTRATION 3 (CLASS WORK 1 - By Patrick Nkwo)
-/* const foodPrices = [100, 150, 200, 500, 800, 1000]
-
-const percentageFoodPriceIncrease = foodPrices.map(val => percentageIncrease(val, 10));
-
-console.log (percentageFoodPriceIncrease);
-
-function percentageIncrease (element, percentage){
-    return element *((percentage + 100)/100);
+const num3 = [77, 78, 83, 45, 105, 68, 88];
+const evenNum1 = num3.filter(getEven1);
+function getEven1(element){
+  return element % 2 === 0;
 }
- */
+console.log(evenNum1);
 
-// DEMONSTRATION 4 (CLASS WORK 2)
-/* const stampRate = [200, 500, 100, 50, 300, 1000, 2000];
+const ourFruits = ["apple", "mangoe", "orange", "pineapple", "pear", "tangerine"];
+const filterFruits = ourFruits.filter((fruit) => fruit.length > 6);
+console.log(filterFruits);
 
-const newStampRate = stampRate.map(n => n/10 + n);
+const filterFruits2 = ourFruits.filter((fruit) => fruit.length <= 6);
+console.log(filterFruits2);
 
-console.log (newStampRate);
- */
+const ourFruits3 = ["Apple", "mangoe", "Orange", "pineapple", "Pear", "Tangerine"];
+const result = ourFruits3.filter((fruit) => fruit.charAt(0) === fruit.charAt(0).toUpperCase());
+console.log(result);
+const result2 = ourFruits3.map((fruit) => fruit.toUpperCase());
+console.log(result2);
 
+// Example: 1 subject each
+const waecResults = [
+  {
+    department: "science",
+    subject: "biology"
+  },
+  {
+    department: "art",
+    subject: "literature"
+  }
+];
+const waecSubject = waecResults.filter((result) => {
+  return result.department === "science";
+});
+console.log(waecSubject);
 
-// DEMONSTRATION 5 (CLASS WORK 3A)
-/* const waterRate = [300, 600, 700, 500, 400, 100, 200];
+const waecSubject1 = waecResults.filter((result) => {
+  return result.department === "art";
+});
+console.log(waecSubject1);
 
-const newWaterRate = waterRate.map(n => n * 1.2);
+// Example: 5 subjects each
+const waecResults3 = [
+  {
+    department: "science",
+    subject: ["biology", "chemistry", "physics", "mathematics", "geography"]
+  },
+  {
+    department: "art",
+    subject: ["literature", "government", "history", "commerce", "economics"]
+  }
+];
+const allScienceSubjects = waecResults3.filter((sub) => {
+  if (sub.department === "science"){
+    return sub.subject;
+  }
+});
+console.log(allScienceSubjects);
 
-console.log (newWaterRate); */
+const allArtSubjects = waecResults3.filter((sub) => {
+  return sub.department === "art";
+});
+console.log(allArtSubjects);
 
+// DEMONSTRATION 3 - DECLARING A FUNCTION BEFORE CALLING IT (CLASS WORK)
+let zNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-// DEMONSTRATION 6 (CLASS WORK 3B)
-/* const fireRate = [300, 600, 700, 500, 400, 100, 200];
+let zAllEven = zNumbers.filter(zEven);
 
-const newFireRate = fireRate.map(n => n/5 + n);
+console.log (zAllEven);
 
-console.log (newFireRate); */
+function zEven (element){
+    return element % 2 === 0
+} 
+
+// DEMONSTRATION 4 - USING A NORMAL CALLBACK FUNCTION (ODD NUMBERS)
+let kNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+let kAllOdd = kNumbers.filter(kOdd);
+
+console.log (kAllOdd);
+
+function kOdd (element){
+    return element % 2 !== 0;
+} 
+
+// DEMONSTRATION 5 - USING A NORMAL CALLBACK FUNCTION
+const iGrades = [1600, 1300, 1500, 1550, 1000, 950, 1100, 1400];
+
+const iResult = iGrades.filter(iScores);
+
+console.log (iResult);
+
+function iScores (element){
+    return element >= 1400;
+}
+
+// DEMONSTRATION 6 - USING AN ARROW FUNCTION (CLASS WORK)
+const tempRead = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
+const tempEvenRead = tempRead.filter(n => n % 5 === 0);
+console.log (tempEvenRead);
+
+// DEMONSTRATION 7 - USING A NORMAL CALLBACK FUNCTION (CLASS WORK)
+const tempRead2 = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
+
+const tempRead4 = tempRead2.filter(tempRead3);
+
+console.log (tempRead4);
+
+function tempRead3 (element){
+    return element > 60;
+}

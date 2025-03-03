@@ -1380,6 +1380,74 @@ myArray.join("+"); // The return value - "item1+item2"
 
 (8) Splice() method: The splice method is used to remove, replace and/or insert an element/elements into an array. It modifies the existing array and returns the removed element. It can take between 1 to 3 parameters. The first parameter is required while the other two is optional.
 
+Great question! **The core difference between `slice()` and `splice()` in JavaScript arrays is:**  
+
+| Method  | **Mutates Original Array?** | **Returns New Array?** | **Use Case** |
+|---------|-----------------------------|------------------------|--------------|
+| **`slice()`** | ❌ No (original array stays the same) | ✅ Yes (creates a new array) | Extracts part of an array **without modifying** it |
+| **`splice()`** | ✅ Yes (modifies the original array) | ✅ Yes (returns removed items) | Removes or replaces items **within the original array** |
+
+---
+
+### **🔹 `slice()` - Non-Destructive (Does Not Modify Original)**
+- Extracts a portion of an array **without changing the original array**.  
+- Returns a **new array** with the selected elements.  
+
+**🛠 Example:**
+```js
+const fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+const slicedFruits = fruits.slice(1, 4); // Extract from index 1 to 3 (4 is not included)
+
+console.log(slicedFruits); // ["banana", "cherry", "date"]
+console.log(fruits); // ["apple", "banana", "cherry", "date", "elderberry"] (original unchanged)
+```
+
+✅ **`slice()` keeps the original array intact** and returns a **new array**.  
+
+---
+
+### **🔹 `splice()` - Destructive (Modifies Original Array)**
+- Changes the original array by **removing, replacing, or adding** elements.  
+- Returns an array of **removed elements**.  
+
+**🛠 Example:**
+```js
+const fruits = ["apple", "banana", "cherry", "date", "elderberry"];
+const removedFruits = fruits.splice(1, 2); // Remove 2 items starting from index 1
+
+console.log(removedFruits); // ["banana", "cherry"]
+console.log(fruits); // ["apple", "date", "elderberry"] (original array modified)
+```
+✅ **`splice()` modifies the original array**, removing `"banana"` and `"cherry"`.  
+
+---
+
+### **🔹 `splice()` Can Also Insert Elements**
+```js
+const numbers = [1, 2, 5, 6];
+numbers.splice(2, 0, 3, 4); // Insert 3 and 4 at index 2
+
+console.log(numbers); // [1, 2, 3, 4, 5, 6]
+```
+✅ **No elements were removed (`0`), but new elements (`3, 4`) were inserted.**  
+
+---
+
+### **🚀 Key Takeaways**
+| Feature | `slice()` | `splice()` |
+|---------|----------|------------|
+| **Modifies original array?** | ❌ No | ✅ Yes |
+| **Returns a new array?** | ✅ Yes | ✅ Yes (with removed elements) |
+| **Removes elements?** | ❌ No | ✅ Yes |
+| **Adds elements?** | ❌ No | ✅ Yes |
+
+Use **`slice()`** when you **don’t want to change the original array**.  
+Use **`splice()`** when you **need to modify the original array**.  
+
+---
+
+Hope this clears it up! Let me know if you need more examples. 😊🔥
+
 SYNTAX
 myArray.splice(startIndex); // The start index is the index where it starts changing the array from.
 myArray.splice(startIndex, deleteCount) // The delete count is the number of items you want it to delete.
@@ -6435,6 +6503,7 @@ console.log(adjustPrice1); */
 const newAdjustedPrice = newPrice.map(price => price * 1);
 console.log(newAdjustedPrice); */
 
+// Using the named function
 function currentPrice2 (apple, mangoes, cucumber, peach){
     console.log( "Current Prices:" + "apple: " + "$" + apple + ",", "mangoes: " + "$" + mangoes + ",", "cucumber: " + "$" + cucumber + ",", "peach: " + "$" + peach);
   }
@@ -6457,18 +6526,33 @@ function currentPrice2 (apple, mangoes, cucumber, peach){
   const promoPrice2 = pricePromo2.map((price) => `Home Appliance: ${price}`);
   console.log(promoPrice2);
   
-  
-  
-  //DEMONSTRATION 2
-  /* const africanActors = ["sam loko", "juliet ibrahim", "patience ozokwor", "kenneth okonkwo"]
-  
-  const upperCaseActors = africanActors.map(upperCase);
+//   Using the split method
+const currentPrice1 = ["apple: 50", "mangoes: 20", "cucumber: 10", "peaches: 5"];
+console.log(currentPrice1);
+
+const newPrice = currentPrice1.map((item) => {
+    // const [name, price] = item.split(":"); Using destructuring.
+    // ["apple", 50]
+    const productName = item.split(":")[0];
+    const price =  item.split(":")[1];
+
+    return `${productName}: $${price * 0.95}`;
+});
+console.log(newPrice);
+
+/* const myName = "name: chiemezie";
+console.log(myName.split(":"));
+
+const fruits = ["apple", "mangoe"];
+const [f, s] = fruits;
+console.log(f);
+console.log(s); */
   
   console.log (upperCaseActors);
   
   function upperCase (element){
       return element.toUpperCase();
-  } */
+  } 
   
   
   //DEMONSTRATION 3 (CLASS WORK 1 - By Patrick Nkwo)
@@ -6559,6 +6643,11 @@ const iNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const iEvenNumbers = iNumbers.filter(n => n % 2 === 0);
 console.log (iEvenNumbers);
 
+let allNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+let allEven = allNumbers.filter((n) => n % 2 === 0);
+let allOdd = allNumbers.filter((n) => n % 2 != 0);
+console.log(allEven);
+console.log(allOdd);
 
 // DEMONSTRATION 2 - USING A NORMAL CALLBACK FUNCTION
 let tNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -6571,6 +6660,82 @@ function tEven (element){
     return element % 2 === 0
 } 
 
+const nums = [35, 48, 37, 53, 62];
+const evenNums = nums.filter(getEven);
+function getEven(element){
+  return element % 2 === 0
+}
+console.log(evenNums);
+
+const oddNums = nums.filter(getOdd);
+function getOdd(element){
+  return element % 2 != 0
+}
+console.log(oddNums);
+
+const num3 = [77, 78, 83, 45, 105, 68, 88];
+const evenNum1 = num3.filter(getEven1);
+function getEven1(element){
+  return element % 2 === 0;
+}
+console.log(evenNum1);
+
+const ourFruits = ["apple", "mangoe", "orange", "pineapple", "pear", "tangerine"];
+const filterFruits = ourFruits.filter((fruit) => fruit.length > 6);
+console.log(filterFruits);
+
+const filterFruits2 = ourFruits.filter((fruit) => fruit.length <= 6);
+console.log(filterFruits2);
+
+const ourFruits3 = ["Apple", "mangoe", "Orange", "pineapple", "Pear", "Tangerine"];
+const result = ourFruits3.filter((fruit) => fruit.charAt(0) === fruit.charAt(0).toUpperCase());
+console.log(result);
+const result2 = ourFruits3.map((fruit) => fruit.toUpperCase());
+console.log(result2);
+
+// Example: 1 subject each
+const waecResults = [
+  {
+    department: "science",
+    subject: "biology"
+  },
+  {
+    department: "art",
+    subject: "literature"
+  }
+];
+const waecSubject = waecResults.filter((result) => {
+  return result.department === "science";
+});
+console.log(waecSubject);
+
+const waecSubject1 = waecResults.filter((result) => {
+  return result.department === "art";
+});
+console.log(waecSubject1);
+
+// Example: 5 subjects each
+const waecResults3 = [
+  {
+    department: "science",
+    subject: ["biology", "chemistry", "physics", "mathematics", "geography"]
+  },
+  {
+    department: "art",
+    subject: ["literature", "government", "history", "commerce", "economics"]
+  }
+];
+const allScienceSubjects = waecResults3.filter((sub) => {
+  if (sub.department === "science"){
+    return sub.subject;
+  }
+});
+console.log(allScienceSubjects);
+
+const allArtSubjects = waecResults3.filter((sub) => {
+  return sub.department === "art";
+});
+console.log(allArtSubjects);
 
 // DEMONSTRATION 3 - DECLARING A FUNCTION BEFORE CALLING IT (CLASS WORK)
 let zNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -6583,7 +6748,6 @@ function zEven (element){
     return element % 2 === 0
 } 
 
-
 // DEMONSTRATION 4 - USING A NORMAL CALLBACK FUNCTION (ODD NUMBERS)
 let kNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
@@ -6594,7 +6758,6 @@ console.log (kAllOdd);
 function kOdd (element){
     return element % 2 !== 0;
 } 
-
 
 // DEMONSTRATION 5 - USING A NORMAL CALLBACK FUNCTION
 const iGrades = [1600, 1300, 1500, 1550, 1000, 950, 1100, 1400];
@@ -6607,12 +6770,10 @@ function iScores (element){
     return element >= 1400;
 }
 
-
 // DEMONSTRATION 6 - USING AN ARROW FUNCTION (CLASS WORK)
 const tempRead = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
 const tempEvenRead = tempRead.filter(n => n % 5 === 0);
 console.log (tempEvenRead);
-
 
 // DEMONSTRATION 7 - USING A NORMAL CALLBACK FUNCTION (CLASS WORK)
 const tempRead2 = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];

@@ -511,3 +511,23 @@ const updatedPrice = currentPrice1.map((item) => {
     return (`${fruit}: ${Number(price * 2)}`);
 });
 console.log(updatedPrice);
+
+
+const products = ["iphone: 1000", "tablet: 700", "shoe: 250", "headset: 150"];
+const newPrices = products.map((product) => {
+    const [name, price] = product.split(":");
+
+    return `${name}: ${price * 5}`;
+});
+console.log(newPrices);
+
+
+const productsPrices = ["iphone: $1000", "tablet: $700", "shoe: $250", "headset: $150"];
+const discountPrices = productsPrices.map((product) => {
+    const [name, price] = product.split(":");
+
+    const priceValue = price.trim().slice(1);
+
+    return `${name}: $${priceValue * 0.9}`;
+});
+console.log(discountPrices);
