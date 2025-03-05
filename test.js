@@ -1,147 +1,152 @@
-// DEMONSTRATION 1 - USING AN ARROW FUNCTION
-const iNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const iEvenNumbers = iNumbers.filter(n => n % 2 === 0);
-console.log (iEvenNumbers);
+// DEMONSTRATION 1 - USING REDUCE(reduce()) METHOD TO COMPUTE TOTAL SCORES
+/* let jasonGrades = [18, 19, 17, 15, 18];
 
-let allNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-let allEven = allNumbers.filter((n) => n % 2 === 0);
-let allOdd = allNumbers.filter((n) => n % 2 != 0);
-console.log(allEven);
-console.log(allOdd);
+let totalJasonGrades = jasonGrades.reduce(sum1);
 
-// DEMONSTRATION 2 - USING A NORMAL CALLBACK FUNCTION
-let tNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log (totalJasonGrades);
 
-let tAllEven = tNumbers.filter(tEven);
+function sum1 (accumulator, element){
+    return accumulator + element
+} */
 
-console.log (tAllEven);
+// DEMONSTRATION 1B - CLASSWORK
+/* let madamSarahGrades = [74, 64, 86, 92, 99];
+let totalMadamSarahGrades = madamSarahGrades.reduce(addGrades);
+console.log(totalMadamSarahGrades);
 
-function tEven (element){
-    return element % 2 === 0
-} 
+const cutOffMark = 300;
 
-const nums = [35, 48, 37, 53, 62];
-const evenNums = nums.filter(getEven);
-function getEven(element){
-  return element % 2 === 0
+if (totalMadamSarahGrades < cutOffMark){
+  console.log(`Your score is below the cut off mark`);
+} else{
+  console.log(`Score: ${totalMadamSarahGrades}. You met the minimum admission requirement`);
 }
-console.log(evenNums);
 
-const oddNums = nums.filter(getOdd);
-function getOdd(element){
-  return element % 2 != 0
-}
-console.log(oddNums);
+function addGrades(accumulator, element){
+  return accumulator + element;
+} */
 
-const num3 = [77, 78, 83, 45, 105, 68, 88];
-const evenNum1 = num3.filter(getEven1);
-function getEven1(element){
-  return element % 2 === 0;
-}
-console.log(evenNum1);
+// DEMONSTRATION 1C - CLASSWORK
+/* const fruits = ["apple", "mango", "orange"];
+const totalLetters = fruits.reduce((accumulator, element) => {
+  return accumulator + element.length;
+}, 0);
+console.log(totalLetters); */
 
-const ourFruits = ["apple", "mangoe", "orange", "pineapple", "pear", "tangerine"];
-const filterFruits = ourFruits.filter((fruit) => fruit.length > 6);
-console.log(filterFruits);
-
-const filterFruits2 = ourFruits.filter((fruit) => fruit.length <= 6);
-console.log(filterFruits2);
-
-const ourFruits3 = ["Apple", "mangoe", "Orange", "pineapple", "Pear", "Tangerine"];
-const result = ourFruits3.filter((fruit) => fruit.charAt(0) === fruit.charAt(0).toUpperCase());
-console.log(result);
-const result2 = ourFruits3.map((fruit) => fruit.toUpperCase());
-console.log(result2);
-
-// Example: 1 subject each
-const waecResults = [
+// DEMONSTRATION 1D - CLASSWORK
+let fashionItems = [
   {
-    department: "science",
-    subject: "biology"
+    name: "gele",
+    highDemand: true,
+    price: 2000
   },
   {
-    department: "art",
-    subject: "literature"
-  }
-];
-const waecSubject = waecResults.filter((result) => {
-  return result.department === "science";
-});
-console.log(waecSubject);
-
-const waecSubject1 = waecResults.filter((result) => {
-  return result.department === "art";
-});
-console.log(waecSubject1);
-
-// Example: 5 subjects each
-const waecResults3 = [
-  {
-    department: "science",
-    subject: ["biology", "chemistry", "physics", "mathematics", "geography"]
+    name: "sun glasses",
+    highDemand: false,
+    price: 150
   },
   {
-    department: "art",
-    subject: ["literature", "government", "history", "commerce", "economics"]
+    name: "shoes",
+    highDemand: true,
+    price: 5000
+  },
+  {
+    name: "handbag",
+    highDemand: true,
+    price: 8000
   }
 ];
-const allScienceSubjects = waecResults3.filter((sub) => {
-  if (sub.department === "science"){
-    return sub.subject;
-  }
+
+const highDemandProducts = fashionItems.filter((item) => {
+  return item.highDemand === true;
 });
-console.log(allScienceSubjects);
+console.log(highDemandProducts);
 
-const allArtSubjects = waecResults3.filter((sub) => {
-  return sub.department === "art";
-});
-console.log(allArtSubjects);
+const totalCost = highDemandProducts.reduce((accumulator, element) => {
+  const value = Number(element.price);
+  return accumulator + value;
+}, 0);
+console.log(totalCost);
 
-// DEMONSTRATION 3 - DECLARING A FUNCTION BEFORE CALLING IT (CLASS WORK)
-let zNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-let zAllEven = zNumbers.filter(zEven);
 
-console.log (zAllEven);
+// DEMONSTRATION 2 - A cashier wants to add up total sales for the day using the reduce() method
+/* let totalSales = [300, 4000, 5100, 1200, 1500, 6000];
 
-function zEven (element){
-    return element % 2 === 0
-} 
-
-// DEMONSTRATION 4 - USING A NORMAL CALLBACK FUNCTION (ODD NUMBERS)
-let kNumbers = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
-let kAllOdd = kNumbers.filter(kOdd);
-
-console.log (kAllOdd);
-
-function kOdd (element){
-    return element % 2 !== 0;
-} 
-
-// DEMONSTRATION 5 - USING A NORMAL CALLBACK FUNCTION
-const iGrades = [1600, 1300, 1500, 1550, 1000, 950, 1100, 1400];
-
-const iResult = iGrades.filter(iScores);
-
-console.log (iResult);
-
-function iScores (element){
-    return element >= 1400;
+function sales (accumulator, element){
+    return accumulator + element
 }
 
-// DEMONSTRATION 6 - USING AN ARROW FUNCTION (CLASS WORK)
-const tempRead = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
-const tempEvenRead = tempRead.filter(n => n % 5 === 0);
-console.log (tempEvenRead);
+let grandTotalSales = totalSales.reduce(sales);
 
-// DEMONSTRATION 7 - USING A NORMAL CALLBACK FUNCTION (CLASS WORK)
-const tempRead2 = [80, 82, 73, 64, 54, 60, 65, 81, 77, 40];
+console.log ("$" + grandTotalSales); */
 
-const tempRead4 = tempRead2.filter(tempRead3);
+/* function sales (accumulator, element){
+    return accumulator + element
+} */
 
-console.log (tempRead4);
 
-function tempRead3 (element){
-    return element > 60;
+// DEMONSTRATION 3 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MAXIMUM VALUE
+/* let tempValue = [22, 25, 27, 28, 30, 33, 35];
+
+let maxTempValue = tempValue.reduce(getMax);
+
+console.log (maxTempValue + " degrees" + " Centigrade");
+
+console.log (maxTempValue + "°" + " Centigrade");
+
+function getMax (accumulator, element){
+    return Math.max (accumulator, element);
+} */
+
+
+// DEMONSTRATION 4 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MINIMUM VALUE
+/* let minCost = [2, 3, 7, 5, 1, 4, 8, 6, 11, 13, 0.5];
+
+let leastCost = minCost.reduce(getCost);
+
+console.log (leastCost);
+
+function getCost (accumulator, element){
+    return Math.min (accumulator, element);
 }
+ */
+ 
+//DEMONSTRATION 5 - USING REDUCE (reduce()) METHOD TO FIND OUT THE HIGHEST ELECTION SCORE - CLASS WORK 1
+/* let electionScores = [100, 121, 200, 612, 300, 244, 233, 150];
+
+let highestElectionScores = electionScores.reduce(getScores);
+
+console.log (highestElectionScores);
+
+function getScores (accumulator, element){
+    return Math.max (accumulator, element);
+}
+ */
+
+// DEMONSTRATION 6 - USING REDUCE (reduce()) METHOD TO FIND THE TOTAL BLAZER COST - CLASS WORK 2
+/* let theBlazerCost = [250, 350, 550, 1500]; 
+
+let sumBlazerCost = theBlazerCost.reduce(theBlazer)
+
+console.log ("$" + sumBlazerCost);
+
+function theBlazer (accumulator, element){
+    return accumulator + element
+}
+ */
+
+// DEMONSTRATION 7 - USING REDUCE (reduce()) METHOD TO GET THE MINIMUM HAIR CREAM COST - CLASS WORK 3
+/* let hairCream = ["blue-250", "white-300", "red-500", "green-800"]; 
+
+let minHairCream = hairCream.reduce(minHair, Infinity);
+
+console.log(minHairCream);
+
+function minHair(accumulator, element){
+    // Extract the numeric value from the string
+    let value = parseInt(element.split('-')[1]);
+
+    return Math.min(accumulator, value);
+}
+ */

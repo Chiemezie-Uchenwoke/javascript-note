@@ -6811,7 +6811,17 @@ element in the array is iterated.
 
 Let us demonstrate this using a simple example:
 
-Original array = [1, 2, 3, 4, 5];
+Original array = [1, -2, +3, -4, +5]; Elements
+                  0   1   2   3   4   Index number
+
+const secondArray = [4, +3, -2, -1]; Elements
+                     0   1   2   3   Index number
+
+const thirdArray = [10, +7, -5, -4]; Elements
+                     0   1   2   3   Index number
+
+const fourthArray = [9, -7, +1, -5]; Elements
+                     0   1   2   3   Index number
 
 When we apply the reduce() method and ask JavaScript to come up with the total sum, here is what
 reduce() does:
@@ -6831,7 +6841,7 @@ reduce() does:
 What the reduce method has done is take an array of five (5) elements and reduce the output to 
 one(1), using an iterative callback function. Let us show another example below.
 
-We are trying to obtain the maximum or minimum value from a number set, displaced in form of
+We are trying to obtain the maximum or minimum value from a number set, displayed in the form of
 an array. Let us assume that the array is the same as the one above, [1, 2, 3, 4, 5].
 
 The reduce() method will start with an initial accumulator value, which in this case is one (1).
@@ -6852,6 +6862,12 @@ function.
       3 - the index of the current value
       4 - the array from which the method is called
 
+const firstArray = [1, -2, +3, -4, +5]; Elements
+                    0   1   2   3   4   Index number
+
+const secondArray = [4, +3, -2, -1]; Elements
+                     0   1   2   3   Index number
+
 So the reduce() method, for those who understand arrays is similar to the forEach method() except
 that the reduce() method comes with the added ability to collect the result of each iteration as a
 single value. Let us try coding some examples.
@@ -6864,92 +6880,157 @@ Now the instructor wants to total his scores for the semester in this course.
 Let us write a simple reduce() function or method for this.  */
 
 // DEMONSTRATION 1 - USING REDUCE(reduce()) METHOD TO COMPUTE TOTAL SCORES
-let jasonGrades = [18, 19, 17, 15, 18];
+/* let jasonGrades = [18, 19, 17, 15, 18];
 
-let totalJasonGrades = jasonGrades.reduce(sum);
+let totalJasonGrades = jasonGrades.reduce(sum1);
 
 console.log (totalJasonGrades);
 
 function sum1 (accumulator, element){
     return accumulator + element
+} */
+
+// DEMONSTRATION 1B - CLASSWORK
+/* let madamSarahGrades = [74, 64, 86, 92, 99];
+let totalMadamSarahGrades = madamSarahGrades.reduce(addGrades);
+console.log(totalMadamSarahGrades);
+
+const cutOffMark = 300;
+
+if (totalMadamSarahGrades < cutOffMark){
+  console.log(`Your score is below the cut off mark`);
+} else{
+  console.log(`Score: ${totalMadamSarahGrades}. You met the minimum admission requirement`);
 }
 
+function addGrades(accumulator, element){
+  return accumulator + element;
+} */
 
-// DEMONSTRATION 2 - A cashier wants to add up total sales for the day using the reduce() method
-let totalSales = [300, 4000, 5100, 1200, 1500, 6000];
+// DEMONSTRATION 1C - CLASSWORK
+/* const fruits = ["apple", "mango", "orange"];
+const totalLetters = fruits.reduce((accumulator, element) => {
+  return accumulator + element.length;
+}, 0);
+console.log(totalLetters); */
 
-let grandTotalSales = totalSales.reduce(sales);
-
-console.log ("$" + grandTotalSales);
-
-function sales (accumulator, element){
-    return accumulator + element
-}
-
-
-// DEMONSTRATION 3 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MAXIMUM VALUE
-let tempValue = [22, 25, 27, 28, 30, 33, 35];
-
-let maxTempValue = tempValue.reduce(getMax);
-
-console.log (maxTempValue + " degrees" + " Centigrade");
-
-console.log (maxTempValue + "°" + " Centigrade");
-
-function getMax (accumulator, element){
-    return Math.max (accumulator, element);
-}
-
-
-// DEMONSTRATION 4 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MINIMUM VALUE
-let minCost = [2, 3, 7, 5, 1, 4, 8, 6, 11, 13, 0.5];
-
-let leastCost = minCost.reduce(getCost);
-
-console.log (leastCost);
-
-function getCost (accumulator, element){
-    return Math.min (accumulator, element);
-}
-
- 
-//DEMONSTRATION 5 - USING REDUCE (reduce()) METHOD TO FIND OUT THE HIGHEST ELECTION SCORE - CLASS WORK 1
-let electionScores = [100, 121, 200, 612, 300, 244, 233, 150];
-
-let highestElectionScores = electionScores.reduce(getScores);
-
-console.log (highestElectionScores);
-
-function getScores (accumulator, element){
-    return Math.max (accumulator, element);
-}
-
-
-// DEMONSTRATION 6 - USING REDUCE (reduce()) METHOD TO FIND THE TOTAL BLAZER COST - CLASS WORK 2
-let theBlazerCost = [250, 350, 550, 1500]; 
-
-let sumBlazerCost = theBlazerCost.reduce(theBlazer)
-
-console.log ("$" + sumBlazerCost);
-
-function theBlazer (accumulator, element){
-    return accumulator + element
-}
-
-
-// DEMONSTRATION 7 - USING REDUCE (reduce()) METHOD TO GET THE MINIMUM HAIR CREAM COST - CLASS WORK 3
-let hairCream = ["blue-250", "white-300", "red-500", "green-800"]; 
-
-let minHairCream = hairCream.reduce(minHair, Infinity);
-
-console.log(minHairCream);
-
-function minHair(accumulator, element){
-    // Extract the numeric value from the string
-    let value = parseInt(element.split('-')[1]);
-
-    return Math.min(accumulator, value);
-}
+// DEMONSTRATION 1D - CLASSWORK
+let fashionItems = [
+    {
+      name: "gele",
+      highDemand: true,
+      price: 2000
+    },
+    {
+      name: "sun glasses",
+      highDemand: false,
+      price: 150
+    },
+    {
+      name: "shoes",
+      highDemand: true,
+      price: 5000
+    },
+    {
+      name: "handbag",
+      highDemand: true,
+      price: 8000
+    }
+  ];
+  
+  const highDemandProducts = fashionItems.filter((item) => {
+    return item.highDemand === true;
+  });
+  console.log(highDemandProducts);
+  
+  const totalCost = highDemandProducts.reduce((accumulator, element) => {
+    const value = Number(element.price);
+    return accumulator + value;
+  }, 0);
+  console.log(totalCost);
+  
+  
+  
+  // DEMONSTRATION 2 - A cashier wants to add up total sales for the day using the reduce() method
+  /* let totalSales = [300, 4000, 5100, 1200, 1500, 6000];
+  
+  function sales (accumulator, element){
+      return accumulator + element
+  }
+  
+  let grandTotalSales = totalSales.reduce(sales);
+  
+  console.log ("$" + grandTotalSales); */
+  
+  /* function sales (accumulator, element){
+      return accumulator + element
+  } */
+  
+  
+  // DEMONSTRATION 3 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MAXIMUM VALUE
+  /* let tempValue = [22, 25, 27, 28, 30, 33, 35];
+  
+  let maxTempValue = tempValue.reduce(getMax);
+  
+  console.log (maxTempValue + " degrees" + " Centigrade");
+  
+  console.log (maxTempValue + "°" + " Centigrade");
+  
+  function getMax (accumulator, element){
+      return Math.max (accumulator, element);
+  } */
+  
+  
+  // DEMONSTRATION 4 - USING REDUCE (reduce()) METHOD TO FIND OUT THE MINIMUM VALUE
+  /* let minCost = [2, 3, 7, 5, 1, 4, 8, 6, 11, 13, 0.5];
+  
+  let leastCost = minCost.reduce(getCost);
+  
+  console.log (leastCost);
+  
+  function getCost (accumulator, element){
+      return Math.min (accumulator, element);
+  }
+   */
+   
+  //DEMONSTRATION 5 - USING REDUCE (reduce()) METHOD TO FIND OUT THE HIGHEST ELECTION SCORE - CLASS WORK 1
+  /* let electionScores = [100, 121, 200, 612, 300, 244, 233, 150];
+  
+  let highestElectionScores = electionScores.reduce(getScores);
+  
+  console.log (highestElectionScores);
+  
+  function getScores (accumulator, element){
+      return Math.max (accumulator, element);
+  }
+   */
+  
+  // DEMONSTRATION 6 - USING REDUCE (reduce()) METHOD TO FIND THE TOTAL BLAZER COST - CLASS WORK 2
+  /* let theBlazerCost = [250, 350, 550, 1500]; 
+  
+  let sumBlazerCost = theBlazerCost.reduce(theBlazer)
+  
+  console.log ("$" + sumBlazerCost);
+  
+  function theBlazer (accumulator, element){
+      return accumulator + element
+  }
+   */
+  
+  // DEMONSTRATION 7 - USING REDUCE (reduce()) METHOD TO GET THE MINIMUM HAIR CREAM COST - CLASS WORK 3
+  /* let hairCream = ["blue-250", "white-300", "red-500", "green-800"]; 
+  
+  let minHairCream = hairCream.reduce(minHair, Infinity);
+  
+  console.log(minHairCream);
+  
+  function minHair(accumulator, element){
+      // Extract the numeric value from the string
+      let value = parseInt(element.split('-')[1]);
+  
+      return Math.min(accumulator, value);
+  }
+   */
 
 
 
