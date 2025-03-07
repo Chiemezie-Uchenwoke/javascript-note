@@ -1,0 +1,417 @@
+<!DOCTYPE html> 
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <link rel="stylesheet" href="DOM.css">
+
+</head>
+
+<body>
+
+ <!-- getElementById() Method - 1st Example -->
+ <h1 id="test1">This is Test 1</h1>
+
+ <h2 id="test2">This is Test 2</h2>
+
+ <h1 id="test3">This is Test 3</h1>
+
+ <p id="country">Nigeria is in Africa</p>
+
+
+ <!-- getElementsByTagName() Method - Example 1 -->
+ <h5>London is a beautiful city</h5>
+
+ <h5>Atlanta is a wonderful city</h5>
+
+ <h5>Chicago is a cool city</h5>
+
+ <h5>Boston is a fun city</h5>
+
+ <h5>Miami is a warm city</h5>
+
+
+ <!-- getElementsByTagName() - Example 2 -->
+ <span>Akua is a Ghanaian name</span>    <br><br><br><br>
+
+ <span>Iwobi is a Nigerian name</span>   <br><br><br><br>
+
+ <span>Patrick is a Irish name</span>    <br><br>
+
+
+ <!-- getElementByClassName -  Example 1 -->
+ <p class="myName">Tell Me My Name</p>
+ <p class="myName">Tell Me My Name</p>
+ <p class="myName">Tell Me My Name</p>
+ <p class="myName">Tell Me My Name</p>
+
+ <button onclick="changeText()" style="width: 250px; height: 50px; 
+ background-color: skyblue; border-radius: 4px; 
+ font-size: large;">Click Me</button>
+
+
+ <br><br><br><br>
+
+
+ <!-- getElementByClassName - Example 2 -->
+ <label class="myLabel">Do you know my record label?</label>   <br><br>
+ <label class="myLabel">Do you know my record label?</label>   <br><br>
+ <label class="myLabel">Do you know my record label?</label>   <br><br>
+ <label class="myLabel">Do you know my record label?</label>   <br><br>
+ <label class="myLabel">Do you know my record label?</label>   <br><br>
+
+ <button onclick="changeColor()" style="width: 250px; height: 50px; 
+ background-color: pink; border-radius: 4px; 
+ font-size: large;">Click Me</button>
+ 
+
+ <br><br><br><br>
+
+
+ <!-- getElementByClassName - Class Work 1 -->
+ <h1 class="myFont">Change My Font Size</h1>
+ <h1 class="myFont">Change My Font Size</h1>
+ <h1 class="myFont">Change My Font Size</h1>
+ <h1 class="myFont">Change My Font Size</h1>
+
+ <button onclick="changeFont()" style="width: 250px; height: 50px; 
+ background-color: lightgreen; border-radius: 4px; 
+ font-size: large;">Click Me</button>
+
+ <br><br><br><br>
+
+
+ <!-- getElementByClassName - Class Work 2 -->
+ <label class="myTeam">You are a member of my team</label> <br><br>
+ <label class="myTeam">You are a member of my team</label>
+ <p id="myFruits1">I like apples and avocado</p>
+ <p id="myFruits2">I like mangoes and oranges</p>
+ <h6>Hire me. I am competent</h6>
+ <h6>Don't hire me. I am incompetent</h6>
+
+ <button onclick="changeText()" style="width: 250px; height: 50px; 
+ background-color: aquamarine; border-radius: 4px; 
+ font-size: large;">Click Me</button>
+
+ <button onclick="changeFont2()" style="width: 250px; height: 50px; 
+  background-color: lightsalmon; border-radius: 4px; 
+ font-size: large;">Click Font</button>
+
+ <button onclick="changeTag()" style="width: 250px; height: 50px; 
+ background-color: lightgray; border-radius: 4px; 
+ font-size: large;">Click Tag</button>
+
+
+ <br> <br> <br> <br> <br> <br>
+
+
+<!--
+ 4TH ELEMENT SELECTOR - querySelector() METHOD 
+
+Let us try to demonstrate sample code/syntax for document.querySelector() method and 
+    document.querySelectorAll() method    -->
+
+<!-- Example 1 - document.querySelector() method  -->
+<div class="memo">Hello Turing Tech</div> <br><br>
+<div class="memo">Hi Turing Tech</div> <br><br>
+<div class="memo">Good Day Turing Tech </div> <br><br>
+<div class="memo">Good Eveningh</div> <br><br>
+
+
+<!-- Wednesday 12/02/2025 -->
+<!-- Example 1 - document.querySelectorAll() method -->
+<ul class="courseMates1">
+    <li class="victor">Victor</li>
+    <li class="greg">Greg</li>
+    <li class="julietviva">Julietviva</li>
+    <li class="mannie">Mannie</li>
+</ul>
+
+<ul class="courseMates2">
+    <li>Segun</li>
+    <li>Akua</li>
+    <li>Princess</li>
+    <li>Patrick Owusu</li>
+</ul>
+
+<ul class="courseMates3">
+    <li>Ama</li>
+    <li>Chinanu</li>
+    <li>Imani</li>
+    <li>Patrick Nkwo</li>
+</ul>
+
+<br>
+
+<!-- 
+DOM NAVIGATION 
+
+Example 1A - DOM NAVIGATION - soups - firstElementChild -->
+<ul id="soup1">
+    <li>egusi</li>
+    <li>ogbono</li>
+    <li>okra</li>
+    <li>nsala</li>
+</ul>
+
+<ul id="soup2">
+    <li>onugbu</li>
+    <li>banga</li>
+    <li>ora</li>
+    <li>afang</li>
+</ul>
+
+<ul id="soup3">
+    <li>peppersoup</li>
+    <li>edikankong</li>
+    <li>fisherman soup</li>
+    <li>palmnut</li>
+</ul>
+
+<br>
+
+<!-- Example 1B - DOM NAVIGATION - groceries - lastElementChild -->
+<ul id="groceries1">
+    <li>cornflakes</li>
+    <li>sugar</li>
+    <li>milk</li>
+    <li>garri</li>
+</ul>
+
+<ul id="groceries2">
+    <li>yoghurt</li>
+    <li>peas</li>
+    <li>cashew nuts</li>
+    <li>groundnuts</li>
+</ul>
+
+<ul id="groceries3">
+    <li>biscuits</li>
+    <li>Golden Morn</li>
+    <li>custard</li>
+    <li>wheat</li>
+</ul>
+
+<br>
+
+<!-- Example 2 - DOM NAVIGATION USING THE "IF" STATEMENT - supplies -->
+<ul id="supplies1">
+    <li>pen</li>
+    <li>pencil</li>
+    <li>eraser</li>
+    <li>sharpner</li>
+</ul>
+
+<ul id="supplies2">
+    <li>noodles</li>
+    <li>bread</li>
+    <li>tea</li>
+    <li>milk</li>
+</ul>
+
+<ul id="supplies3">
+    <li>soap</li>
+    <li>detergent</li>
+    <li>toothpaste</li>
+    <li>toothbrush</li>
+</ul>
+
+<br>
+
+<!-- Example 3 - DOM NAVIGATION USING THE "IF" STATEMENT - courses -->
+<ul id="courses1">
+    <li>Engineering</li>
+    <li>Medicine</li>
+    <li>Physics</li>
+    <li>Pharmacy</li>
+</ul>
+
+<ul id="courses2">
+    <li>Law</li>
+    <li>Political Science</li>
+    <li>History</li>
+    <li>Sociology</li>
+</ul>
+
+<ul id="courses3">
+    <li>Information Technology</li>
+    <li>Software Engineering</li>
+    <li>Artificial Intelligence</li>
+    <li>Machine Learning</li>
+</ul>
+
+<br>
+
+<!-- Example 4 - DOM NAVIGATION USING THE "IF" STATEMENT - items -->
+<ul id="items1">
+    <li>oranges</li>
+    <li>mangoes</li>
+    <li>berries</li>
+    <li>banana</li>
+</ul>
+
+<ul id="items2">
+    <li>novels</li>
+    <li>comics</li>
+    <li>newspapers</li>
+    <li>story books</li>
+</ul>
+
+<ul id="items3">
+    <li>perfumes</li>
+    <li>deodorants</li>
+    <li>body spray</li>
+    <li>cologne</li>
+</ul>
+
+<br>
+
+<!-- DOM NAVIGATION - nextSibling -->
+<h2>Turing Tech - DOM nextSibling Property</h2>
+    
+    <div>
+        <div id="name1">My name is Victor</div> <br>
+        <div id="name2">What is your name?</div> <br>
+    </div>
+    <button onclick="patrick()">Click</button>
+    <p id="name3">My name is Julietviva</p> <br>
+    
+
+    <div>
+        <label id="demo4">We are going to London</label> <br>
+        <label id="demo5">Are you coming with us?</label> <br>
+    </div>
+    <button onclick="chiemezie()">Click</button>
+    <p id="demo6">Meet me in Trafalgar Square</p> <br>
+
+
+    <div>
+        <label id="challenge1">What is the square root of 99</label> <br> <br>
+        <label id="challenge2">Tell me the answer</label> <br> <br>
+    </div>
+    <button onclick="akua()">Click</button>
+    <p id="challenge3">Publish the results online</p> <br>
+
+
+    <div>
+        <label id="source1">What is your source?</label> <br> <br>
+        <label id="source2">Tell me your source</label> <br> <br>
+    </div>
+    <button onclick="ama()">Click</button>
+    <p id="source3">You do not know my source. </p>
+
+
+    
+<!-- DOM TREE STRUCTURE
+
+ Root Node = document (E.g document.getElementById("parent")) 
+
+ Parent - main tag (id="parent")
+
+ Children (3) - h1 tag (id="child1") 
+              - div tag (id="child2")
+              - div tag (id="child3") 
+
+firstChild - There are 3 parents in the tree structure below.
+             They are; child1, child2 and child3.
+
+             child1 is childless
+             The firstChild of child2 is grandchild2a
+             The firstChild of child3 is grandchild3a
+
+lastChild -  child1 is childless
+             The lastChild of child2 is grandchild2c
+             The lastChild of child3 is grandchild3c
+
+nextElementChild - nextElementChild does not apply to child1 because it is childless
+                   nextElementChild of grandchild2a is grandchild3a
+                   nextElementChild of grandchild2b is grandchild3b
+                   nextElementChild of grandchild2c is grandchild3c
+                   
+lastElementChild - lastElementChild does not apply to child1 because child1 is childless
+                   lastElementChild of child2 is grandchild2c
+                   lastElementChild of child3 is grandchild3c
+
+Grand Children - grandChild2 (3)  - h2 tag(id="grandChild2a") 
+                                  - p tag (id="grandChild2b")
+                                  - p tag (id="grandChild2c") 
+
+Grand Children - grandChild3 (3)  - h2 tag(id="grandChild3a") 
+                                  - p tag (id="grandChild3b")
+                                  - p tag (id="grandChild3c")         
+                                  
+Siblings - child1, child2 and child3
+
+Siblings - grandChild2a,  grandChild2b and  grandChild2c
+
+Siblings - grandChild3a,  grandChild3b and  grandChild3c
+
+nextSiblings - nextSibling to child1 is child2. 
+
+               nextSibling to child2a is child2b
+               nextSibling to child2b is child2c
+
+               nextSibling to child3a is child3b
+               nextSibling to child3b is child3c
+
+previousSibling - previousSibling to child2 is child1
+                  previousSibling to child2b is child2a
+                  previousSibling to child2c is child2b
+
+                  previousSibling to child3 is child2
+                  previousSibling to child3b is child3a
+                  previousSibling to child3c is child3b
+
+nextElementSibling - nextElementSibling are siblings that do not have the same parents 
+but have different parents with one parent arranged in an order that precedes or follows 
+the other. Their children become nextElementSiblings. 
+
+In the example below: 
+                         child2 is a nextElementSibling to child1
+                         child3 is a nextElementSibling to child2
+                         grandchild3a is a nextElementSibling to grandchild2a
+                         grandchild3b is a nextElementSibling to grandchild2b
+                         grandchild3c is a nextElementSibling to grandchild2c
+
+previousElementSibling - child1 is a previousElementSibling to child2
+                         child2 is a previousElementSibling to child3
+                         grandchild2a is a previousElementSibling to grandchild3a
+                         grandchild2b is a previousElementSibling to grandchild3b
+                         grandchild2c is a previousElementSibling to grandchild3c
+
+-->
+             
+<main id="parent">
+    <h1 id="child1">Turing Tech DOM Navigation Class</h1>
+
+    <div id="child2">
+        <h2 id="grandChild2a">Topic: Parents, Children and Siblings</h2>
+        <p id="grandChild2b">DOM Navigation Methods</p>
+        <p id="grandChild2c">List of Methods</p>
+    </div>
+
+    <div id="child3">
+        <h2 id="grandChild3a">Make Sure That You Are In Class</h2>
+        <p id="grandChild3b">Class Time Is 3pm Eastern</p>
+        <p id="grandChild3c">Greg will compile a Class Attendance List</p>
+    </div>
+</main>
+
+<button onclick="Turing()">Click Me</button> <br> <br>
+
+<button onclick="myTuring()">Press</button> <br> <br>
+
+
+<p id="pTag"></p>
+
+
+    <br> <br> <br> <br> <br> <br>
+
+    <script src="DOM.js"></script>
+</body>
+
+</html>

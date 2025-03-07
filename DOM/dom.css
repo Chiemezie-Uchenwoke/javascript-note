@@ -1,0 +1,11 @@
+body{
+    margin-left: 250px;
+    max-width: 800px;
+}
+
+main *{
+    border: 3px solid darkgray;
+    padding: 7px;
+    margin: 18px;
+    border-radius: 7px;
+}
