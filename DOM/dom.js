@@ -46,6 +46,7 @@ Based on the history above, these are currently the different levels in DOM:
      Level 1
      Level 2
      Level 3
+     Level 4
 
 Level 0 - This provides a very low level of shared interfaces
 
@@ -383,6 +384,105 @@ Step 6 - Call the variable and display the result    */
 
 
 /* 1ST ELEMENT SELECTOR - getElementById() METHOD - 1st Example */
+
+let cohort2 = document.getElementById("ndubuisi");
+cohort2.innerHTML = "My name is Turing Tech. Tell me your name";
+cohort2.style.color = "green";
+cohort2.style.fontSize = "60px";
+cohort2.style.backgroundColor = "purple";
+cohort2.style.border = "3px solid black";
+cohort2.style.borderRadius = "7px";
+
+let myCohort2 = document.getElementsByClassName("isaiah")[0];
+myCohort2.innerHTML = "Can we meet in Martha's house";
+myCohort2.style.color = "red";
+myCohort2.style.fontSize = "48px";
+myCohort2.style.backgroundColor = "green";
+myCohort2.style.border = "3px solid black";
+myCohort2.style.borderRadius = "7px";
+
+let theCohort2 = document.getElementsByTagName("h1")[2];
+theCohort2.innerHTML = "My name is Kate";
+theCohort2.style.color = "brown";
+theCohort2.style.fontSize = "60px";
+theCohort2.style.backgroundColor = "gold";
+theCohort2.style.border = "3px solid black";
+theCohort2.style.borderRadius = "7px";
+
+let myVar = document.getElementById("cohort");
+myVar.innerHTML = "Class is over";
+myVar.style.color = "yellow";
+myVar.style.fontSize = "50px";
+myVar.style.backgroundColor = "blue";
+myVar.style.border = "3px solid black";
+myVar.style.borderRadius = "7px";
+
+let myVar1 = document.getElementsByClassName("cohort1")[0];
+myVar1.innerHTML = "We have completed our assignment";
+myVar1.style.color = "white";
+myVar1.style.fontSize = "48px";
+myVar1.style.backgroundColor = "green";
+myVar1.style.border = "3px solid black";
+myVar1.style.borderRadius = "7px";
+
+let myVar2 = document.getElementsByTagName("label")[2];
+myVar2.innerHTML = "This is the new label";
+myVar2.style.color = "brown";
+myVar2.style.fontSize = "60px";
+myVar2.style.backgroundColor = "gold";
+myVar2.style.border = "3px solid black";
+myVar2.style.borderRadius = "7px";
+
+let classwork = document.getElementById("classwork");
+classwork.innerHTML = "Good morning Mr Chiemezie";
+classwork.style.color = "black";
+classwork.style.fontSize = "50px";
+classwork.style.backgroundColor = "skyblue";
+classwork.style.border = "3px solid black";
+classwork.style.borderRadius = "7px";
+
+let cohort2Classwork = document.getElementsByClassName("cohort2-classwork")[0];
+cohort2Classwork.innerHTML = "We are still on our assignment";
+cohort2Classwork.style.color = "white";
+cohort2Classwork.style.fontSize = "48px";
+cohort2Classwork.style.backgroundColor = "red";
+cohort2Classwork.style.border = "3px solid black";
+cohort2Classwork.style.borderRadius = "7px";
+
+let theEnd = document.getElementsByTagName("h1")[3];
+theEnd.innerHTML = "We have completed our assignment";
+theEnd.style.color = "yellow";
+theEnd.style.fontSize = "60px";
+theEnd.style.backgroundColor = "purple";
+theEnd.style.border = "3px solid black";
+theEnd.style.borderRadius = "7px";
+theEnd.style.textAlign = "center";
+theEnd.style.padding = "2rem 1rem";
+
+
+
+
+/* function updateText(){
+    let myCohort2 = document.getElementById("isaiah");
+    myCohort2.innerHTML = "Can we meet in Martha's house";
+    myCohort2.style.color = "red";
+    myCohort2.style.fontSize = "48px";
+    myCohort2.style.backgroundColor = "green";
+} */
+// updateText();
+
+/* function changeText(){
+    var ourWork = document.getElementsByClassName("myTeam");
+    ourWork[0].style.color = "green";
+    ourWork[0].style.fontSize = "xx-large";
+    ourWork[1].style.color = "red";
+    ourWork[1].style.fontSize = "xx-large";  
+    ourWork[0].innerHTML = "Our team won the <b><i>Best Team</i></b> award of the year, 2025";
+    ourWork[1].textContent = "You do not fit into the Team Culture";
+} */
+
+
+
 const variable1 = document.getElementById("test1");
 variable1.innerHTML= "Examination 1";
 variable1.style.backgroundColor = "red";
@@ -1030,3 +1130,4 @@ function myTuring (){
 
 
 }
+
