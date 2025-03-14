@@ -459,7 +459,129 @@ theEnd.style.borderRadius = "7px";
 theEnd.style.textAlign = "center";
 theEnd.style.padding = "2rem 1rem";
 
+const learn = document.getElementsByClassName("learn")[0];
+learn.innerHTML = "Today is Thursday";
+learn.style.color = "blue";
+learn.style.fontSize = "50px";
+learn.style.backgroundColor = "gold";
+learn.style.border = "3px solid black";
+learn.style.borderRadius = "7px";
+learn.style.textAlign = "center";
+learn.style.padding = "2rem 1rem";
+learn.style.fontWeight = 700;
 
+const progress = document.getElementById("progress");
+progress.innerHTML = "We have rescheduled our next class to Monday";
+progress.style.color = "black";
+progress.style.fontSize = "50px";
+progress.style.backgroundColor = "grey";
+progress.style.border = "3px solid black";
+progress.style.borderRadius = "7px";
+progress.style.textAlign = "center";
+progress.style.padding = "2rem 1rem";
+progress.style.fontWeight = 600;
+
+const tagP = document.getElementsByTagName("p")[3];
+tagP.innerHTML = "The class will be merged by Monday";
+tagP.style.color = "red";
+tagP.style.fontSize = "50px";
+tagP.style.backgroundColor = "white";
+tagP.style.border = "3px solid black";
+tagP.style.borderRadius = "7px";
+tagP.style.textAlign = "center";
+tagP.style.padding = "2rem 1rem";
+tagP.style.fontWeight = 300;
+
+/* 4TH ELEMENT SELECTOR - querySelector() METHOD 
+ 
+ We have dealt with three(3) elements selectors so far
+    1 - document.getElementById() method 
+    2 - document.getElementsByTagName() method 
+    3 - document.getElementsByClassName() method 
+
+These three(3) methods/elment selectors deal directly with HTML elements. 
+They go straight into the HTML webpage and access elements based on their HTML Tags, 
+ClassNames and Id. 
+
+The next two(2) sets of DOM elements selectors that we are going to be covering 
+specifically target CSS elements using CSS selectors.
+
+These element selectors are:
+    4 - document.querySelector() method
+    5 - document.querySelectorAll() method
+
+The document.querySelector() method allows a programmer to select the first element within the web document
+that matches the specified CSS selector. It returns the first occurance of that element. If there is no
+instance of what it is looking for or if no match is found, it returns "null".
+
+The document.querySelectorAll() method goes beyond selecting the first element. Instead, it identifies
+every element that matches the specified CSS selector and presents it like a NodeList or like an array.
+
+A NodeList is a JavaScript array that gets returned as a result of a call.
+
+To fully understand document.querySelector() method and document.querySelectorAll() method, let us 
+attempt a quick review of selectors in CSS. That way, we will know the scope of identifiable features
+that we are looking for in an HTML/CSS webpage.
+
+     1 - Element Selector: Example:- p{}, h1{}, img{}, etc
+     2 - Id Selector: Example:- #idName
+     3 - Class Selector: Example:- .p{ , .h1{}, .img{}, etc
+     4 - Universal Selector: Example:- all HTML selectors on a page
+
+Let us try to demonstrate sample code/syntax for document.querySelector() method and 
+document.querySelectorAll() method   */
+
+
+// Example 1 - document.querySelector() method
+const myContainer = document.querySelector(".container");
+console.log(myContainer.innerHTML);
+
+console.log(myContainer.innerHTML="God Bless Cohort 2");
+console.log(myContainer.innerHTML="God Bless Our Merged class");
+
+let container2 = document.querySelector("#container");
+console.log(container2.innerHTML);
+
+console.log(container2.innerHTML="God Bless Turing Tech");
+console.log(container2.innerHTML="God Bless America");
+// console.log(container2.style.color="red");
+// console.log(container2.style.fontSize="50px");
+// console.log(container2.style.backgroundColor="lime");
+// console.log(container2.style.borderRadius="10px");
+// console.log(container2.innerText="I am a student of Turing Tech");
+
+let container3 = document.querySelector("#container_1");
+console.log(container3.innerHTML);
+
+const styleImage = document.querySelector("#container_2 > img");
+styleImage.style.borderRadius = "10px";
+styleImage.style.border = "7px solid red";
+styleImage.style.width = "125px";
+styleImage.style.height = "100px";
+
+const styleImage1 = document.querySelector("#container_3 > img");
+styleImage1.style.borderRadius = "10px";
+styleImage1.style.border = "7px solid red";
+styleImage1.style.width = "125px";
+styleImage1.style.height = "100px";
+
+// myVar2.style.fontSize = "60px";
+
+// Example 2A - document.querySelectorAll() method
+var ourMemo = document.querySelectorAll(".memo"); 
+console.log(ourMemo);
+console.log(ourMemo.innerHTML="You are early today");
+
+
+// Example 2B - document.querySelectorAll() method using forEach Loop
+ourMemo.forEach((ourStaff)=>{
+    ourStaff.style.color="blue";
+    ourStaff.style.backgroundColor="orange";
+    ourStaff.style.borderRadius="10px";
+    ourStaff.style.fontSize="40px";
+    ourStaff.style.fontWeight="10px";
+    ourStaff.innerText="I love Chocolate";
+})
 
 
 /* function updateText(){
@@ -654,7 +776,7 @@ They go straight into the HTML webpage and access elements based on their HTML T
 ClassNames and Id. 
 
 The next two(2) sets of DOM elements selectors that we are going to be covering 
-specifically targets CSS elements using CSS selectors.
+specifically target CSS elements using CSS selectors.
 
 These element selectors are:
     4 - document.querySelector() method

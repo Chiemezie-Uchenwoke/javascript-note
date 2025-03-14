@@ -9,3 +9,25 @@ main *{
     margin: 18px;
     border-radius: 7px;
 }
+
+.container{
+    width: 13rem;
+    margin: 1rem auto;
+    background-color: blue;
+    color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+#container{
+    width: 13rem;
+    margin: 1rem auto;
+    background-color: brown;
+    color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 2rem;
+    font-size: 2rem;
+}
