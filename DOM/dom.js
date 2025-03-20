@@ -565,6 +565,144 @@ styleImage1.style.border = "7px solid red";
 styleImage1.style.width = "125px";
 styleImage1.style.height = "100px";
 
+
+const story = document.querySelector(".story");
+
+story.style.backgroundColor = "yellow";
+
+const myStory = document.querySelector("div.mystory");
+
+myStory.style.backgroundColor = "red";
+
+const hisStory = document.querySelector("label.hisstory");
+
+hisStory.style.backgroundColor = "green";
+
+const herStory = document.querySelector("h2.herstory");
+
+herStory.style.backgroundColor = "purple";
+
+
+
+// querySelectorAll
+const fowls = document.querySelectorAll(".fowls");
+fowls[0].style.backgroundColor = "green";
+fowls[1].style.backgroundColor = "red";
+fowls[2].style.backgroundColor = "yellow";
+fowls[3].style.backgroundColor = "blue";
+
+const allCattle = document.querySelectorAll(".cattle");
+for(let i = 0; i < allCattle.length; i++){
+    allCattle[i].style.backgroundColor = "gold";
+}
+
+const allCattle1 = document.querySelectorAll(".cattle1");
+for(let i = 0; i < allCattle1.length; i++){
+    allCattle1[i].style.backgroundColor = "green";
+}
+
+const allCattle2 = document.querySelectorAll(".cattle2");
+for(let i = 0; i < allCattle2.length; i++){
+    allCattle2[i].style.backgroundColor = "skyblue";
+}
+
+// canadian-cities
+const canadianCities = document.querySelectorAll("ul > li.canadian-cities");
+for(let i = 0; i < canadianCities.length; i++){
+    canadianCities[i].style.backgroundColor = "red";
+    canadianCities[i].style.fontSize = "48px";
+    canadianCities[i].style.color = "white";
+}
+
+// cities
+const cities = document.querySelectorAll("ul > li.cities");
+for(let i = 0; i < cities.length; i++){
+    cities[i].style.backgroundColor = "blue";
+    cities[i].style.fontSize = "48px";
+    cities[i].style.color = "white";
+}
+
+const cities1 = document.querySelectorAll("ul > li.cities1");
+for(let i = 0; i < cities1.length; i++){
+    cities1[i].style.backgroundColor = "brown";
+    cities1[i].style.fontSize = "48px";
+    cities1[i].style.color = "white";
+}
+
+const cities2 = document.querySelectorAll("ul > li.cities2");
+for(let i = 0; i < cities2.length; i++){
+    cities2[i].style.backgroundColor = "green";
+    cities2[i].style.fontSize = "48px";
+    cities2[i].style.color = "white";
+}
+
+const cities3 = document.querySelectorAll("ul > li.cities3");
+for(let i = 0; i < cities3.length; i++){
+    cities3[i].style.backgroundColor = "purple";
+    cities3[i].style.fontSize = "48px";
+    cities3[i].style.color = "white";
+}
+
+const cities4 = document.querySelectorAll("ul > li.cities4");
+for(let i = 0; i < cities4.length; i++){
+    cities4[i].style.backgroundColor = "orange";
+    cities4[i].style.fontSize = "48px";
+    cities4[i].style.color = "white";
+}
+
+const cities5 = document.querySelectorAll("ul > li.cities5");
+for(let i = 0; i < cities5.length; i++){
+    cities5[i].style.backgroundColor = "black";
+    cities5[i].style.fontSize = "48px";
+    cities5[i].style.color = "white";
+}
+
+const cities6 = document.querySelectorAll("ul > li.cities6");
+for(let i = 0; i < cities6.length; i++){
+    cities6[i].style.backgroundColor = "indigo";
+    cities6[i].style.fontSize = "48px";
+    cities6[i].style.color = "white";
+}
+
+const cities7 = document.querySelectorAll("ul > li.cities7");
+for(let i = 0; i < cities7.length; i++){
+    cities7[i].style.backgroundColor = "violet";
+    cities7[i].style.fontSize = "48px";
+    cities7[i].style.color = "white";
+}
+
+const cities8 = document.querySelectorAll("ul > li.cities8");
+for(let i = 0; i < cities8.length; i++){
+    cities8[i].style.backgroundColor = "aquamarine";
+    cities8[i].style.fontSize = "48px";
+    cities8[i].style.color = "black";
+}
+
+const cities9 = document.querySelectorAll("ul > li.cities9");
+for(let i = 0; i < cities9.length; i++){
+    cities9[i].style.backgroundColor = "blueviolet";
+    cities9[i].style.fontSize = "48px";
+    cities9[i].style.color = "white";
+}
+
+const cities10 = document.querySelectorAll("ul > li.cities10");
+for(let i = 0; i < cities10.length; i++){
+    cities10[i].style.backgroundColor = "coral";
+    cities10[i].style.fontSize = "48px";
+    cities10[i].style.color = "white";
+}
+
+
+// QuerySelectorAll for multiple nesting
+const mobilePhones = document.querySelectorAll("#mobile-phones > li ul > li");
+for(let i = 0; i < mobilePhones.length; i++){
+    mobilePhones[i].style.fontSize = "3rem";
+    mobilePhones[i].style.backgroundColor = "red";
+    mobilePhones[i].style.color = "white";
+    mobilePhones[i].style.marginTop = "0.2rem";
+}
+
+/* ============================================================== */
 // myVar2.style.fontSize = "60px";
 
 // Example 2A - document.querySelectorAll() method

@@ -531,3 +531,10 @@ const discountPrices = productsPrices.map((product) => {
     return `${name}: $${priceValue * 0.9}`;
 });
 console.log(discountPrices);
+
+
+// forEach
+mobilePhones.forEach((phone) => {
+    phone.style.color = "red";
+    phone.style.backgroundColor = "grey";
+})
