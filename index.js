@@ -39,7 +39,7 @@ There are four naming convention in programming.
 
 
 Rules for Naming Variables:
-(1) It must start with a letter, an underscore ( _ ) or a dollar ( $ ) sign.
+(1) It must start with either a letter, an underscore ( _ ) or a dollar ( $ ) sign.
 
 (2) You cannot use any key word or reserved word. Example: let, null, if, function, for, class, await, break, case, const, true, false, try, while, new, do, continue, etc.
 
